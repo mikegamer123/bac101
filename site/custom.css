@@ -1,0 +1,22 @@
+/* bac101 interim global patches. Proper fixes belong in the GHL builder. */
+
+/* BAC-02: product price is white (var(--white)) on white. Price only. */
+.hl-product-detail-product-price { color: #111 !important; }
+
+/* BAC-17: YouTube iframe (#b101 .vid-wrap) overflows on 375px phones. */
+#b101 .vid-wrap { max-width: 100%; }
+#b101 .vid-wrap iframe,
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] {
+  max-width: 100%; width: 100%; aspect-ratio: 16 / 9; height: auto;
+}
+/* Safety net, disabled: it hides the symptom (and can break sticky/position),
+   so enable only if the targeted fix above is not enough.
+html, body { overflow-x: hidden; }
+*/
+
+/* BAC-16 (partial): home hero text clipped around 800px. Hero = #b101 .h > .h-left > .h-left-in */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #b101 .h-left { padding-left: 32px; padding-right: 32px; box-sizing: border-box; }
+  #b101 .h-left-in { max-width: 100%; min-width: 0; }
+  #b101 .h-left h1, #b101 .h-left p { overflow-wrap: break-word; word-wrap: break-word; }
+}

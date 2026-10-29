@@ -1,0 +1,23 @@
+[P1][Title] bac101.rs – pronađeni problemi
+[P2] Pregled sajta, oktobar 2026.
+[P3][Heading2] Kritično: niko ne može ništa da kupi
+[P4][ListParagraph] Ni na jednoj od 9 stranica proizvoda nema dugmeta „Kupi“ / „Dodaj u korpu“. Na stranici postoje samo dugmad za izbor varijante i +/− za količinu. Posetilac može da izabere količinu, ali posle toga nema na šta da klikne. U zaglavlju nema ni ikonice korpe, iako stranice /cart i /checkout postoje (obe bez naslova).
+[P5][ListParagraph] Cene na stranicama proizvoda se ne vide. Cena (npr. €75.00) postoji, ali je napisana belim slovima na beloj pozadini.
+[P6][ListParagraph] Sve varijante imaju istu cenu. Kod „BAC101 DPF“ 1 pranje, 5 pranja i 1000 pranja koštaju isto, €75.00. Isti problem imaju i CUT i DPF proizvodi, kao i njihove verzije „+ pumpica“.
+[P7][ListParagraph] Nazivi i opisi proizvoda ne odgovaraju varijantama. „BAC101 CUT“ (€115) je opisan kao paket od 12 doza (BACR12G), a nudi od 1 do 1000 pranja. „BAC101 CUT + pumpica“ je opisan kao komplet za 50 jedinica.
+[P8][ListParagraph] Cene su samo u evrima, na .rs sajtu namenjenom kupcima u Srbiji. Nema cene u dinarima, napomene o PDV-u, niti informacija o dostavi i plaćanju.
+[P9][Heading2] Visok prioritet: pravna pitanja i poverenje
+[P10][ListParagraph] Linkovi „Privacy Policy“ i „Terms“ vode na https://www.example.com/. To važi i za dva linka odmah ispod kontakt forme koja prikuplja ime, email i telefon. Tekst „Terms & Conditions | Privacy Policy“ u futeru je običan tekst, a ne link. Prava politika privatnosti ne postoji. To je bitno zbog Zakona o zaštiti podataka o ličnosti (ZZPL), jer sajt prikuplja lične podatke i saglasnost za SMS poruke.
+[P11][ListParagraph] Naslov stranice /kontakt u kartici pregledača je „Rivali Digital“, ime agencije umesto BAC101.
+[P12][ListParagraph] Na stranici /studija stoji samo ime „Hans Muller“, bez citata i bez konteksta. Izgleda kao zaostali tekst iz šablona.
+[P13][ListParagraph] Na stranici /videi nema nijednog videa, a naslov je „ISTORIJA BAC101…“, to jest naslov stranice o istoriji.
+[P14][Heading2] Srednji prioritet: funkcionalnost i SEO
+[P15][ListParagraph] Link za poziv bira samo jedan broj. Jedan link obuhvata oba broja, pa se dodirom na „+381 621978511“ zapravo poziva +381 63268391. Uz to, razmak unutar linka nije ispravan.
+[P16][ListParagraph] Fajlovi robots.txt i sitemap.xml su prazni. Učitavaju se bez greške, ali nemaju sadržaj.
+[P17][ListParagraph] Početna stranica postoji dva puta, na / i na /glavna. Nijedna stranica ne govori pretraživačima koja je glavna verzija (nema canonical oznake).
+[P18][ListParagraph] Naslovi su neuređeni. Početna stranica ima 5 glavnih naslova (H1), od kojih se prvi ponavlja. Katalog, /bac101, /kontakt, /kako-radi, /istorija i /videi nemaju nijedan.
+[P19][ListParagraph] Stavka menija „Testiranja“ vodi na /#new-menu-item, što je zaostali link. Radi samo preko podmenija.
+[P20][ListParagraph] Katalog je podeljen na dve strane (6 + 3) iako ima samo 9 proizvoda. Drugu stranu je lako prevideti.
+[P21][ListParagraph] Glavna slika na početnoj stranici je podešena da se učitava kasno. To je prvo što posetilac vidi, pa se sporo učitava i na početku se prikazuje kao sivi pravougaonik. Tekst u tom delu je odsečen na levoj i desnoj ivici pri širini od oko 800px.
+[P22][ListParagraph] Na telefonu je stranica malo šira od ekrana (388px na ekranu od 375px) zbog ugrađenog videa, pa se malo pomera ulevo i udesno.
+--- paragraphs: 22
