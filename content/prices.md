@@ -1,7 +1,7 @@
 # Variant prices to confirm (BAC-03, BAC-04)
 
 Current prices read from the live product pages on 2026-10-30. Fill in the "Correct" columns. Nothing changes in GHL until these are confirmed.
-Only 6 of the 9 products are listed: the other 3 are on catalog page 2 and get added once GHL is open.
+Only 6 of the 9 products are listed. Still to add: BAKFK, BACP1, BAC101 DPF + pumpica.
 
 ## Products with "Broj pranja" variants (all variants currently share one price)
 

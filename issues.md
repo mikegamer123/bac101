@@ -50,6 +50,11 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Verified live in the browser: product page price rgb(17,17,17); product-page tel: links split into `tel:+381621978511` and `tel:+38163268391`; /kontakt (already separate links) untouched.
 - New: BAC-18, /kontakt at 1368px viewport has scrollWidth 1376 (`nav.n`, `.hero`, `.ft` end at 1376px), likely a `100vw` width including the scrollbar. Pre-existing, not caused by the patches.
 
+### BAC-01 finding, 2026-10-30
+- Payments > Integrations has an empty "Connected" section: no payment provider at all. Likely the reason the storefront shows no add-to-cart (not yet proven; re-check after connecting one).
+- Options seen there: Stripe, PayPal, Authorize.net, NMI, Manual Payment Methods (Cash on Delivery), Square, Adyen, Mercado Pago.
+- Store "Bac101" includes 9 products (6 more are excluded).
+
 ---
 
 ## Critical
