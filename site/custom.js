@@ -235,7 +235,8 @@
         clearTimeout(timer);
         timer = setTimeout(run, 300);
       });
-      mo.observe(document.body, { childList: true, subtree: true });
+      /* characterData too: the store re-renders drawer text in place, undoing the labels. */
+      mo.observe(document.body, { childList: true, subtree: true, characterData: true });
     } catch (e) { /* ignore */ }
   }
 
