@@ -6,7 +6,7 @@ Dashboard: https://app.gohighlevel.com/v2/location/Jns38Sxc2dLAdqiwTeCO/dashboar
 ## Layout
 - `issues.md` — the tracker (BAC-01..). Every change references an issue ID; update its Status when done.
 - `docs/problemi-izvorni.txt` — the original problem list (Serbian).
-- `site/custom.css`, `site/custom.js` — global patches, served via jsDelivr from GitHub and loaded by one tag in the GHL site header (`site/header-snippet.html`). Deploy = push, then purge the jsDelivr cache.
+- `site/custom.css`, `site/custom.js` — global patches, served via jsDelivr from GitHub and loaded by one tag in the GHL site header (`site/header-snippet.html`). Deploy = push, then pin the new commit SHA in the GHL head tag (`@main` is served stale).
 - `content/` — text drafts (legal pages, product copy) before they are applied in GHL.
 - `scripts/audit.py` — crawls the live site and checks each issue; `python -I scripts/audit.py`. Run it after every deploy.
 
@@ -19,3 +19,4 @@ Dashboard: https://app.gohighlevel.com/v2/location/Jns38Sxc2dLAdqiwTeCO/dashboar
 - Verify every fix on the live site (audit script or browser) before marking it done.
 - Site language is Serbian (Latin script); keep diacritics (č, ć, š, ž, đ).
 - Ask before publishing pages, changing prices or anything customer-visible in GHL.
+- The order block in `site/custom.js` (`blockCheckout`, `stopOrder`) is temporary: remove it only when the owner confirms prices and shipping.

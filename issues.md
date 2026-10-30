@@ -18,24 +18,27 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 
 | ID | Priority | Title | Channel | Status | Audit check |
 |---|---|---|---|---|---|
-| BAC-01 | Critical | No buy / add-to-cart button, no cart icon | Builder | open | `check_buy_button` |
+| BAC-01 | Critical | No buy / add-to-cart button, no cart icon | Builder | live, ordering blocked | `check_buy_button` |
 | BAC-02 | Critical | Price invisible (white on white) | CSS/JS + Builder | patched (interim) | manual |
 | BAC-03 | Critical | All variants have the same price | MCP | open | manual |
 | BAC-04 | Critical | Names/descriptions do not match variants | MCP | open | manual |
 | BAC-05 | Critical | EUR only; no RSD, VAT note, delivery/payment info | Content + Builder | open | `check_rsd_vat` |
-| BAC-06 | High | Privacy/Terms links point to example.com | Content + Builder | check | `check_example_links` |
-| BAC-07 | High | /kontakt tab title is "Rivali Digital" | Builder | open | `check_rivali` |
-| BAC-08 | High | /studija shows only "Hans Muller" | Content + Builder | open | `check_hans_muller` |
+| BAC-06 | High | Privacy/Terms links point to example.com | Content + Builder | links patched; legal text to review | `check_example_links` |
+| BAC-07 | High | /kontakt tab title is "Rivali Digital" | Builder | kontakt fixed; footer credit to confirm | `check_rivali` |
+| BAC-08 | High | /studija shows only "Hans Muller" | Content + Builder | owner to confirm author | `check_hans_muller` |
 | BAC-09 | High | /videi has no video, wrong title | Content + Builder | check | `check_videi` |
 | BAC-10 | Medium | Phone link dials one number for two | CSS/JS + Builder | patched (interim) | `check_tel_links` |
-| BAC-11 | Medium | robots.txt and sitemap.xml empty | Builder | open | `check_robots_sitemap` |
+| BAC-11 | Medium | robots.txt and sitemap.xml empty | Builder | verified | `check_robots_sitemap` |
 | BAC-12 | Medium | / and /glavna duplicate, no canonical | MCP | check | `check_duplicate_home` |
-| BAC-13 | Medium | Heading (H1) structure broken | Builder | open | `check_h1` |
-| BAC-14 | Medium | Menu item "Testiranja" -> /#new-menu-item | Builder | open | `check_menu_placeholder` |
-| BAC-15 | Medium | Catalog split into 6 + 3 pages | Builder | open | `check_catalog_paging` |
-| BAC-16 | Medium | Hero image lazy-loaded; text clipped at ~800px | Builder | open | `check_hero_lazy` |
-| BAC-17 | Medium | Mobile overflow (388px on 375px) due to video | CSS/JS + Builder | check | `check_mobile_overflow` |
-| BAC-18 | Medium | Desktop horizontal overflow ~8px (nav/hero/footer wider than viewport) | Builder | open | manual |
+| BAC-13 | Medium | Heading (H1) structure broken | Builder | patched (interim, JS) | `check_h1` |
+| BAC-14 | Medium | Menu item "Testiranja" -> /#new-menu-item | Builder | verified | `check_menu_placeholder` |
+| BAC-15 | Medium | Catalog split into 6 + 3 pages | Builder | verified | `check_catalog_paging` |
+| BAC-16 | Medium | Hero image lazy-loaded; text clipped at ~800px | Builder | text verified; lazy OK | `check_hero_lazy` |
+| BAC-17 | Medium | Mobile overflow (388px on 375px) due to video | CSS/JS + Builder | verified | `check_mobile_overflow` |
+| BAC-18 | Medium | Desktop horizontal overflow ~8px (nav/hero/footer wider than viewport) | Builder | verified | manual |
+| BAC-19 | High | No menu under 860px on custom-coded pages | CSS/JS + Builder | patched (interim) | manual |
+| BAC-20 | High | No cart link on custom-coded pages | CSS/JS + Builder | patched (interim) | manual |
+| BAC-21 | High | Cart page had template header (Business Name) | Builder | verified | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
@@ -59,6 +62,12 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Later payment options stay open: "Add Custom Payment" is free on the Manual Payment page; other providers can be connected alongside.
 - Shipping: no zones configured under Payments > Settings > Shipping (2026-10-30); needs setup before checkout can work.
 - BAC-10 correction: the first patch was undone by Vue hydration (one button, both numbers, dialled one). Fixed in 41a807d; two links confirmed 9s after load.
+
+### QA, 2026-10-30 (pin baa0d8d)
+- Add to cart, cart drawer, /cart and /checkout pass on desktop and 375px. Checkout shows the notice; "Nastavi" is disabled with pointer-events none.
+- NOT tested: clicking "Nastavi" on a fully filled form (refused, it could place a real order). The block is browser-side only, so a determined visitor could bypass it; the shipping setup is untested too.
+- `audit.py` reads server HTML, so BAC-10 and BAC-13 stay FAIL there even though the browser shows them fixed.
+- Home hero text "Poručite online" is wrong while ordering is blocked. /katalog is a separate page from /products-list.
 
 ---
 
