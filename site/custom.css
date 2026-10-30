@@ -1,7 +1,7 @@
 /* bac101 interim global patches. Proper fixes belong in the GHL builder. */
 
 /* BAC-02: product price is white (var(--white)) on white. Price only. */
-.hl-product-detail-product-price { color: #111 !important; }
+.hl-product-detail-product-price, .hl-product-list-product-price { color: #111 !important; }
 
 /* BAC-17: YouTube iframe (#b101 .vid-wrap) overflows on 375px phones. */
 #b101 .vid-wrap { max-width: 100%; }
@@ -24,3 +24,6 @@ html, body { overflow-x: hidden; }
 /* TEMPORARY: notice shown while orders are blocked (see custom.js). */
 #bac-order-notice { font-family: Inter, Arial, sans-serif; background: #fff3cd; color: #111; padding: 14px 16px; text-align: center; font-weight: 600; position: relative; z-index: 9999; }
 [data-bac-blocked] { opacity: .5; cursor: not-allowed !important; }
+
+/* BAC-18: 100vw sections run ~8px past the viewport. clip (not hidden) keeps sticky working. */
+html, body { overflow-x: clip; }

@@ -106,8 +106,30 @@
   document.addEventListener('click', stopOrder, true);
   document.addEventListener('submit', stopOrder, true);
 
+  /* BAC-13 (interim): one H1 per page. Later H1s become H2; store pages promote the product name. */
+  function fixHeadings() {
+    var h = document.querySelectorAll('h1');
+    for (var i = 1; i < h.length; i++) {
+      var n = document.createElement('h2');
+      n.innerHTML = h[i].innerHTML;
+      n.className = h[i].className;
+      n.style.cssText = 'margin:0;font-size:inherit;' + h[i].style.cssText;
+      h[i].parentNode.replaceChild(n, h[i]);
+    }
+    if (!h.length) {
+      var name = document.querySelector('.hl-product-detail-product-name');
+      if (name) name.setAttribute('role', 'heading'), name.setAttribute('aria-level', '1');
+    }
+  }
+
+  /* BAC-01: /cart and /checkout have no title in GHL. */
+  function fixTitles() {
+    var t = { '/cart': 'Korpa | BAC101', '/checkout': 'Porudžbina | BAC101' }[location.pathname.replace(/\/+$/, '')];
+    if (t && document.title !== t) document.title = t;
+  }
+
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout];
+    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }
