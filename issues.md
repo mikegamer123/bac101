@@ -39,6 +39,7 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-19 | High | No menu under 860px on custom-coded pages | CSS/JS + Builder | patched (interim) | manual |
 | BAC-20 | High | No cart link on custom-coded pages | CSS/JS + Builder | patched (interim) | manual |
 | BAC-21 | High | Cart page had template header (Business Name) | Builder | verified | manual |
+| BAC-22 | High | /katalog cards had no product links | CSS/JS + Builder | patched (interim) | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
@@ -68,6 +69,10 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - NOT tested: clicking "Nastavi" on a fully filled form (refused, it could place a real order). The block is browser-side only, so a determined visitor could bypass it; the shipping setup is untested too.
 - `audit.py` reads server HTML, so BAC-10 and BAC-13 stay FAIL there even though the browser shows them fixed.
 - Home hero text "Poručite online" is wrong while ordering is blocked. /katalog is a separate page from /products-list.
+
+### Reported 2026-10-30: /cart leads to product list
+- Not reproduced. /cart stayed on /cart with an empty cart, from the Korpa link, and via www and trailing-slash URLs. "Nastavi kupovinu" on the empty cart is the expected way to reach the list. Waiting on steps from the reporter.
+- /katalog shows 6 of 9 products (no DPF + pumpica, BACP1, BAKFK); "Svi proizvodi (9)" links to /products-list.
 
 ---
 
