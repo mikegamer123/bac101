@@ -23,7 +23,7 @@ html, body { overflow-x: hidden; }
 
 /* TEMPORARY: notice shown while orders are blocked (see custom.js). */
 #bac-order-notice { font-family: Inter, Arial, sans-serif; background: #fff3cd; color: #111; padding: 14px 16px; text-align: center; font-weight: 600; position: relative; z-index: 9999; }
-[data-bac-blocked] { opacity: .5; cursor: not-allowed !important; }
+[data-bac-blocked] { opacity: .5; pointer-events: none !important; }
 
 /* BAC-18: 100vw sections run ~8px past the viewport. clip (not hidden) keeps sticky working. */
 html, body { overflow-x: clip; }

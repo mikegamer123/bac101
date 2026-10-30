@@ -105,6 +105,8 @@
   }
   document.addEventListener('click', stopOrder, true);
   document.addEventListener('submit', stopOrder, true);
+  /* The checkout re-enables its button when the form validates, so keep re-asserting. */
+  if (onCheckout()) setInterval(blockCheckout, 500);
 
   /* BAC-13 (interim): one H1 per page. Later H1s become H2; store pages promote the product name. */
   function fixHeadings() {
