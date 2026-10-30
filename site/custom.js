@@ -18,11 +18,13 @@
     var anchors = document.querySelectorAll('a[href^="tel:"]');
     for (var i = 0; i < anchors.length; i++) {
       var a = anchors[i];
-      if (a.getAttribute('data-bac-split')) continue;
-      var prev = a.previousElementSibling;
-      if (prev && prev.getAttribute('data-bac-split')) { a.style.display = 'none'; continue; }
+      if (a.style.display === 'none') continue;
       var nums = (a.textContent || '').match(/\+\d[\d ]{6,}\d/g);
       if (!nums || nums.length !== 2 || !a.parentNode) continue;
+      /* Hydration can adopt one of our links, so clear earlier ones and split again. */
+      a.removeAttribute('data-bac-split');
+      var old = a.parentNode.querySelectorAll('a[data-bac-split]');
+      for (var k = 0; k < old.length; k++) old[k].parentNode.removeChild(old[k]);
       for (var j = 0; j < 2; j++) {
         var c = a.cloneNode(false);
         c.setAttribute('href', 'tel:+' + nums[j].replace(/\D/g, ''));
@@ -45,6 +47,11 @@
     'continue shopping': 'Nastavi kupovinu', 'your cart is empty': 'Vaša korpa je prazna',
     'add items to your cart to continue shopping': 'Dodajte proizvode u korpu da biste nastavili kupovinu',
     'item(s) added': 'proizvod(a) dodato', 'out of stock': 'Nema na stanju', 'checkout': 'Nastavi na plaćanje',
+    'my cart': 'Moja korpa', 'contact': 'Kontakt', 'email address': 'Email adresa', 'shipping details': 'Podaci za dostavu',
+    'full name': 'Ime i prezime', 'phone number': 'Telefon', 'full address': 'Adresa', 'country': 'Država',
+    'city name': 'Grad', 'zip code': 'Poštanski broj', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
+    'add notes to your order': 'Dodajte napomenu uz porudžbinu', 'cart summary': 'Pregled korpe', 'edit cart': 'Izmeni korpu',
+    'apply': 'Primeni', 'continue': 'Nastavi', 'enter coupon code': 'Unesite kod kupona', 'log in to use your saved addresses': 'Prijavite se za sačuvane adrese',
     'subtotal': 'Međuzbir', 'total': 'Ukupno', 'quantity': 'Količina', 'price': 'Cena', 'product': 'Proizvod'
   };
   function fixLabels() {
@@ -53,9 +60,18 @@
     while ((n = w.nextNode())) {
       if (/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) continue;
       var t = n.nodeValue.trim(), k = t.toLowerCase();
+      var star = /\s*\*$/.test(k);
+      if (star) k = k.replace(/\s*\*$/, '');
       var m = k.match(/^only (\d+) items? left in stock$/);
+      var added = k.match(/^(\d+) item\(s\) added$/);
       if (m) n.nodeValue = 'Na stanju još ' + m[1];
-      else if (LABELS[k]) n.nodeValue = n.nodeValue.replace(t, LABELS[k]);
+      else if (added) n.nodeValue = 'Dodato u korpu: ' + added[1];
+      else if (LABELS[k]) n.nodeValue = LABELS[k] + (star ? ' *' : '');
+    }
+    var inputs = document.querySelectorAll('input[placeholder]');
+    for (var i = 0; i < inputs.length; i++) {
+      var ph = LABELS[inputs[i].placeholder.toLowerCase()];
+      if (ph) inputs[i].placeholder = ph;
     }
   }
 
