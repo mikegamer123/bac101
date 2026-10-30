@@ -130,6 +130,44 @@
     if (t && document.title !== t) document.title = t;
   }
 
+  /* BAC-23: store pages use GHL's menu, so give them the same nav as the main pages. */
+  var NAV_HTML = '<a href="/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>' +
+    '<div class="n-links"><a href="/">Glavna</a><a href="/katalog">Katalog</a>' +
+    '<div class="n-dd"><span>BAC101 ▾</span><div class="n-dd-menu"><a href="/kako-radi">Kako radi</a><a href="/istorija">Istorija</a><a href="/videi">Video datoteke</a></div></div>' +
+    '<a href="/partneri">Partneri</a>' +
+    '<div class="n-dd"><span>Testiranja ▾</span><div class="n-dd-menu"><a href="/pepeo">Pepeo, teški ubica</a><a href="/studija">Studija slučaja BAC101</a><a href="/testiranje">Testiranje proizvoda uživo</a></div></div>' +
+    '<a href="/kontakt">Kontakt</a></div>' +
+    '<div class="n-icons"><a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>' +
+    '<a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a></div>';
+  function fixNav() {
+    if (!/^\/(cart|checkout|products-list|product-details)/.test(location.pathname)) return;
+    if (!document.body.classList.contains('bac-store')) {
+      document.body.classList.add('bac-store');
+      var font = document.createElement('link');
+      font.rel = 'stylesheet';
+      font.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap';
+      document.head.appendChild(font);
+    }
+    if (!document.querySelector('nav.n')) {
+      var nav = document.createElement('nav');
+      nav.className = 'n bac-nav';
+      nav.innerHTML = NAV_HTML;
+      var notice = document.getElementById('bac-order-notice');
+      document.body.insertBefore(nav, notice ? notice.nextSibling : document.body.firstChild);
+    }
+    var ghl = document.querySelector('.c-nav-menu');
+    var section = ghl && ghl.closest('.c-section');
+    if (section) section.style.display = 'none';
+    /* GHL's cart button keeps updating while hidden, so read the count from it. */
+    var count = document.querySelector('.nav-cart-button');
+    var cart = document.querySelector('[data-bac-cart]');
+    if (count && cart) {
+      var n = parseInt(count.textContent, 10);
+      var label = n > 0 ? 'Korpa (' + n + ')' : 'Korpa';
+      if (cart.textContent !== label) cart.textContent = label;
+    }
+  }
+
   /* BAC-20: custom-coded pages have their own nav with no cart link. */
   function fixNavCart() {
     var links = document.querySelector('nav.n .n-links');
@@ -183,7 +221,7 @@
   }
 
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles, fixNavCart, fixLegalLinks, fixCatalog];
+    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalog, fixNav];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }

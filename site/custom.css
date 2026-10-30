@@ -38,9 +38,31 @@ html, body { overflow-x: clip; }
 }
 
 /* BAC-22: product links on /katalog. */
-.bac-card-btn { display: block; margin-top: 16px; padding: 12px 16px; background: #1ab3a3; color: #fff !important; border-radius: 8px; text-align: center; font-weight: 600; text-decoration: none; }
-.bac-card-btn:hover { opacity: .9; }
+.bac-card-btn { display: block !important; box-sizing: border-box; width: 100%; margin-top: auto !important; padding: 13px 18px !important; background: #1ab2a7 !important; color: #fff !important; border-radius: 8px !important; text-align: center; font-size: 14px !important; font-weight: 700 !important; line-height: 1.3 !important; text-decoration: none; transition: background .15s; }
+.bac-card-btn:hover { background: #13928a !important; }
 .card-body { display: flex; flex-direction: column; flex: 1; }
-.card-body .bac-card-btn { margin-top: auto; }
-.card-desc { margin-bottom: 16px; }
-.bac-all-btn { max-width: 280px; margin: 32px auto 0; }
+.card-desc { margin-bottom: 18px; }
+.bac-all-btn { width: 260px; margin: 40px auto 0 !important; }
+
+/* BAC-23: same nav as the main pages (copied from the custom-coded page CSS). */
+.bac-store { margin: 0; }
+nav.bac-nav { font-family: 'Montserrat', sans-serif; background: #fff; border-bottom: 1px solid #e8e8e8; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; position: relative; z-index: 1000; }
+nav.bac-nav .n-logo img { height: 36px; display: block; }
+nav.bac-nav .n-links { display: flex; align-items: center; gap: 2px; }
+nav.bac-nav .n-links a, nav.bac-nav .n-dd > span { font-size: .85rem; font-weight: 600; color: #222; padding: 8px 14px; border-radius: 6px; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color .15s; }
+nav.bac-nav .n-links a:hover, nav.bac-nav .n-dd > span:hover { color: #1ab2a7; }
+nav.bac-nav .n-dd { position: relative; }
+nav.bac-nav .n-dd-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; min-width: 190px; box-shadow: 0 8px 24px rgba(0,0,0,.1); z-index: 1000; overflow: hidden; }
+nav.bac-nav .n-dd:hover .n-dd-menu { display: block; }
+nav.bac-nav .n-dd-menu a { display: block; border-radius: 0; }
+nav.bac-nav .n-icons { display: flex; align-items: center; gap: 12px; }
+nav.bac-nav .n-icons img { height: 28px; width: 28px; display: block; }
+@media (max-width: 860px) { nav.bac-nav { padding: 8px 18px 0; } }
+
+/* BAC-23: store pages match the brand. */
+.bac-store .hl-cart-container, .bac-store .hl-cart-container *, .bac-store .c-product-details, .bac-store .c-product-details *, .bac-store .primary-btn { font-family: 'Montserrat', sans-serif !important; }
+.bac-store .primary-btn, .bac-store .hl-checkout-btn { background: #1ab2a7 !important; border: 0 !important; border-radius: 8px !important; color: #fff !important; font-weight: 700 !important; padding: 14px 20px !important; }
+.bac-store .primary-btn:hover, .bac-store .hl-checkout-btn:hover { background: #13928a !important; }
+.bac-store .hl-checkout-btn:disabled { background: #a8e0dc !important; }
+.bac-store .hl-continue-btn { background: #fff !important; border: 2px solid #1ab2a7 !important; border-radius: 8px !important; color: #13928a !important; font-weight: 700 !important; padding: 12px 20px !important; }
+.bac-store .hl-cart-heading { font-size: 26px !important; font-weight: 800 !important; }
