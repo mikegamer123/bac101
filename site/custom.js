@@ -52,7 +52,7 @@
     'city name': 'Grad', 'zip code': 'Poštanski broj', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
     'add notes to your order': 'Dodajte napomenu uz porudžbinu', 'cart summary': 'Pregled korpe', 'edit cart': 'Izmeni korpu',
     'apply': 'Primeni', 'continue': 'Nastavi', 'enter coupon code': 'Unesite kod kupona', 'log in to use your saved addresses': 'Prijavite se za sačuvane adrese',
-    'subtotal': 'Međuzbir', 'total': 'Ukupno', 'quantity': 'Količina', 'price': 'Cena', 'product': 'Proizvod'
+    'cash on delivery (cod)': 'Plaćanje pouzećem', 'subtotal': 'Međuzbir', 'total': 'Ukupno', 'quantity': 'Količina', 'price': 'Cena', 'product': 'Proizvod'
   };
   function fixLabels() {
     var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
@@ -76,7 +76,7 @@
   }
 
   /* TEMPORARY: orders are blocked until prices and shipping are confirmed. Remove to open checkout. */
-  var ORDER_RE = /place order|complete|confirm|pay now|^pay|submit|buy|poruč|naruči|plati|potvrdi|završi/i;
+  var ORDER_RE = /^\s*(continue|nastavi)\s*$|place order|complete|confirm|pay now|^pay|submit|buy|poruč|naruči|plati|potvrdi|završi/i;
   function onCheckout() { return /\/checkout/.test(location.pathname); }
   function blockCheckout() {
     if (!onCheckout()) return;
