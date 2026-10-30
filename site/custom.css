@@ -36,3 +36,11 @@ html, body { overflow-x: clip; }
   nav.n .n-dd > span { display: none; }
   nav.n .n-dd-menu { display: contents !important; }
 }
+
+/* BAC-22: product links on /katalog. */
+.bac-card-btn { display: block; margin-top: 16px; padding: 12px 16px; background: #1ab3a3; color: #fff !important; border-radius: 8px; text-align: center; font-weight: 600; text-decoration: none; }
+.bac-card-btn:hover { opacity: .9; }
+.card-body { display: flex; flex-direction: column; flex: 1; }
+.card-body .bac-card-btn { margin-top: auto; }
+.card-desc { margin-bottom: 16px; }
+.bac-all-btn { max-width: 280px; margin: 32px auto 0; }
