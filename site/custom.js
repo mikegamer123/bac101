@@ -19,6 +19,8 @@
     for (var i = 0; i < anchors.length; i++) {
       var a = anchors[i];
       if (a.getAttribute('data-bac-split')) continue;
+      var prev = a.previousElementSibling;
+      if (prev && prev.getAttribute('data-bac-split')) { a.style.display = 'none'; continue; }
       var nums = (a.textContent || '').match(/\+\d[\d ]{6,}\d/g);
       if (!nums || nums.length !== 2 || !a.parentNode) continue;
       for (var j = 0; j < 2; j++) {
@@ -32,7 +34,8 @@
         c.style.margin = '0 6px';
         a.parentNode.insertBefore(c, a);
       }
-      a.parentNode.removeChild(a);
+      /* Hide, never remove: Vue owns this node and hydration re-renders it. */
+      a.style.display = 'none';
     }
   }
 
@@ -49,10 +52,9 @@
       var timer = null;
       var mo = new MutationObserver(function () {
         clearTimeout(timer);
-        timer = setTimeout(function () { mo.disconnect(); run(); }, 300);
+        timer = setTimeout(run, 300);
       });
       mo.observe(document.body, { childList: true, subtree: true });
-      setTimeout(function () { mo.disconnect(); }, 5000);
     } catch (e) { /* ignore */ }
   }
 
