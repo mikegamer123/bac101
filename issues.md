@@ -40,6 +40,7 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-20 | High | No cart link on custom-coded pages | CSS/JS + Builder | patched (interim) | manual |
 | BAC-21 | High | Cart page had template header (Business Name) | Builder | verified | manual |
 | BAC-22 | High | /katalog cards had no product links | CSS/JS + Builder | patched (interim) | manual |
+| BAC-23 | High | Store pages used a different menu and off-brand buttons | CSS/JS + Builder | patched (interim) | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
