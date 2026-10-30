@@ -54,6 +54,10 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Payments > Integrations has an empty "Connected" section: no payment provider at all. Likely the reason the storefront shows no add-to-cart (not yet proven; re-check after connecting one).
 - Options seen there: Stripe, PayPal, Authorize.net, NMI, Manual Payment Methods (Cash on Delivery), Square, Adyen, Mercado Pago.
 - Store "Bac101" includes 9 products (6 more are excluded).
+- Cash on Delivery connected 2026-10-30, enabled for E-commerce Stores only (GHL locks the name "Cash on Delivery (COD)"). The buy button did NOT appear.
+- Actual cause: page data has `showAddToCartButton`, `showBuyNowButton` and `showCartIcon` all false. These are builder toggles on the product detail element and nav menu. Button text is still English ("Add to cart", "Buy Now").
+- Later payment options stay open: "Add Custom Payment" is free on the Manual Payment page; other providers can be connected alongside.
+- BAC-10 correction: the first patch was undone by Vue hydration (one button, both numbers, dialled one). Fixed in 41a807d; two links confirmed 9s after load.
 
 ---
 
