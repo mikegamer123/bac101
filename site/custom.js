@@ -130,8 +130,29 @@
     if (t && document.title !== t) document.title = t;
   }
 
+  /* BAC-20: custom-coded pages have their own nav with no cart link. */
+  function fixNavCart() {
+    var links = document.querySelector('nav.n .n-links');
+    if (!links || links.querySelector('[data-bac-cart]')) return;
+    var a = document.createElement('a');
+    a.href = '/cart';
+    a.textContent = 'Korpa';
+    a.setAttribute('data-bac-cart', '1');
+    links.appendChild(a);
+  }
+
+  /* BAC-06: the form's legal links point back to the page itself. */
+  function fixLegalLinks() {
+    var map = { 'privacy policy': ['/privacy-policy', 'Politika privatnosti'], 'terms of service': ['/terms-conditions', 'Uslovi korišćenja'] };
+    var as = document.querySelectorAll('a');
+    for (var i = 0; i < as.length; i++) {
+      var m = map[as[i].textContent.trim().toLowerCase()];
+      if (m) { as[i].setAttribute('href', m[0]); as[i].textContent = m[1]; }
+    }
+  }
+
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles];
+    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles, fixNavCart, fixLegalLinks];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }

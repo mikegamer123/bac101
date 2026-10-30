@@ -27,3 +27,12 @@ html, body { overflow-x: hidden; }
 
 /* BAC-18: 100vw sections run ~8px past the viewport. clip (not hidden) keeps sticky working. */
 html, body { overflow-x: clip; }
+
+/* BAC-19: custom nav is display:none under 860px with no mobile menu. Flat, swipeable row instead. */
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
