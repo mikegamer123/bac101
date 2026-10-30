@@ -57,6 +57,7 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Cash on Delivery connected 2026-10-30, enabled for E-commerce Stores only (GHL locks the name "Cash on Delivery (COD)"). The buy button did NOT appear.
 - Actual cause: page data has `showAddToCartButton`, `showBuyNowButton` and `showCartIcon` all false. These are builder toggles on the product detail element and nav menu. Button text is still English ("Add to cart", "Buy Now").
 - Later payment options stay open: "Add Custom Payment" is free on the Manual Payment page; other providers can be connected alongside.
+- Shipping: no zones configured under Payments > Settings > Shipping (2026-10-30); needs setup before checkout can work.
 - BAC-10 correction: the first patch was undone by Vue hydration (one button, both numbers, dialled one). Fixed in 41a807d; two links confirmed 9s after load.
 
 ---
