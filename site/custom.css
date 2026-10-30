@@ -20,3 +20,7 @@ html, body { overflow-x: hidden; }
   #b101 .h-left-in { max-width: 100%; min-width: 0; }
   #b101 .h-left h1, #b101 .h-left p { overflow-wrap: break-word; word-wrap: break-word; }
 }
+
+/* TEMPORARY: notice shown while orders are blocked (see custom.js). */
+#bac-order-notice { background: #fff3cd; color: #111; padding: 14px 16px; text-align: center; font-weight: 600; position: relative; z-index: 9999; }
+[data-bac-blocked] { opacity: .5; cursor: not-allowed !important; }

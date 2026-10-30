@@ -39,8 +39,59 @@
     }
   }
 
+  /* BAC-01: Serbian store labels (the builder has no field for them). */
+  var LABELS = {
+    'add to cart': 'Dodaj u korpu', 'buy now': 'Kupi odmah', 'view cart': 'Pogledaj korpu',
+    'continue shopping': 'Nastavi kupovinu', 'your cart is empty': 'Vaša korpa je prazna',
+    'add items to your cart to continue shopping': 'Dodajte proizvode u korpu da biste nastavili kupovinu',
+    'item(s) added': 'proizvod(a) dodato', 'out of stock': 'Nema na stanju', 'checkout': 'Nastavi na plaćanje',
+    'subtotal': 'Međuzbir', 'total': 'Ukupno', 'quantity': 'Količina', 'price': 'Cena', 'product': 'Proizvod'
+  };
+  function fixLabels() {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var n;
+    while ((n = w.nextNode())) {
+      if (/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) continue;
+      var t = n.nodeValue.trim(), k = t.toLowerCase();
+      var m = k.match(/^only (\d+) items? left in stock$/);
+      if (m) n.nodeValue = 'Na stanju još ' + m[1];
+      else if (LABELS[k]) n.nodeValue = n.nodeValue.replace(t, LABELS[k]);
+    }
+  }
+
+  /* TEMPORARY: orders are blocked until prices and shipping are confirmed. Remove to open checkout. */
+  var ORDER_RE = /place order|complete|confirm|pay now|^pay|submit|buy|poruč|naruči|plati|potvrdi|završi/i;
+  function onCheckout() { return /\/checkout/.test(location.pathname); }
+  function blockCheckout() {
+    if (!onCheckout()) return;
+    var bs = document.querySelectorAll('button, input[type="submit"]');
+    for (var i = 0; i < bs.length; i++) {
+      if (ORDER_RE.test(bs[i].textContent || bs[i].value || '')) {
+        bs[i].disabled = true;
+        bs[i].setAttribute('data-bac-blocked', '1');
+      }
+    }
+    if (!document.getElementById('bac-order-notice') && document.body) {
+      var d = document.createElement('div');
+      d.id = 'bac-order-notice';
+      d.textContent = 'Online poručivanje uskoro počinje. Za porudžbinu nas pozovite: +381 621978511 ili +381 63268391.';
+      document.body.insertBefore(d, document.body.firstChild);
+    }
+  }
+  /* Capture phase, so this also stops clicks on buttons that re-render before blockCheckout runs. */
+  function stopOrder(e) {
+    if (!onCheckout()) return;
+    var el = e.target && e.target.closest && e.target.closest('button, input[type="submit"], a');
+    if (e.type === 'submit' || (el && (el.getAttribute('data-bac-blocked') || ORDER_RE.test(el.textContent || el.value || '')))) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  }
+  document.addEventListener('click', stopOrder, true);
+  document.addEventListener('submit', stopOrder, true);
+
   function run() {
-    var fixes = [fixCanonical, fixPhones];
+    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }
