@@ -191,9 +191,6 @@
 
   /* BAC-22: /katalog is static HTML with no links to the store products. */
   var PRODUCTS = {
-    'BAC101 CUT': '6995f068308c78779e422ee0',
-    'BAC101 CUT + pumpica': '6995ef435e6a85f76c11d239',
-    'BACP1G CAT Hemijska Pumpa': '6995eefb03e74494eb1c4d04',
     'BAC101 DPF': '6995ede838475b6bfe4dcf25',
     'DC101 & CF101': '6a578ee97eef219ec1205c07',
     'FC101 & SC101': '6a578956b7b0e0436d9114ed'
@@ -203,7 +200,9 @@
     for (var i = 0; i < names.length; i++) {
       var id = PRODUCTS[names[i].textContent.trim()];
       var body = names[i].parentNode;
-      if (!id || body.querySelector('.bac-card-btn')) continue;
+      /* Cards without an id are out of stock until the import arrives. */
+      if (!id) { names[i].closest('.card').style.display = 'none'; continue; }
+      if (body.querySelector('.bac-card-btn')) continue;
       var a = document.createElement('a');
       a.className = 'bac-card-btn';
       a.href = '/product-details/product/' + id;
@@ -215,7 +214,7 @@
       var all = document.createElement('a');
       all.className = 'bac-card-btn bac-all-btn';
       all.href = '/products-list';
-      all.textContent = 'Svi proizvodi (9)';
+      all.textContent = 'Svi proizvodi';
       grid.appendChild(all);
     }
   }
