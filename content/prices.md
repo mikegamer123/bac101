@@ -52,3 +52,17 @@ Proposed matches, not yet entered in GHL. Only store products are listed.
 | BAC OF | 3.960 | unknown | none |
 
 No match on the list: BAC101 CUT, BAC101 CUT + pumpica, BACP1, BACP1G, BAKFK.
+
+## Owner answers, 2026-10-31 (RSD, VAT included)
+
+| Store product | Decision |
+|---|---|
+| BAC101 DPF | Only 5 pranja 20.825 and 25 pranja 89.250 |
+| SC101 sprej | 2.360 |
+| FC101 pena | 2.596 |
+| DC101 za AdBlue | 2.360 |
+| CF101 za DPF (DPF regular) | Out of stock, remove |
+| BAC101 CUT, CUT + pumpica, DPF + pumpica, BACP1, BACP1G, BAKFK | Not for now, returns after the import |
+| Other wash counts | Not for now, needed after the import |
+
+Not store products: Boca velika = kamionska pumpica 24.000, Boca mala = pumpica za automobile 11.900 (inferred from the message order), Wepp 732 prevent 840. BAC OF is out of stock.
