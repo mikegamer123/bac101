@@ -34,3 +34,21 @@ All 9 store products are listed.
 - BAC101 DPF + pumpica is described as "BACX5 ... Workshop Starter Pack". Is that a fixed pack too?
 - Does 1000 washes really exist as a retail option?
 - BACP1G, BACP1 and BAKFK charge €150, but their GHL price names say 75, 75 and 125. Which is right?
+
+## Handwritten price list, received 2026-10-31 (RSD)
+
+Proposed matches, not yet entered in GHL. Only store products are listed.
+
+| List item | RSD | Proposed store product | Confidence |
+|---|---|---|---|
+| Eger sprej | 2.360 | FC10 i SC101: SC101 sprej | good |
+| Plava pena | 2.596 | FC10 i SC101: FC101 pena | good |
+| Ad Blu BAC | 2.360-2.400 | DC101 & CF101: DC101 za AdBlue | range, or Ad Blu prevent 840 |
+| DPF regular | 1.800 | DC101 & CF101: CF101 za DPF | guess |
+| Bak 5 | 20.825 | BAC101 DPF, 5 pranja | guess |
+| Bak 25 | 89.250 | BAC101 DPF, 25 pranja | guess |
+| Boca velika | 24.000 | unknown | none |
+| Boca mala | 11.900 | unknown | none |
+| BAC OF | 3.960 | unknown | none |
+
+No match on the list: BAC101 CUT, BAC101 CUT + pumpica, BACP1, BACP1G, BAKFK.
