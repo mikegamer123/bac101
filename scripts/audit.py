@@ -25,7 +25,7 @@ REQUIRED = ["/", "/glavna", "/kontakt", "/studija", "/videi", "/istorija",
             "/sitemap.xml"]
 # ASSUMED: the catalog URL is not stated in the source; probe common slugs.
 CATALOG_GUESSES = ["/products-list", "/katalog", "/proizvodi", "/products", "/store", "/shop", "/prodavnica"]
-EXPECTED_PRODUCTS = 9
+EXPECTED_PRODUCTS = 3
 CATALOG_SLUGS = {p.strip("/") for p in CATALOG_GUESSES}
 SKIP_EXT = re.compile(r"\.(jpe?g|png|gif|webp|svg|ico|css|js|pdf|zip|mp4|woff2?|ttf)$", re.I)
 BUY_TERMS = ["add to cart", "dodaj u korpu", "kupi", "buy now"]

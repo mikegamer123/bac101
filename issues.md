@@ -75,6 +75,10 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Not reproduced. /cart stayed on /cart with an empty cart, from the Korpa link, and via www and trailing-slash URLs. "Nastavi kupovinu" on the empty cart is the expected way to reach the list. Waiting on steps from the reporter.
 - /katalog shows 6 of 9 products (no DPF + pumpica, BACP1, BAKFK); "Svi proizvodi (9)" links to /products-list.
 
+### Store cut to owner's stock, 2026-10-31
+- Excluded from store (not deleted): BAC101 CUT, CUT + pumpica, DPF + pumpica, BACP1, BACP1G, BAKFK. /katalog hides their cards.
+- BAC101 DPF now only 5 and 25 pranja; CF101 removed. Prices NOT entered: the store is locked to EUR, see content/prices.md.
+
 ---
 
 ## Critical
