@@ -191,9 +191,9 @@
 
   /* BAC-22: /katalog is static HTML with no links to the store products. */
   var PRODUCTS = {
-    'BAC101 DPF': '6995ede838475b6bfe4dcf25',
-    'DC101 & CF101': '6a578ee97eef219ec1205c07',
-    'FC101 & SC101': '6a578956b7b0e0436d9114ed'
+    'BAC101 DPF': '6ae7404d90f5beded40f2c13',
+    'DC101 & CF101': '6ae741bc7d1cf14640a9a59f',
+    'FC101 & SC101': '6ae7422255bfb617cd3f0f97'
   };
   function fixCatalog() {
     var names = document.querySelectorAll('.grid .card .card-name');

@@ -66,3 +66,13 @@ No match on the list: BAC101 CUT, BAC101 CUT + pumpica, BACP1, BACP1G, BAKFK.
 | Other wash counts | Not for now, needed after the import |
 
 Not store products: Boca velika = kamionska pumpica 24.000, Boca mala = pumpica za automobile 11.900 (inferred from the message order), Wepp 732 prevent 840. BAC OF is out of stock.
+
+## RSD products, created 2026-11-01
+
+Old EUR products cannot change currency, so new ones were created under Payments > Products.
+
+| New product | ID | Prices (RSD) |
+|---|---|---|
+| BAC101 DPF | 6ae7404d90f5beded40f2c13 | 5 pranja 20.825, 25 pranja 89.250 |
+| DC101 za AdBlue | 6ae741bc7d1cf14640a9a59f | 2.360 |
+| FC101 i SC101 | 6ae7422255bfb617cd3f0f97 | FC101 pena 2.596, SC101 sprej 2.360 |
