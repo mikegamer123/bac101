@@ -79,6 +79,11 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - Excluded from store (not deleted): BAC101 CUT, CUT + pumpica, DPF + pumpica, BACP1, BACP1G, BAKFK. /katalog hides their cards.
 - BAC101 DPF now only 5 and 25 pranja; CF101 removed. Prices NOT entered: the store is locked to EUR, see content/prices.md.
 
+### RSD products live, 2026-11-02
+- New RSD products in the store: BAC101 DPF (5/25 pranja), DC101 za AdBlue, FC101 i SC101. Old EUR products taken out of the store (not deleted).
+- New DPF had stock tracking on with 0 qty (accidental), set to 999 per variant until the owner gives real stock.
+- No product photos yet: the GHL media picker could not be driven from the browser pane. Add them by hand.
+
 ---
 
 ## Critical
