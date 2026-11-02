@@ -82,7 +82,7 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 ### RSD products live, 2026-11-02
 - New RSD products in the store: BAC101 DPF (5/25 pranja), DC101 za AdBlue, FC101 i SC101. Old EUR products taken out of the store (not deleted).
 - New DPF had stock tracking on with 0 qty (accidental), set to 999 per variant until the owner gives real stock.
-- Original photos attached 2026-11-02 (BACR5.jpg, dc1010 & cf101.png, SC101 & Fc101.png, from media folders Bac101/... and JMB/Saubereu). A DC101 duplicate (6ae83a610c38ff41f1301a5c) exists, excluded from the store.
+- Original photos attached 2026-11-02 (BACR5.jpg, dc101.png (DC101 only, since CF101 is gone), SC101 & Fc101.png, from media folders Bac101/... and JMB/Saubereu). A DC101 duplicate (6ae83a610c38ff41f1301a5c) exists, excluded from the store.
 
 ---
 
