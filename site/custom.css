@@ -109,3 +109,10 @@ nav.bac-nav .n-icons img { height: 28px; width: 28px; display: block; }
 }
 /* BAC-37: "Prikaži još" was an 18px-tall tap target. */
 .show-more { display: inline-block; padding: 10px 0; }
+
+/* BAC-38: "Korpa" is added by custom.js after load and briefly removed again when GHL re-renders the nav, so the
+   centred menu jumped. Until the real link is in place, show an identical (non-clickable) label in its slot. */
+nav.n .n-links:not(:has([data-bac-cart]))::after {
+  content: 'Korpa'; display: inline-block; font-family: 'Montserrat', sans-serif; font-size: .85rem; font-weight: 600;
+  color: #222; padding: 8px 14px !important; margin: 0 !important; white-space: nowrap; line-height: normal;
+}

@@ -55,6 +55,7 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-35 | High | Homepage promises online ordering while blocked | CSS/JS + Builder | patch ready | manual |
 | BAC-36 | Medium | Leftover home hero below the footer on /katalog, /terms-conditions, /privacy-policy | CSS + Builder | patch ready | manual |
 | BAC-37 | Low | Store footer contact column cramped on tablets; small "Prikaži još" tap target; phone links indented | CSS/JS | patch ready | manual |
+| BAC-38 | Medium | Menu jumps on page load: "Korpa" is added by JS and dropped again by GHL hydration | CSS | patch ready | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.

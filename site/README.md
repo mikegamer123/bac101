@@ -24,6 +24,7 @@ Evidence fetched 2026-10-29.
 | BAC-35 | js | text node "Poručite online – dostava na adresu!" on `/`, `/glavna` | Orders are blocked (`ORDERS_BLOCKED`), so the hero line becomes "Poručite telefonom ili putem WhatsApp-a – dostava na adresu!". Set `ORDERS_BLOCKED = false` with the order block. |
 | BAC-36 | css | `#section-akMPQ975W4` (/katalog), `#section-12sa5qbPON` (/terms-conditions), `#section-mPpw4s6out` (/privacy-policy) | Each page ends with an 807px copy of the home hero after the footer. Hidden; delete the sections in the builder. |
 | BAC-37 | css/js | `#button-tbTbiszUH0_btn`, `.show-more`, `a[data-bac-split]` | Envelope icon hidden at 641-1024px (it wrapped onto its own line), 10px tap padding on "Prikaži još", split phone links lose their 6px left margin. |
+| BAC-38 | css | `nav.n .n-links:not(:has([data-bac-cart]))::after` | Same-styled "Korpa" placeholder until the JS link exists, so the centred menu does not shift. Padding needs !important: the page CSS resets `#b101nav *::after` padding. Verified identical item positions at 1366/1024/375. |
 
 Note: the split buttons lose GHL button styling classes only partly (anchors are cloned shallowly, so classes stay but inner spans are replaced by plain text); check visually.
 
