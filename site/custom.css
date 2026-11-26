@@ -97,3 +97,15 @@ nav.bac-nav .n-icons img { height: 28px; width: 28px; display: block; }
 
 /* BAC-33: /pepeo warning heading contrast (#b3530a on #fff8f0 is about 4.9:1). */
 .warning h4 { color: #b3530a !important; }
+
+/* BAC-36: /katalog, /terms-conditions and /privacy-policy end with a leftover copy of the home hero BELOW the footer.
+   Interim hide; proper fix: delete these sections in the builder. */
+#section-akMPQ975W4, #section-12sa5qbPON, #section-mPpw4s6out { display: none !important; }
+
+/* BAC-37: store footer on tablets: the envelope icon took its own line in the narrow contact column. */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #button-tbTbiszUH0_btn .button-icon-start { display: none !important; }
+  #button-tbTbiszUH0_btn .main-heading-button { white-space: nowrap; }
+}
+/* BAC-37: "Prikaži još" was an 18px-tall tap target. */
+.show-more { display: inline-block; padding: 10px 0; }

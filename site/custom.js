@@ -33,7 +33,8 @@
         c.removeAttribute('aria-label');
         c.textContent = nums[j].replace(/\s+/g, ' ');
         c.style.display = 'inline-block';
-        c.style.margin = '0 6px';
+        /* BAC-37: no left margin, so the numbers line up with the text above them. */
+        c.style.margin = '0 12px 0 0';
         a.parentNode.insertBefore(c, a);
       }
       /* Hide, never remove: Vue owns this node and hydration re-renders it. */

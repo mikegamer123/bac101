@@ -22,6 +22,8 @@ Evidence fetched 2026-10-29.
 | BAC-33 | css | `.warning h4` on /pepeo | Orange heading on #fff8f0 unreadable -> `#b3530a`. |
 | BAC-34 | js | `.grid .card .card-name`, `.card-code`, `.card-desc` on /katalog | CF101 is out of stock (`content/prices.md`); store sells "DC101 za AdBlue" and "FC101 i SC101". `fixCatalogCopy` rewrites the two cards (idempotent on current name); `PRODUCTS` keeps old and new keys. |
 | BAC-35 | js | text node "Poručite online – dostava na adresu!" on `/`, `/glavna` | Orders are blocked (`ORDERS_BLOCKED`), so the hero line becomes "Poručite telefonom ili putem WhatsApp-a – dostava na adresu!". Set `ORDERS_BLOCKED = false` with the order block. |
+| BAC-36 | css | `#section-akMPQ975W4` (/katalog), `#section-12sa5qbPON` (/terms-conditions), `#section-mPpw4s6out` (/privacy-policy) | Each page ends with an 807px copy of the home hero after the footer. Hidden; delete the sections in the builder. |
+| BAC-37 | css/js | `#button-tbTbiszUH0_btn`, `.show-more`, `a[data-bac-split]` | Envelope icon hidden at 641-1024px (it wrapped onto its own line), 10px tap padding on "Prikaži još", split phone links lose their 6px left margin. |
 
 Note: the split buttons lose GHL button styling classes only partly (anchors are cloned shallowly, so classes stay but inner spans are replaced by plain text); check visually.
 
