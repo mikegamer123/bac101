@@ -358,8 +358,187 @@
     }
   }
 
+  /* BAC-39: cookie consent. The head snippet reads localStorage 'bac_consent' before fbq('init'); with 'denied' or no
+     choice the pixel sends nothing. The memory copy keeps the banner closed when storage throws (private mode). */
+  var consentMem = null;
+  function getConsent() {
+    try {
+      var v = localStorage.getItem('bac_consent');
+      if (v === 'granted' || v === 'denied') return v;
+    } catch (e) { /* storage blocked */ }
+    return consentMem;
+  }
+  function setConsent(v) {
+    consentMem = v;
+    try {
+      if (v) localStorage.setItem('bac_consent', v); else localStorage.removeItem('bac_consent');
+    } catch (e) { /* storage blocked */ }
+  }
+  function removeConsentBanner() {
+    var b = document.getElementById('bac-consent');
+    if (b && b.parentNode) b.parentNode.removeChild(b);
+  }
+  function fixConsentBanner() {
+    if (getConsent() || document.getElementById('bac-consent') || !document.body) return;
+    var d = document.createElement('div');
+    d.id = 'bac-consent';
+    d.setAttribute('role', 'dialog');
+    d.setAttribute('aria-live', 'polite');
+    d.setAttribute('aria-label', 'Kolačići');
+    d.innerHTML = '<div class="bac-consent-text">Koristimo kolačiće (Meta Pixel) da bismo merili posete i poboljšali oglase. Možete ih prihvatiti ili odbiti. ' +
+      '<a href="/privacy-policy">Politika privatnosti</a></div>' +
+      '<div class="bac-consent-btns"><button type="button" id="bac-consent-yes">Prihvatam</button><button type="button" id="bac-consent-no">Odbijam</button></div>';
+    document.body.appendChild(d);
+  }
+  /* BAC-39: footer link that reopens the banner, placed after each footer "Politika privatnosti" link. */
+  function fixConsentLink() {
+    var as = document.querySelectorAll('a');
+    for (var i = 0; i < as.length; i++) {
+      if (as[i].textContent.trim() !== 'Politika privatnosti') continue;
+      var next = as[i].nextElementSibling;
+      if (next && next.getAttribute('data-bac-consent-link')) continue;
+      var foot = as[i].closest('.ft-blinks');
+      if (!foot) {
+        var p = as[i].parentNode;
+        for (var k = 0; p && p !== document.body && k < 6; k++, p = p.parentNode) {
+          if ((p.textContent || '').indexOf('Sva prava zadržana') !== -1) { foot = p; break; }
+        }
+      }
+      if (!foot) continue;
+      var a = document.createElement('a');
+      a.href = '#';
+      a.textContent = 'Podešavanja kolačića';
+      a.setAttribute('data-bac-consent-open', '1');
+      a.setAttribute('data-bac-consent-link', '1');
+      as[i].parentNode.insertBefore(document.createTextNode(' | '), as[i].nextSibling);
+      as[i].parentNode.insertBefore(a, as[i].nextSibling.nextSibling);
+    }
+  }
+  /* Module-level, capture phase: run() re-executes on every DOM mutation. */
+  document.addEventListener('click', function (e) {
+    try {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      if (t.closest('#bac-consent-yes')) {
+        setConsent('granted');
+        /* No extra PageView: fbq holds events while revoked and sends them on grant (tested 2026-11-26). */
+        if (window.fbq) window.fbq('consent', 'grant');
+        removeConsentBanner();
+      } else if (t.closest('#bac-consent-no')) {
+        setConsent('denied');
+        if (window.fbq) window.fbq('consent', 'revoke');
+        removeConsentBanner();
+      } else {
+        var o = t.closest('[data-bac-consent-open], a');
+        if (o && (o.hasAttribute('data-bac-consent-open') || o.textContent.trim() === 'Podešavanja kolačića')) {
+          e.preventDefault();
+          setConsent(null);
+          fixConsentBanner();
+        }
+      }
+    } catch (err) { /* never throw */ }
+  }, true);
+
+  /* BAC-40: dropdowns open on :hover only; touch tablets (>860px) need tap-to-open. */
+  document.addEventListener('click', function (e) {
+    try {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var dds = document.querySelectorAll('nav.n .n-dd'), i;
+      var span = t.closest('nav.n .n-dd > span');
+      if (span) {
+        e.preventDefault();
+        var dd = span.parentNode, wasOpen = dd.classList.contains('bac-open');
+        for (i = 0; i < dds.length; i++) dds[i].classList.remove('bac-open');
+        if (!wasOpen) dd.classList.add('bac-open');
+      } else if (!t.closest('nav.n .n-dd.bac-open')) {
+        for (i = 0; i < dds.length; i++) dds[i].classList.remove('bac-open');
+      }
+    } catch (err) { /* never throw */ }
+  }, true);
+
+  /* BAC-41: Meta pixel events; consent is enforced by fbq itself. */
+  function parseRsd(s) {
+    s = String(s == null ? '' : s).replace(/din\.?/gi, '').replace(/[^\d.,]/g, '');
+    if (!/\d/.test(s)) return null;
+    if (s.indexOf(',') !== -1) s = s.replace(/\./g, '').replace(',', '.');
+    else if (!/^\d+\.\d{1,2}$/.test(s)) s = s.replace(/\./g, '');
+    var n = parseFloat(s);
+    return isNaN(n) ? null : n;
+  }
+  function onProduct() { return /^\/product-details/.test(location.pathname); }
+  function productInfo() {
+    var nameEl = document.querySelector('.hl-product-detail-product-name');
+    var priceEl = document.querySelector('.hl-product-detail-product-price');
+    return {
+      name: (nameEl && nameEl.textContent.trim()) || document.title,
+      price: priceEl ? parseRsd(priceEl.textContent) : null
+    };
+  }
+  var leadSent = false;
+  function digits(s) { return String(s || '').replace(/\D/g, ''); }
+  function trackLead(btn) {
+    var box = btn.parentNode;
+    for (var k = 0; box && k < 8 && !box.querySelector('input'); k++) box = box.parentNode;
+    if (!box || !box.querySelectorAll) return;
+    var ins = box.querySelectorAll('input'), email = '', phone = '';
+    for (var i = 0; i < ins.length; i++) {
+      var ph = ins[i].placeholder || '';
+      if (ins[i].type === 'email' || /^Email/i.test(ph)) email = ins[i].value;
+      else if (ins[i].type === 'tel' || /^Telefon/i.test(ph)) phone = ins[i].value;
+    }
+    if (email.indexOf('@') !== -1 && digits(phone).length >= 6) {
+      leadSent = true;
+      window.fbq('track', 'Lead', { content_name: 'Kontakt forma' });
+    }
+  }
+  document.addEventListener('click', function (e) {
+    try {
+      var t = e.target;
+      if (!window.fbq || !t || !t.closest) return;
+      var a = t.closest('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me"], a[href^="viber:"]');
+      if (a) {
+        var h = a.getAttribute('href');
+        var m = /^tel:/.test(h) ? 'phone' : /^mailto:/.test(h) ? 'email' : /^viber:/.test(h) ? 'viber' : 'whatsapp';
+        window.fbq('track', 'Contact', { method: m });
+        return;
+      }
+      var b = t.closest('button');
+      if (!b) return;
+      var txt = b.textContent || '';
+      if (txt.indexOf('dpfcleaner@') !== -1) {
+        window.fbq('track', 'Contact', { method: 'email' });
+      } else if (txt.trim() === 'Pošalji') {
+        if (!leadSent) trackLead(b);
+      } else if (onProduct() && txt.indexOf('Dodaj u korpu') !== -1) {
+        var info = productInfo();
+        var qEl = document.querySelector('.hl-quantity-input') || document.querySelector('.hl-pdp-quantity');
+        if (qEl && qEl.tagName !== 'INPUT') qEl = qEl.querySelector('input');
+        var qty = qEl ? parseInt(qEl.value, 10) : 1;
+        if (!(qty > 0)) qty = 1;
+        window.fbq('track', 'AddToCart', { content_name: info.name, value: (info.price || 0) * qty, currency: 'RSD', content_type: 'product' });
+      }
+    } catch (err) { /* never throw */ }
+  }, true);
+  /* One-shot page events, driven by run(); the flag is set only once fbq exists. */
+  var viewSent = false, checkoutSent = false;
+  function fixPixelEvents() {
+    if (!window.fbq) return;
+    if (!viewSent && onProduct()) {
+      var info = productInfo();
+      if (info.price !== null) {
+        viewSent = true;
+        window.fbq('track', 'ViewContent', { content_name: info.name, value: info.price, currency: 'RSD', content_type: 'product' });
+      }
+    }
+    if (!checkoutSent && onCheckout()) {
+      checkoutSent = true;
+      window.fbq('track', 'InitiateCheckout');
+    }
+  }
+
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav];
+    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixConsentLink, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav, fixConsentBanner, fixPixelEvents];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }

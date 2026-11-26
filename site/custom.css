@@ -116,3 +116,28 @@ nav.n .n-links:not(:has([data-bac-cart]))::after {
   content: 'Korpa'; display: inline-block; font-family: 'Montserrat', sans-serif; font-size: .85rem; font-weight: 600;
   color: #222; padding: 8px 14px !important; margin: 0 !important; white-space: nowrap; line-height: normal;
 }
+
+/* BAC-39: cookie consent banner (gates the Meta pixel). */
+#bac-consent {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 720px; margin: 0 auto; z-index: 100000;
+  background: #fff; color: #111; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.18); padding: 16px 18px;
+  font-family: 'Montserrat', Arial, sans-serif; font-size: 14px; line-height: 1.45;
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap; box-sizing: border-box;
+}
+#bac-consent .bac-consent-text { flex: 1 1 300px; min-width: 0; }
+#bac-consent .bac-consent-text a { color: #13928a; text-decoration: underline; }
+#bac-consent .bac-consent-btns { display: flex; gap: 10px; flex: 0 0 auto; }
+#bac-consent button {
+  min-height: 44px; padding: 11px 18px; border-radius: 8px; font: 700 14px/1.2 'Montserrat', Arial, sans-serif; cursor: pointer; box-sizing: border-box;
+}
+#bac-consent #bac-consent-yes { background: #1ab2a7; color: #fff; border: 0; }
+#bac-consent #bac-consent-no { background: #fff; color: #13928a; border: 2px solid #1ab2a7; }
+@media (max-width: 480px) {
+  #bac-consent .bac-consent-btns { flex: 1 1 100%; }
+  #bac-consent button { flex: 1; }
+}
+
+/* BAC-40: tap-to-open dropdowns on touch tablets (wider than 860px; below that the menus are flattened, BAC-19). */
+@media (min-width: 861px) {
+  nav.n .n-dd.bac-open > .n-dd-menu { display: block !important; }
+}

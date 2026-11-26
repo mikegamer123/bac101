@@ -25,6 +25,9 @@ Evidence fetched 2026-10-29.
 | BAC-36 | css | `#section-akMPQ975W4` (/katalog), `#section-12sa5qbPON` (/terms-conditions), `#section-mPpw4s6out` (/privacy-policy) | Each page ends with an 807px copy of the home hero after the footer. Hidden; delete the sections in the builder. |
 | BAC-37 | css/js | `#button-tbTbiszUH0_btn`, `.show-more`, `a[data-bac-split]` | Envelope icon hidden at 641-1024px (it wrapped onto its own line), 10px tap padding on "Prikaži još", split phone links lose their 6px left margin. |
 | BAC-38 | css | `nav.n .n-links:not(:has([data-bac-cart]))::after` | Same-styled "Korpa" placeholder until the JS link exists, so the centred menu does not shift. Padding needs !important: the page CSS resets `#b101nav *::after` padding. Verified identical item positions at 1366/1024/375. |
+| BAC-39 | js+css | `#bac-consent`, `bac_consent` in localStorage, `[data-bac-consent-open]` | Cookie banner appended to `body` (survives GHL re-renders, re-inserted by `run()`); click listener registered once. The head snippet reads `bac_consent` before `fbq('init')`; Prihvatam -> `fbq('consent','grant')` + PageView. Footer link "Podešavanja kolačića" reopens it. |
+| BAC-40 | js+css | `nav.n .n-dd > span`, `.n-dd.bac-open` | Dropdowns opened on :hover only; tap toggles `bac-open` (>860px only; <=860px menus stay flattened, BAC-19). |
+| BAC-41 | js | `fbq` events, `parseRsd` | Contact (tel/mailto/wa.me/viber, footer email button), Lead ("Pošalji" with valid email + phone, once), AddToCart, ViewContent (/product-details), InitiateCheckout (/checkout). All guarded by `window.fbq`. |
 
 Note: the split buttons lose GHL button styling classes only partly (anchors are cloned shallowly, so classes stay but inner spans are replaced by plain text); check visually.
 

@@ -56,6 +56,9 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-36 | Medium | Leftover home hero below the footer on /katalog, /terms-conditions, /privacy-policy | CSS + Builder | patch ready | manual |
 | BAC-37 | Low | Store footer contact column cramped on tablets; small "Prikaži još" tap target; phone links indented | CSS/JS | patch ready | manual |
 | BAC-38 | Medium | Menu jumps on page load: "Korpa" is added by JS and dropped again by GHL hydration | CSS | patch ready | manual |
+| BAC-39 | High | No cookie consent; Meta pixel must not fire before consent | JS/CSS + GHL head | patch ready | manual |
+| BAC-40 | Medium | Header dropdowns open only on hover; unusable on touch tablets | CSS/JS | patch ready | manual |
+| BAC-41 | Medium | No Meta pixel conversion events (Contact, Lead, AddToCart, ViewContent, InitiateCheckout) | JS | patch ready | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
@@ -331,3 +334,21 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - **Channel**: CSS/JS + Builder
 - **Status**: patch ready
 - **Notes**: `fixOrderLine` replaces the hero line "Poručite online – dostava na adresu!" with "Poručite telefonom ili putem WhatsApp-a – dostava na adresu!" while `ORDERS_BLOCKED` is true. Set `ORDERS_BLOCKED = false` when the order block is removed. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-39 - Cookie consent banner gating the Meta pixel
+- **Priority**: High
+- **Channel**: JS/CSS + GHL head setting
+- **Status**: patch ready
+- **Notes**: `fixConsentBanner` shows `#bac-consent` until a choice is stored in localStorage `bac_consent` (`granted`/`denied`). The head snippet must call `fbq('consent', ...)` from that key before `fbq('init')`. "Prihvatam" grants consent and sends the suppressed PageView. Footer link "Podešavanja kolačića" (after "Politika privatnosti") reopens the banner. Verify live after deploy and in Meta Events Manager.
+
+### BAC-40 - Header dropdowns do not open on touch tablets
+- **Priority**: Medium
+- **Channel**: CSS/JS
+- **Status**: patch ready
+- **Notes**: Tap on `.n-dd > span` toggles `.bac-open` (width > 860px); a tap elsewhere closes. Below 861px menus stay flattened (BAC-19). Verify on a 1024px touch device.
+
+### BAC-41 - Meta pixel conversion events
+- **Priority**: Medium
+- **Channel**: JS
+- **Status**: patch ready
+- **Notes**: Contact, Lead (once per load), AddToCart, ViewContent, InitiateCheckout via `window.fbq`; consent is enforced by fbq. `parseRsd` converts "20.825 din" / "din.20825.00" / "1.250,50 din". Verify in Meta Events Manager (test events).
