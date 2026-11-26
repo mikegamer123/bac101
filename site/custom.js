@@ -251,7 +251,8 @@
 
   /* BAC-30: the cart shows the variant as a bare number ("25"). */
   function fixVariants() {
-    var vs = document.querySelectorAll('.product-variant');
+    /* .product-variant: drawer and checkout; .cart-item-variant: the /cart page. */
+    var vs = document.querySelectorAll('.product-variant, .cart-item-variant');
     for (var i = 0; i < vs.length; i++) {
       var t = vs[i].textContent.trim();
       if (/^\d+$/.test(t) && vs[i].children.length === 0) vs[i].textContent = t + ' pranja';
