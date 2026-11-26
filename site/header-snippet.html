@@ -1,9 +1,14 @@
 <!-- In GHL: Website > Settings > Head tracking code. Pinned to a commit: after each push, update both URLs to the new SHA. @main is served stale by jsDelivr. -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mikegamer123/bac101@f73dc833a9ece22e345d1053577bbce171de5e8e/site/custom.css">
-<script src="https://cdn.jsdelivr.net/gh/mikegamer123/bac101@f73dc833a9ece22e345d1053577bbce171de5e8e/site/custom.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mikegamer123/bac101@74145c5e828d5713897f2dd7b582d6942ee783ac/site/custom.css">
+<script src="https://cdn.jsdelivr.net/gh/mikegamer123/bac101@74145c5e828d5713897f2dd7b582d6942ee783ac/site/custom.js" defer></script>
 <!--
  Cache: jsDelivr caches @main for up to ~12h. After each push purge:
    https://purge.jsdelivr.net/gh/mikegamer123/bac101@main/site/custom.css
    https://purge.jsdelivr.net/gh/mikegamer123/bac101@main/site/custom.js
  Production: pin a commit or tag (e.g. @v1.0.0 or @<sha>) instead of @main; immutable and cached long.
+-->
+<!--
+ Below these two tags the GHL head code also holds the Meta pixel (1191932416843571), consent-gated (BAC-39):
+   fbq('consent', (function(){try{return localStorage.getItem('bac_consent')==='granted'?'grant':'revoke'}catch(e){return 'revoke'}})());
+ placed right before fbq('init', ...). The <noscript> image fallback was removed: it sent PageView without consent.
 -->
