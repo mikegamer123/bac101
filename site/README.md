@@ -20,6 +20,8 @@ Evidence fetched 2026-10-29.
 | BAC-31 | js+css | `.hl-checkout-btn` on /cart | Hidden (`.bac-hidden`) while "Vaša korpa je prazna" is on the page. |
 | BAC-32 | js+css | `.partner-count`, `.city-count`, `#bac-stat-*`, `.dist-socials` | Serbian plural; title/description/og numbers synced with stats; social buttons wrap. |
 | BAC-33 | css | `.warning h4` on /pepeo | Orange heading on #fff8f0 unreadable -> `#b3530a`. |
+| BAC-34 | js | `.grid .card .card-name`, `.card-code`, `.card-desc` on /katalog | CF101 is out of stock (`content/prices.md`); store sells "DC101 za AdBlue" and "FC101 i SC101". `fixCatalogCopy` rewrites the two cards (idempotent on current name); `PRODUCTS` keeps old and new keys. |
+| BAC-35 | js | text node "Poručite online – dostava na adresu!" on `/`, `/glavna` | Orders are blocked (`ORDERS_BLOCKED`), so the hero line becomes "Poručite telefonom ili putem WhatsApp-a – dostava na adresu!". Set `ORDERS_BLOCKED = false` with the order block. |
 
 Note: the split buttons lose GHL button styling classes only partly (anchors are cloned shallowly, so classes stay but inner spans are replaced by plain text); check visually.
 

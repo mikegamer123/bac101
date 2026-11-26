@@ -102,6 +102,8 @@
   }
 
   /* TEMPORARY: orders are blocked until prices and shipping are confirmed. Remove to open checkout. */
+  /* Removing the order block below means setting ORDERS_BLOCKED to false as well (used by fixOrderLine, BAC-35). */
+  var ORDERS_BLOCKED = true;
   var ORDER_RE = /^\s*(continue|nastavi)\s*$|place order|complete|confirm|pay now|^pay|submit|buy|poruč|naruči|plati|potvrdi|završi/i;
   function onCheckout() { return /\/checkout/.test(location.pathname); }
   function blockCheckout() {
@@ -296,8 +298,41 @@
   var PRODUCTS = {
     'BAC101 DPF': '6ae7404d90f5beded40f2c13',
     'DC101 & CF101': '6ae741bc7d1cf14640a9a59f',
-    'FC101 & SC101': '6ae7422255bfb617cd3f0f97'
+    'FC101 & SC101': '6ae7422255bfb617cd3f0f97',
+    'DC101 za AdBlue': '6ae741bc7d1cf14640a9a59f',
+    'FC101 i SC101': '6ae7422255bfb617cd3f0f97'
   };
+  /* BAC-34: CF101 is out of stock; show the store names and AdBlue-only copy. Runs before fixCatalog. */
+  function fixCatalogCopy() {
+    if (!/^\/katalog/.test(location.pathname)) return;
+    var names = document.querySelectorAll('.grid .card .card-name');
+    for (var i = 0; i < names.length; i++) {
+      var t = names[i].textContent.trim();
+      var body = names[i].parentNode;
+      if (t === 'DC101 & CF101') {
+        names[i].textContent = 'DC101 za AdBlue';
+        var code = body.querySelector('.card-code');
+        if (code) code.textContent = 'AdBlue DEF Anti-Crystal';
+        var desc = body.querySelector('.card-desc');
+        if (desc) desc.innerHTML = ' Adblue DEF Anti-Crystal formula za dizel motore. Sprečava kristalizaciju AdBlue tečnosti. <ul><li>Adblue DEF Anti-Crystal zaštita</li><li>Sprečava kristalizaciju</li><li>Formulisano za dizel motore</li></ul> ';
+      } else if (t === 'FC101 & SC101') {
+        names[i].textContent = 'FC101 i SC101';
+      }
+    }
+  }
+  /* BAC-35: the hero promises online ordering while orders are blocked. */
+  function fixOrderLine() {
+    if (!ORDERS_BLOCKED) return;
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    var n, hits = [];
+    while ((n = w.nextNode())) {
+      if (n.nodeValue.trim() === 'Poručite online – dostava na adresu!') hits.push(n);
+    }
+    for (var i = 0; i < hits.length; i++) {
+      var v = hits[i].nodeValue;
+      hits[i].nodeValue = v.replace('Poručite online – dostava na adresu!', 'Poručite telefonom ili putem WhatsApp-a – dostava na adresu!');
+    }
+  }
   function fixCatalog() {
     var names = document.querySelectorAll('.grid .card .card-name');
     for (var i = 0; i < names.length; i++) {
@@ -323,7 +358,7 @@
   }
 
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalog, fixNav];
+    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }

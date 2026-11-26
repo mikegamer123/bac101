@@ -51,6 +51,8 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-31 | Medium | Empty cart still shows checkout button | CSS/JS + Builder | patch ready | manual |
 | BAC-32 | Medium | /partneri plurals, stale SEO numbers, overflowing socials | CSS/JS + Builder | patch ready | manual |
 | BAC-33 | Medium | /pepeo warning heading unreadable | CSS/JS + Builder | patch ready | manual |
+| BAC-34 | Medium | /katalog still advertises CF101 (out of stock) | CSS/JS + Builder | patch ready | manual |
+| BAC-35 | High | Homepage promises online ordering while blocked | CSS/JS + Builder | patch ready | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
@@ -314,3 +316,15 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - **Channel**: CSS/JS + Builder
 - **Status**: patch ready
 - **Notes**: `.warning h4` colour `#b3530a` on `#fff8f0` (contrast ~4.9:1). Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-34 - /katalog still advertises CF101 (out of stock)
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixCatalogCopy` (runs before `fixCatalog`) renames the "DC101 & CF101" card to "DC101 za AdBlue" with AdBlue-only copy and "FC101 & SC101" to "FC101 i SC101" (store names). `PRODUCTS` has both old and new keys. Interim; proper fix is editing the static /katalog HTML. Verify live after deploy.
+
+### BAC-35 - Homepage promises online ordering while orders are blocked
+- **Priority**: High
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixOrderLine` replaces the hero line "Poručite online – dostava na adresu!" with "Poručite telefonom ili putem WhatsApp-a – dostava na adresu!" while `ORDERS_BLOCKED` is true. Set `ORDERS_BLOCKED = false` when the order block is removed. Interim; proper fix in the builder. Verify live after deploy.
