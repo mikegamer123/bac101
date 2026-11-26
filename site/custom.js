@@ -41,6 +41,26 @@
     }
   }
 
+  /* BAC-24: GHL prints RSD as "din.20825.00"; show "20.825 din". Output has no "din." so it cannot re-match. */
+  function formatDin(whole, dec) {
+    var w = whole.replace(/^0+(?=\d)/, '').replace(/\B(?=(\d{3})+$)/g, '.');
+    var d = dec ? (dec.length === 1 ? dec + '0' : dec) : '00';
+    return w + (d === '00' ? '' : ',' + d) + ' din';
+  }
+  function fixPrices() {
+    var store = document.body.classList.contains('bac-store');
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var n;
+    while ((n = w.nextNode())) {
+      if (/^(SCRIPT|STYLE|TEXTAREA)$/.test(n.parentNode.nodeName)) continue;
+      var v = n.nodeValue;
+      if (store && /^\s*€0[.,]00\s*$/.test(v)) { n.nodeValue = '0 din'; continue; }
+      if (v.indexOf('din.') === -1) continue;
+      var r = v.replace(/din\.\s?(\d+)(?:[.,](\d{1,2}))?/g, function (m, a, b) { return formatDin(a, b); });
+      if (r !== v) n.nodeValue = r;
+    }
+  }
+
   /* BAC-01: Serbian store labels (the builder has no field for them). */
   var LABELS = {
     'add to cart': 'Dodaj u korpu', 'buy now': 'Kupi odmah', 'view cart': 'Pogledaj korpu',
@@ -52,6 +72,8 @@
     'city name': 'Grad', 'zip code': 'Poštanski broj', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
     'add notes to your order': 'Dodajte napomenu uz porudžbinu', 'cart summary': 'Pregled korpe', 'edit cart': 'Izmeni korpu',
     'apply': 'Primeni', 'continue': 'Nastavi', 'enter coupon code': 'Unesite kod kupona', 'log in to use your saved addresses': 'Prijavite se za sačuvane adrese',
+    'payment': 'Plaćanje', 'coupon': 'Kupon', 'show more': 'Prikaži još', 'show less': 'Prikaži manje',
+    'prikazi još': 'Prikaži još', 'prikazi manje': 'Prikaži manje',
     'cash on delivery (cod)': 'Plaćanje pouzećem', 'subtotal': 'Međuzbir', 'total': 'Ukupno', 'quantity': 'Količina', 'price': 'Cena', 'product': 'Proizvod'
   };
   function fixLabels() {
@@ -64,8 +86,12 @@
       if (star) k = k.replace(/\s*\*$/, '');
       var m = k.match(/^only (\d+) items? left in stock$/);
       var added = k.match(/^(\d+) item\(s\) added$/);
+      var qty = t.match(/^qty:\s*(\d+)$/i);
       if (m) n.nodeValue = 'Na stanju još ' + m[1];
       else if (added) n.nodeValue = 'Dodato u korpu: ' + added[1];
+      else if (qty) n.nodeValue = 'Količina: ' + qty[1];
+      else if (k.indexOf('100% secure & safe payments') !== -1) n.nodeValue = '100% sigurna kupovina';
+      else if (n.nodeValue.indexOf('All Rights Reserved') !== -1) n.nodeValue = n.nodeValue.replace('All Rights Reserved', 'Sva prava zadržana');
       else if (LABELS[k]) n.nodeValue = LABELS[k] + (star ? ' *' : '');
     }
     var inputs = document.querySelectorAll('input[placeholder]');
@@ -181,11 +207,87 @@
 
   /* BAC-06: the form's legal links point back to the page itself. */
   function fixLegalLinks() {
-    var map = { 'privacy policy': ['/privacy-policy', 'Politika privatnosti'], 'terms of service': ['/terms-conditions', 'Uslovi korišćenja'] };
+    var map = { 'privacy policy': ['/privacy-policy', 'Politika privatnosti'], 'terms of service': ['/terms-conditions', 'Uslovi korišćenja'], 'terms & conditions': ['/terms-conditions', 'Uslovi korišćenja'] };
     var as = document.querySelectorAll('a');
     for (var i = 0; i < as.length; i++) {
       var m = map[as[i].textContent.trim().toLowerCase()];
       if (m) { as[i].setAttribute('href', m[0]); as[i].textContent = m[1]; }
+    }
+    /* BAC-25: store-page footers have the same two items as plain text. */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var n, hits = [];
+    while ((n = w.nextNode())) if (/^\s*Terms & Conditions \| Privacy Policy\s*$/.test(n.nodeValue) && n.parentNode.nodeName !== 'A') hits.push(n);
+    for (var j = 0; j < hits.length; j++) {
+      var frag = document.createDocumentFragment();
+      var t = document.createElement('a'); t.href = '/terms-conditions'; t.textContent = 'Uslovi korišćenja';
+      var pp = document.createElement('a'); pp.href = '/privacy-policy'; pp.textContent = 'Politika privatnosti';
+      frag.appendChild(t); frag.appendChild(document.createTextNode(' | ')); frag.appendChild(pp);
+      hits[j].parentNode.replaceChild(frag, hits[j]);
+    }
+  }
+
+  /* BAC-26: preselect Serbia on checkout, once; the user's choice wins afterwards. */
+  var countryDone = false;
+  function fixCountry() {
+    if (countryDone || !onCheckout()) return;
+    var sel = document.querySelector('select[name="country"]');
+    if (!sel) return;
+    countryDone = true;
+    if (sel.value === '') {
+      sel.value = 'RS';
+      sel.dispatchEvent(new Event('input', { bubbles: true }));
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  /* BAC-29: hide the pager when there is a single page. */
+  function fixPagination() {
+    var p = document.getElementById('product-list-pagination');
+    if (!p) return;
+    /* (?!\d), not \b: the text runs together as "Strana 1 / 1Sledeća". */
+    if (/Strana\s*1\s*\/\s*1(?!\d)/.test(p.textContent)) { p.style.display = 'none'; p.setAttribute('data-bac-hid', '1'); }
+    else if (p.getAttribute('data-bac-hid')) { p.style.display = ''; p.removeAttribute('data-bac-hid'); }
+  }
+
+  /* BAC-30: the cart shows the variant as a bare number ("25"). */
+  function fixVariants() {
+    var vs = document.querySelectorAll('.product-variant');
+    for (var i = 0; i < vs.length; i++) {
+      var t = vs[i].textContent.trim();
+      if (/^\d+$/.test(t) && vs[i].children.length === 0) vs[i].textContent = t + ' pranja';
+    }
+  }
+
+  /* BAC-31: no checkout button for an empty cart. */
+  function fixEmptyCart() {
+    if (!/\/cart/.test(location.pathname)) return;
+    /* innerText: only visible text, so a hidden empty-cart template cannot hide the button. */
+    var empty = document.body.innerText.indexOf('Vaša korpa je prazna') !== -1;
+    var bs = document.querySelectorAll('.hl-checkout-btn');
+    for (var i = 0; i < bs.length; i++) {
+      if (empty) bs[i].classList.add('bac-hidden'); else bs[i].classList.remove('bac-hidden');
+    }
+  }
+
+  /* BAC-32: /partneri plural forms and SEO strings that follow the computed stats. */
+  function plural(n) { return n + (n % 10 === 1 && n % 100 !== 11 ? ' partner' : ' partnera'); }
+  function fixPartners() {
+    var cs = document.querySelectorAll('.partner-count, .city-count');
+    for (var i = 0; i < cs.length; i++) {
+      var m = cs[i].textContent.trim().match(/^(\d+)\s*partner[a-z]*$/i);
+      if (m) { var r = plural(parseInt(m[1], 10)); if (cs[i].textContent !== r) cs[i].textContent = r; }
+    }
+    if (!/\/partneri/.test(location.pathname)) return;
+    var pe = document.getElementById('bac-stat-partners'), ce = document.getElementById('bac-stat-countries');
+    if (!pe || !ce) return;
+    var p = parseInt(pe.textContent, 10), c = parseInt(ce.textContent, 10);
+    if (!(p > 0 && c > 0)) return;
+    function sync(s) { return s.replace(/\d+( servisa)/, p + '$1').replace(/\d+( zemalja)/, c + '$1').replace(/\d+( partnera)/, p + '$1'); }
+    if (document.title) document.title = sync(document.title);
+    var sels = ['meta[name="description"]', 'meta[property="og:title"]', 'meta[property="og:description"]'];
+    for (var j = 0; j < sels.length; j++) {
+      var el = document.querySelector(sels[j]);
+      if (el && el.content) el.setAttribute('content', sync(el.content));
     }
   }
 
@@ -220,7 +322,7 @@
   }
 
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixLabels, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalog, fixNav];
+    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixCatalog, fixNav];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }
@@ -232,7 +334,7 @@
       var timer = null;
       var mo = new MutationObserver(function () {
         clearTimeout(timer);
-        timer = setTimeout(run, 300);
+        timer = setTimeout(run, 80);
       });
       /* characterData too: the store re-renders drawer text in place, undoing the labels. */
       mo.observe(document.body, { childList: true, subtree: true, characterData: true });

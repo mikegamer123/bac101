@@ -32,6 +32,9 @@ html, body { overflow-x: clip; }
 @media (max-width: 860px) {
   nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
   nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  /* BAC-28: no scrollbar (looked like an underline), fade hint at the right edge. */
+  nav.n .n-links, nav.bac-nav .n-links { scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar, nav.bac-nav .n-links::-webkit-scrollbar { display: none; }
   nav.n .n-dd { display: contents; }
   nav.n .n-dd > span { display: none; }
   nav.n .n-dd-menu { display: contents !important; }
@@ -66,3 +69,31 @@ nav.bac-nav .n-icons img { height: 28px; width: 28px; display: block; }
 .bac-store .hl-checkout-btn:disabled { background: #a8e0dc !important; }
 .bac-store .hl-continue-btn { background: #fff !important; border: 2px solid #1ab2a7 !important; border-radius: 8px !important; color: #13928a !important; font-weight: 700 !important; padding: 12px 20px !important; }
 .bac-store .hl-cart-heading { font-size: 26px !important; font-weight: 800 !important; }
+
+/* BAC-27: phone summary header: 26px heading wrapped and the chevron overlapped "Izmeni korpu". */
+@media (max-width: 640px) {
+  .bac-store .hl-cart-heading { font-size: 20px !important; }
+  .bac-store .cart-summary-heading-container .hl-cart-heading { white-space: nowrap; }
+  .bac-store .cart-summary-heading-container { display: flex !important; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .bac-store .cart-summary-heading-container-left { flex: 1 1 auto; min-width: 0; }
+  .bac-store .cart-summary-heading-container .mobile-flex { display: flex !important; align-items: center; gap: 8px; }
+  .bac-store .chevron.mobile { position: static !important; flex: 0 0 auto; margin: 0 !important; }
+  .bac-store .edit-cart { flex: 0 0 auto; display: flex !important; align-items: center; gap: 4px; white-space: nowrap; font-size: 14px; }
+}
+/* BAC-27: on the smallest phones the heading still clipped; keep only the pencil icon. */
+@media (max-width: 380px) {
+  .bac-store .edit-cart span { display: none; }
+  .bac-store .edit-cart-icon { width: 22px !important; height: 22px !important; }
+}
+
+/* BAC-29: tall bottles were cropped in the list squares. */
+.hl-product-list-item-details .image-wrapper img { object-fit: contain !important; background: #fff; }
+
+/* BAC-31: hidden checkout button on an empty cart. */
+.bac-hidden { display: none !important; }
+
+/* BAC-32: featured distributor social buttons overflow on phones. */
+.dist-socials { flex-wrap: wrap; }
+
+/* BAC-33: /pepeo warning heading contrast (#b3530a on #fff8f0 is about 4.9:1). */
+.warning h4 { color: #b3530a !important; }

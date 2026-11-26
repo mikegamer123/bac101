@@ -10,6 +10,16 @@ Evidence fetched 2026-10-29.
 | BAC-16 (partial) | css | `#b101 .h-left`, `.h-left-in` (inside grid `#b101 .h`) | Home `/`: `.h-left{padding:80px 64px}`, `.h-left-in{max-width:480px}`. At 641-1024px adds 32px side padding and word-wrap. **Hero image lazy-loading is a Builder fix** (late JS cannot fix it). |
 | BAC-12 | js | `link[rel=canonical]` | Home already has `<link rel="canonical" href="https://bac101.rs/">`; JS adds one only when missing. Real fix: server-side redirect in GHL. |
 | BAC-10 | js | `a[href^="tel:"]` with two numbers in text | Product page: `<a id="button-fvSXmeIoMT_btn" href="tel:+381 63268391" aria-label="+381 621978511 &amp; +381 63268391">` (a GHL button, text spread over spans). Split into `tel:+381621978511` and `tel:+38163268391`. Home footer already has separate anchors (untouched). Idempotent via `data-bac-split`. |
+| BAC-24 | js | text nodes `din.N.NN` | GHL prints RSD as `din.20825.00` (product, list, cart, drawer, checkout). Rewritten to `20.825 din`; store `€0.00` placeholder -> `0 din`. |
+| BAC-25 | js | `LABELS`, `fixLabels`, `fixLegalLinks` | Remaining English: Payment, Coupon, Show more/less, `Qty: n`, `100% Secure & Safe Payments`, `All Rights Reserved`, `Terms & Conditions`. |
+| BAC-26 | js | `select[name="country"]` on /checkout | Starts at `""`; set to `RS` once per page load and fire input/change for Vue. |
+| BAC-27 | css | `.cart-summary-heading-container`, `.hl-cart-heading`, `.chevron.mobile`, `.edit-cart` | <=640px: 26px heading wrapped and chevron overlapped "Izmeni korpu". 20px heading, flex row. |
+| BAC-28 | css | `nav.n .n-links`, `nav.bac-nav .n-links` | <=860px: scrollbar looked like an underline; hidden, right-edge mask fade added. |
+| BAC-29 | css+js | `.hl-product-list-item-details .image-wrapper img`, `#product-list-pagination` | Tall bottles cropped (cover) -> contain. Pager hidden when "Strana 1 / 1". |
+| BAC-30 | js | `.product-variant` | Bare digits ("25") -> "25 pranja". |
+| BAC-31 | js+css | `.hl-checkout-btn` on /cart | Hidden (`.bac-hidden`) while "Vaša korpa je prazna" is on the page. |
+| BAC-32 | js+css | `.partner-count`, `.city-count`, `#bac-stat-*`, `.dist-socials` | Serbian plural; title/description/og numbers synced with stats; social buttons wrap. |
+| BAC-33 | css | `.warning h4` on /pepeo | Orange heading on #fff8f0 unreadable -> `#b3530a`. |
 
 Note: the split buttons lose GHL button styling classes only partly (anchors are cloned shallowly, so classes stay but inner spans are replaced by plain text); check visually.
 

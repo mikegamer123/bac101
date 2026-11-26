@@ -41,6 +41,16 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 | BAC-21 | High | Cart page had template header (Business Name) | Builder | verified | manual |
 | BAC-22 | High | /katalog cards had no product links | CSS/JS + Builder | patched (interim) | manual |
 | BAC-23 | High | Store pages used a different menu and off-brand buttons | CSS/JS + Builder | patched (interim) | manual |
+| BAC-24 | High | Prices shown as "din.20825.00" | CSS/JS + Builder | patch ready | manual |
+| BAC-25 | Medium | Remaining English store/checkout labels | CSS/JS + Builder | patch ready | manual |
+| BAC-26 | Medium | Checkout country not preselected | CSS/JS + Builder | patch ready | manual |
+| BAC-27 | High | Cart summary header breaks on phones | CSS/JS + Builder | patch ready | manual |
+| BAC-28 | Low | Mobile nav scrollbar looks like an underline | CSS/JS + Builder | patch ready | manual |
+| BAC-29 | Medium | Product list crops bottles; pager shown for one page | CSS/JS + Builder | patch ready | manual |
+| BAC-30 | Medium | Cart variant shown as bare "25" | CSS/JS + Builder | patch ready | manual |
+| BAC-31 | Medium | Empty cart still shows checkout button | CSS/JS + Builder | patch ready | manual |
+| BAC-32 | Medium | /partneri plurals, stale SEO numbers, overflowing socials | CSS/JS + Builder | patch ready | manual |
+| BAC-33 | Medium | /pepeo warning heading unreadable | CSS/JS + Builder | patch ready | manual |
 
 ### Live check, 2026-10-29 (before any change)
 - Already OK on the live site: BAC-06 (no example.com links, but a real privacy policy page is still unverified), BAC-09 (/videi has 6 videos and its own title), BAC-12 (/ and /glavna both have canonical -> https://bac101.rs/; a redirect is still nicer), BAC-17 (no horizontal overflow at 375px on /, /glavna, /kako-radi, /videi, /istorija, /bac101, /kontakt, /studija, /products-list, product page). Status `check` = confirm with the owner, then close.
@@ -244,3 +254,63 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - **Audit check**: `check_mobile_overflow`
 - **Original (P22)**: "Na telefonu je stranica malo šira od ekrana (388px na ekranu od 375px) zbog ugrađenog videa, pa se malo pomera ulevo i udesno."
 - **Notes**: Interim `max-width:100%` on iframes/video in `site/` CSS. The audit only flags fixed-width iframes; real overflow needs a browser check.
+
+### BAC-24 - Prices shown as "din.20825.00"
+- **Priority**: High
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: GHL renders RSD prices as `din.N.NN` everywhere (product, list, cart, drawer, checkout). Interim JS `fixPrices` shows `20.825 din`; the `€0.00` cart placeholder becomes `0 din`. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-25 - Remaining English store/checkout labels
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: Payment, Coupon, Show more/less, `Qty:`, "100% Secure & Safe Payments", footer "All Rights Reserved", "Terms & Conditions" translated in `LABELS`/`fixLabels`/`fixLegalLinks`. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-26 - Checkout country not preselected
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixCountry` sets `select[name="country"]` to `RS` once per page load, firing input/change. User choice wins afterwards. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-27 - Cart summary header breaks on phones
+- **Priority**: High
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: BAC-23 26px heading wrapped and the chevron overlapped "Izmeni korpu" at <=640px. CSS gives a 20px nowrap heading and a flex row. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-28 - Mobile nav scrollbar looks like an underline
+- **Priority**: Low
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: Scrollbar hidden on `.n-links` (nav.n and nav.bac-nav), right-edge mask fade hints at scrolling. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-29 - Product list crops bottles; pager shown for one page
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `object-fit: contain` on list images; `fixPagination` hides `#product-list-pagination` when it reads "Strana 1 / 1". Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-30 - Cart variant shown as bare "25"
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixVariants` rewrites digit-only `.product-variant` text to "N pranja" (cart, drawer, checkout). Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-31 - Empty cart still shows checkout button
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixEmptyCart` toggles `.bac-hidden` on `.hl-checkout-btn` on /cart based on "Vaša korpa je prazna". Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-32 - /partneri plurals, stale SEO numbers, overflowing socials
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `fixPartners` normalises "N partner/partnera" and syncs title/description/og numbers with `#bac-stat-partners`/`#bac-stat-countries`; `.dist-socials` wraps. Interim; proper fix in the builder. Verify live after deploy.
+
+### BAC-33 - /pepeo warning heading unreadable
+- **Priority**: Medium
+- **Channel**: CSS/JS + Builder
+- **Status**: patch ready
+- **Notes**: `.warning h4` colour `#b3530a` on `#fff8f0` (contrast ~4.9:1). Interim; proper fix in the builder. Verify live after deploy.
