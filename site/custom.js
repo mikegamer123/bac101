@@ -70,7 +70,7 @@
     'item(s) added': 'proizvod(a) dodato', 'out of stock': 'Nema na stanju', 'checkout': 'Nastavi na plaćanje',
     'my cart': 'Moja korpa', 'contact': 'Kontakt', 'email address': 'Email adresa', 'shipping details': 'Podaci za dostavu',
     'full name': 'Ime i prezime', 'phone number': 'Telefon', 'full address': 'Adresa', 'country': 'Država',
-    'city name': 'Grad', 'zip code': 'Poštanski broj', 'state / province': 'Opština', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
+    'city name': 'Grad', 'zip code': 'Poštanski broj', 'state / province': 'Opština', 'serbia': 'Srbija', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
     'add notes to your order': 'Dodajte napomenu uz porudžbinu', 'cart summary': 'Pregled korpe', 'edit cart': 'Izmeni korpu',
     'apply': 'Primeni', 'continue': 'Nastavi', 'enter coupon code': 'Unesite kod kupona', 'log in to use your saved addresses': 'Prijavite se za sačuvane adrese',
     'payment': 'Plaćanje', 'coupon': 'Kupon', 'show more': 'Prikaži još', 'show less': 'Prikaži manje',
@@ -537,8 +537,33 @@
     }
   }
 
+  /* BAC-43: the site's own contact cards (homepage, /kontakt) had no submit logic, so every message was lost.
+     Swap each card for the GHL form "Kontakt Bac101" (bot protection, CRM contact, email notification). */
+  var FORM_ID = 'MFkmm0K1Hc0UzzWDRlCy';
+  function fixContactForm() {
+    var cards = document.querySelectorAll('#b101 .ct-card, #b101k .ct-card');
+    if (!cards.length) return;
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      if (card.getAttribute('data-bac-form')) continue;
+      card.setAttribute('data-bac-form', '1');
+      card.style.cssText = 'padding:0;background:transparent;box-shadow:none;overflow:hidden;border-radius:14px;max-width:520px;width:100%;';
+      card.innerHTML = '<iframe src="https://api.leadconnectorhq.com/widget/form/' + FORM_ID + '" id="inline-' + FORM_ID +
+        '" data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate"' +
+        ' data-form-name="Kontakt Bac101" data-height="990" data-layout-iframe-id="inline-' + FORM_ID + '" data-form-id="' + FORM_ID +
+        '" title="Kontakt Bac101" style="width:100%;height:990px;border:none;display:block;"></iframe>';
+      var legal = card.parentNode && card.parentNode.querySelector(':scope > .ct-legal');
+      if (legal) legal.style.display = 'none'; /* the form carries its own consent text and policy links */
+    }
+    if (!document.querySelector('script[src*="form_embed.js"]')) {
+      var s = document.createElement('script');
+      s.src = 'https://link.msgsndr.com/js/form_embed.js';
+      document.body.appendChild(s);
+    }
+  }
+
   function run() {
-    var fixes = [fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixConsentLink, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav, fixConsentBanner, fixPixelEvents];
+    var fixes = [fixContactForm,fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixConsentLink, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav, fixConsentBanner, fixPixelEvents];
     for (var i = 0; i < fixes.length; i++) {
       try { fixes[i](); } catch (e) { /* never throw */ }
     }

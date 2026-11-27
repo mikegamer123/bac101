@@ -356,5 +356,17 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 ### BAC-42 - Builder copies of the patches
 - **Priority**: Medium
 - **Channel**: Builder (paste site/pages/*.html)
-- **Status**: patch ready
+- **Status**: done 2026-11-27 (all 13 pages published, verified with scripts/verify_pages.py)
 - **Notes**: The 13 files in `site/pages/` now contain the runtime fixes of `custom.js`/`custom.css` as page source: nav "Korpa" link (`data-bac-cart`), Serbian footer and contact-form legal links, BAC-17/18/19/28 CSS (+ BAC-16 hero on home, BAC-22 buttons on katalog), home order line (BAC-35), katalog cards (out-of-stock cards removed, AdBlue/FC101 copy, product buttons), partneri Serbian plurals, pepeo warning heading colour. `custom.js` stays compatible (checks for existing markup). Needs pasting into each page in the builder and Publish; see `site/pages/README.md`.
+
+### BAC-43 - Contact forms sent nothing
+- **Priority**: High
+- **Channel**: custom.js + GHL form "Kontakt Bac101" (MFkmm0K1Hc0UzzWDRlCy)
+- **Status**: form fixed in GHL; custom.js swap waiting for deploy
+- **Notes**: The cards on the homepage and /kontakt were static HTML; "Pošalji" had no submit logic and the GHL form had zero submissions. Its submit endpoint needs a Turnstile token, so custom.js (`fixContactForm`) swaps each `.ct-card` for the embedded GHL form (+ form_embed.js for height). Form fixed in the form builder: policy links were example.com (now bac101.rs, Serbian text), email notification on (to bac.101dpfcleaner@gmail.com), thank-you message in Serbian instead of an empty redirect.
+
+### BAC-44 - Terms said euros and prepayment
+- **Priority**: Medium
+- **Channel**: Builder (/terms-conditions) + custom.js
+- **Status**: terms page live 2026-11-27; "Srbija" label waiting for deploy
+- **Notes**: Section 4 now says dinars (RSD) and cash on delivery; section 3 no longer says orders wait for payment. Checkout country "Serbia" shown as "Srbija" (custom.js LABELS).
