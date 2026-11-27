@@ -362,11 +362,11 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 ### BAC-43 - Contact forms sent nothing
 - **Priority**: High
 - **Channel**: custom.js + GHL form "Kontakt Bac101" (MFkmm0K1Hc0UzzWDRlCy)
-- **Status**: form fixed in GHL; custom.js swap waiting for deploy
-- **Notes**: The cards on the homepage and /kontakt were static HTML; "Pošalji" had no submit logic and the GHL form had zero submissions. Its submit endpoint needs a Turnstile token, so custom.js (`fixContactForm`) swaps each `.ct-card` for the embedded GHL form (+ form_embed.js for height). Form fixed in the form builder: policy links were example.com (now bac101.rs, Serbian text), email notification on (to bac.101dpfcleaner@gmail.com), thank-you message in Serbian instead of an empty redirect.
+- **Status**: done 2026-11-27 (live c5aaa67; form_embed.js dropped, frame height set by width)
+- **Notes**: The cards on the homepage and /kontakt were static HTML; "Pošalji" had no submit logic and the GHL form had zero submissions. Its submit endpoint needs a Turnstile token, so custom.js (`fixContactForm`) swaps each `.ct-card` for the embedded GHL form (no form_embed.js: it hid the frame when the size message came first). Form fixed in the form builder: policy links were example.com (now bac101.rs, Serbian text), email notification on (to bac.101dpfcleaner@gmail.com), thank-you message in Serbian instead of an empty redirect.
 
 ### BAC-44 - Terms said euros and prepayment
 - **Priority**: Medium
 - **Channel**: Builder (/terms-conditions) + custom.js
-- **Status**: terms page live 2026-11-27; "Srbija" label waiting for deploy
+- **Status**: done 2026-11-27
 - **Notes**: Section 4 now says dinars (RSD) and cash on delivery; section 3 no longer says orders wait for payment. Checkout country "Serbia" shown as "Srbija" (custom.js LABELS).
