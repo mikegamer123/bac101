@@ -1,0 +1,346 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101i{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;color:#111;}
+#b101i *,#b101i *::before,#b101i *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101i a{text-decoration:none;color:inherit;}
+#b101i img{max-width:100%;display:block;}
+
+/* NAV */
+#b101i .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101i .n-logo img{height:36px;}
+#b101i .n-links{display:flex;align-items:center;gap:2px;}
+#b101i .n-links a,#b101i .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101i .n-links a:hover,#b101i .n-dd>span:hover{color:#1ab2a7;}
+#b101i .n-dd{position:relative;}
+#b101i .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101i .n-dd:hover .n-dd-menu{display:block;}
+#b101i .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101i .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101i .n-icons{display:flex;align-items:center;gap:8px;}
+#b101i .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101i .n-icons a img{width:26px;height:26px;object-fit:contain;}
+
+/* HERO */
+#b101i .hero{background:#1ab2a7;padding:80px 80px 72px;text-align:center;width:100%;}
+#b101i .hero h1{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;}
+#b101i .hero p{font-size:0.95rem;color:rgba(255,255,255,0.85);max-width:720px;margin:0 auto;line-height:1.75;}
+
+/* STATS */
+#b101i .stats{background:#111;padding:48px 80px;}
+#b101i .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1000px;margin:0 auto;}
+#b101i .stat{text-align:center;}
+#b101i .stat .num{font-size:2.4rem;font-weight:800;color:#1ab2a7;line-height:1;}
+#b101i .stat .label{font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:6px;font-weight:500;}
+
+/* CONTENT */
+#b101i .content{padding:72px 80px;width:100%;}
+#b101i .content-in{max-width:860px;margin:0 auto;}
+
+#b101i .chapter{margin-bottom:52px;}
+#b101i .chapter-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#1ab2a7;margin-bottom:8px;}
+#b101i .chapter h2{font-size:1.2rem;font-weight:800;color:#111;margin-bottom:16px;}
+#b101i .chapter h3{font-size:0.95rem;font-weight:700;color:#1ab2a7;margin:20px 0 8px;}
+#b101i .chapter p{font-size:0.88rem;line-height:1.85;color:#444;margin-bottom:12px;}
+#b101i .chapter ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:8px 0 12px;}
+#b101i .chapter ul li{font-size:0.88rem;color:#444;display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+#b101i .chapter ul li::before{content:'✓';color:#1ab2a7;font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* HIGHLIGHT BOX */
+#b101i .highlight{background:#f0fdfc;border-left:4px solid #1ab2a7;border-radius:0 10px 10px 0;padding:20px 24px;margin:16px 0;}
+#b101i .highlight p{font-size:0.88rem;color:#333;line-height:1.75;margin:0;}
+
+/* EXHIBITIONS */
+#b101i .exhibitions{background:#f6f6f6;border-radius:12px;padding:28px 32px;margin:16px 0;}
+#b101i .exhibitions h3{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#1ab2a7;margin-bottom:14px;}
+#b101i .exhibitions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+#b101i .exhibitions-grid span{background:#fff;border-radius:8px;padding:8px 12px;font-size:0.82rem;font-weight:600;color:#333;text-align:center;}
+
+/* DIVIDER */
+#b101i .divider{border:none;border-top:1px solid #eee;margin:40px 0;}
+
+/* CTA */
+#b101i .cta-strip{background:#1ab2a7;border-radius:12px;padding:36px;text-align:center;margin-top:48px;}
+#b101i .cta-strip p{font-size:1rem;font-weight:700;color:#fff;margin-bottom:18px;}
+#b101i .cta-strip a{display:inline-block;background:#fff;color:#1ab2a7;font-size:0.9rem;font-weight:700;padding:13px 32px;border-radius:8px;font-family:'Montserrat',sans-serif;}
+
+/* FOOTER */
+#b101i .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101i .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101i .ft-brand img{height:32px;margin-bottom:14px;}
+#b101i .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101i .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101i .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101i .ft-col a:hover{color:#fff;}
+#b101i .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101i .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101i .ft-contact a:hover{color:#fff;}
+#b101i .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101i .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);}
+#b101i .ft-soc a img{width:15px;height:15px;}
+#b101i .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101i .ft-bot p,#b101i .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101i .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101i .ft-blinks{display:flex;gap:18px;}
+
+/* FLOAT */
+
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101i .n{padding:0 18px;}
+  #b101i .n-links{display:none;}
+  #b101i .hero{padding:56px 24px;}
+  #b101i .stats{padding:40px 24px;}
+  #b101i .stats-row{grid-template-columns:repeat(2,1fr);}
+  #b101i .content{padding:48px 24px;}
+  #b101i .exhibitions-grid{grid-template-columns:repeat(2,1fr);}
+  #b101i .ft{padding:40px 24px 24px;}
+  #b101i .ft-top{grid-template-columns:1fr;}
+  #b101i .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101i">
+
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd">
+      <span>BAC101 ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/kako-radi">Kako radi</a>
+        <a href="https://bac101.rs/istorija">Istorija</a>
+        <a href="https://bac101.rs/videi">Video datoteke</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd">
+      <span>Testiranja ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a>
+        <a href="https://bac101.rs/studija">Studija slučaja BAC101</a>
+        <a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Istorija BAC101</h1>
+  <p>Put BAC101, revolucionarnog proizvoda za čišćenje DPF-a i katalizatora, predstavlja svedočanstvo inovacije, upornosti i posvećenosti očuvanju životne sredine. Od svog nastanka do isporuke, ovaj put trajao je šest godina.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-row">
+    <div class="stat"><div class="num">6</div><div class="label">Godina razvoja</div></div>
+    <div class="stat"><div class="num">2.400+</div><div class="label">Hemijskih testova</div></div>
+    <div class="stat"><div class="num">40.000+</div><div class="label">AI analiziranih mešavina</div></div>
+    <div class="stat"><div class="num">68.000+</div><div class="label">Doza prodato u Q1</div></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+  <div class="content-in">
+
+    <!-- INTRO -->
+    <div class="chapter">
+      <div class="chapter-label">Uvod</div>
+      <p>Korišćenjem naprednih AI tehnologija za analizu više od 40.000 mogućih hemijskih mešavina, BAC101 je postao vodeći proizvod u automobilskoj industriji. Ovaj dokument prati detaljan put BAC101, ističući važnost regulatorne usklađenosti, uticaj AI u hemijskom testiranju i brzi uspon proizvoda od njegovog lansiranja u oktobru 2023. godine.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 1 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 1</div>
+      <h2>Početak BAC101</h2>
+      <h3>Koncept</h3>
+      <p>Početni koncept BAC101 nastao je iz potrebe da se reše rastuće brige u vezi sa emisijama dizelskih motora i njihovim uticajem na životnu sredinu. Dizelski motori, iako efikasni, poznati su po emisiji čestica i drugih zagađivača, što zahteva efikasna rešenja za čišćenje DPF-a i katalizatora. Osnivači BAC101 su zamislili proizvod koji ne samo da poboljšava performanse i dugovekost ovih komponenta, već i značajno doprinosi smanjenju ugljen-dioksida.</p>
+      <h3>Rani istraživački i razvojni rad</h3>
+      <p>Put je započeo opsežnim istraživanjem postojećih proizvoda za čišćenje i njihovih ograničenja. Glavni fokus bio je na identifikaciji formule koja bi efikasno čistila DPF-ove i katalizatore bez oštećenja motora ili životne sredine. Početni eksperimenti su sprovedeni sa različitim hemijskim jedinjenjima, ali je brzo postalo jasno da je za postizanje ciljeva potrebno ići dalje od tradicionalnih metoda i koristiti najnoviju tehnologiju.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 2 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 2</div>
+      <h2>Korišćenje AI za hemijsko testiranje</h2>
+      <h3>Uloga AI u formulaciji hemikalija</h3>
+      <p>Prepoznavši potencijal veštačke inteligencije (AI) u ubrzavanju istraživačkog procesa, tim BAC101 je integrisao AI u svoje istraživačko-razvojne napore. AI je omogućio simulaciju i testiranje hiljada hemijskih kombinacija u delićima vremena koji bi bili potrebni korišćenjem konvencionalnih metoda.</p>
+      <h3>Proces</h3>
+      <p>AI sistem je programiran da analizira molekularnu strukturu svake komponente i predvidi njeno ponašanje u različitim uslovima. To je uključivalo procenu efikasnosti komponente u razgradnji ugljeničnih naslaga, njenu kompatibilnost sa materijalima motora i njen uticaj na životnu sredinu. Više od 40.000 mogućih hemijskih mešavina je analizirano, a AI je eliminisao one koje su predstavljale rizik.</p>
+      <h3>Postignuća kroz AI</h3>
+      <ul>
+        <li><strong>Ubrzanje procesa testiranja</strong> — AI je smanjio vreme potrebno za hemijska testiranja sa godina na mesece.</li>
+        <li><strong>Poboljšana bezbednost i efikasnost</strong> — AI je pomogao da se identifikuju najefikasnija jedinjenja uz obezbeđivanje da su bezbedna za motore i životnu sredinu.</li>
+        <li><strong>Optimizacija formulacija</strong> — Kontinuirani algoritmi za učenje omogućili su sistemu da unapredi hemijske mešavine na osnovu podataka u realnom vremenu.</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 3 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 3</div>
+      <h2>Striktno testiranje i usavršavanje</h2>
+      <h3>Faza testiranja</h3>
+      <p>Nakon što je AI pružio listu obećavajućih kandidata, tim BAC101 je započeo opsežnu fazu testiranja. Više od 2.400 odvojenih hemijskih testova je sprovedeno kako bi se osigurala efikasnost i bezbednost formulacija. Svaki test je pažljivo dokumentovan, a podaci su korišćeni za postepeno usavršavanje proizvoda.</p>
+      <h3>Izazovi</h3>
+      <p>Faza testiranja nije bila bez svojih izazova. Neke formulacije koje su izgledale obećavajuće u simulacijama nisu prošle u stvarnim uslovima. Ove prepreke su zahtevale da tim više puta vrati radnu ploču, ali svaki neuspeh je pružio vredne uvide koji su vodili narednim testovima.</p>
+      <h3>Proboji</h3>
+      <ul>
+        <li><strong>Efikasno uklanjanje ugljeničnih naslaga</strong> — Konačna formulacija je pokazala izuzetnu sposobnost uklanjanja ugljeničnih naslaga sa DPF-ova i katalizatora.</li>
+        <li><strong>Kompatibilnost sa motorima</strong> — Proizvod se pokazao bezbednim za upotrebu u širokom spektru dizelskih motora.</li>
+        <li><strong>Ekološka bezbednost</strong> — Formulacija je bila ekološki prihvatljiva, što je u skladu sa timskom posvećenošću održivosti.</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 4 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 4</div>
+      <h2>Regulatorna usklađenost</h2>
+      <h3>CE Sertifikacija</h3>
+      <p>CE sertifikacija je označavala da BAC101 zadovoljava stroge standarde sigurnosti, zdravlja i zaštite životne sredine koji su potrebni za proizvode koji se prodaju unutar Evropskog ekonomskog prostora (EEA). Ova sertifikacija bila je ključna za ulazak na evropsko tržište i povećala poverenje potrošača u kvalitet i bezbednost proizvoda.</p>
+      <h3>EPA Usklađenost</h3>
+      <p>U Sjedinjenim Američkim Državama, EPA usklađenost bila je od najveće važnosti. EPA postavlja stroge smernice za proizvode koji utiču na kvalitet vazduha, a BAC101 je morao da pokaže svoju sposobnost smanjenja emisija bez štetnog uticaja na životnu sredinu.</p>
+      <h3>Globalne regulative</h3>
+      <p>Pored CE i EPA, BAC101 je takođe nastojao da se uskladi sa drugim glavnim globalnim regulatorima u Aziji, Africi i Južnoj Americi — čineći ga zaista univerzalnim proizvodom.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 5 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 5</div>
+      <h2>Lansiranje proizvoda</h2>
+      <div class="highlight">
+        <p>Nakon šest godina neumornog istraživanja i razvoja, BAC101 je lansiran u <strong>oktobru 2023. godine</strong>. Do kraja prvog kvartala, prodato je više od <strong>68.000 doza</strong>, pozicionirajući BAC101 kao jedan od vodećih proizvoda u industriji čišćenja DPF-a i katalizatora.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 6 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 6</div>
+      <h2>Globalna ekspanzija</h2>
+      <p>Iako je proizvod na tržištu manje od godinu dana, BAC101 je već bio izložen na nekoliko velikih međunarodnih sajmova:</p>
+      <div class="exhibitions">
+        <h3>Međunarodne izložbe</h3>
+        <div class="exhibitions-grid">
+          <span>🇨🇳 Kina</span>
+          <span>🇦🇪 Dubai</span>
+          <span>🇩🇪 Nemačka</span>
+          <span>🇮🇳 Indija</span>
+          <span>🇲🇦 Maroko</span>
+          <span>🇿🇦 Južna Afrika</span>
+          <span>🇬🇧 UK</span>
+          <span>🇺🇸 SAD</span>
+        </div>
+      </div>
+      <p style="margin-top:16px;">Sa još osam globalnih izložbi već rezervisanih, kompanija je posvećena tome da BAC101 postane broj jedan proizvod za čišćenje DPF-a i katalizatora na svetu.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CH 7 -->
+    <div class="chapter">
+      <div class="chapter-label">Poglavlje 7</div>
+      <h2>Osnovni principi i posvećenost životnoj sredini</h2>
+      <ul>
+        <li><strong>Smanjenje ugljeničnog otiska</strong> — BAC101 je dizajniran sa snažnim fokusom na smanjenje emisije ugljen-dioksida kroz efikasno čišćenje DPF-ova i katalizatora.</li>
+        <li><strong>Dugovekost komponenti</strong> — Održavanjem čistih DPF-ova i katalizatora, BAC101 pomaže u produžavanju njihovog životnog veka i smanjuje potrebu za skupim zamenama.</li>
+        <li><strong>Finansijske i ekološke koristi</strong> — Korisnici mogu da uštede novac na održavanju, dok takođe doprinose čišćoj planeti.</li>
+      </ul>
+    </div>
+
+    <!-- ZAKLJUČAK -->
+    <div class="cta-strip">
+      <p>Put BAC101 od koncepta do lidera na tržištu je izuzetna priča o inovaciji, upornosti i posvećenosti održivosti. Budućnost BAC101 izgleda svetla — pokazujući da je moguće uštedeti novac i spasiti planetu.</p>
+      <a href="https://bac101.rs/kontakt">Kontaktirajte nas</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101">
+      <p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Stranice</h4>
+      <a href="https://bac101.rs/katalog">Katalog</a>
+      <a href="https://bac101.rs/kako-radi">Kako radi</a>
+      <a href="https://bac101.rs/istorija">Istorija</a>
+      <a href="https://bac101.rs/videi">Videi</a>
+      <a href="https://bac101.rs/partneri">Partneri</a>
+      <a href="https://bac101.rs/pepeo">Pepeo</a>
+      <a href="https://bac101.rs/studija">Studija slučaja</a>
+      <a href="https://bac101.rs/testiranje">Testiranje</a>
+      <a href="https://bac101.rs/kontakt">Kontakt</a>
+    </div>
+    <div class="ft-contact">
+      <p>Kontakt</p>
+      <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>
+      <a href="tel:+381621978511">+381 621978511</a>
+      <a href="tel:+38163268391">+381 63268391</a>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a>
+        <a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a>
+        <a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 BAC101 - Sva prava zadržana</p>
+    <div class="ft-blinks">
+      <a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a>
+      <a href="https://rivalidigital.com">Site by Rivali Digital</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

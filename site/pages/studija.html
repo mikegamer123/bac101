@@ -1,0 +1,418 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101st{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;color:#111;}
+#b101st *,#b101st *::before,#b101st *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101st a{text-decoration:none;color:inherit;}
+#b101st img{max-width:100%;display:block;}
+
+/* NAV */
+#b101st .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101st .n-logo img{height:36px;}
+#b101st .n-links{display:flex;align-items:center;gap:2px;}
+#b101st .n-links a,#b101st .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101st .n-links a:hover,#b101st .n-dd>span:hover{color:#1ab2a7;}
+#b101st .n-dd{position:relative;}
+#b101st .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101st .n-dd:hover .n-dd-menu{display:block;}
+#b101st .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101st .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101st .n-icons{display:flex;align-items:center;gap:8px;}
+#b101st .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101st .n-icons a img{width:26px;height:26px;object-fit:contain;}
+
+/* HERO */
+#b101st .hero{background:#1ab2a7;padding:80px 80px 72px;width:100%;}
+#b101st .hero-tag{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+#b101st .hero h1{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px;max-width:700px;}
+#b101st .hero p{font-size:0.95rem;color:rgba(255,255,255,0.85);max-width:680px;line-height:1.75;margin-bottom:32px;}
+#b101st .hero-stats{display:flex;gap:48px;flex-wrap:wrap;}
+#b101st .hero-stat .num{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;}
+#b101st .hero-stat .label{font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:4px;}
+
+/* CONTENT */
+#b101st .content{padding:72px 80px;width:100%;}
+#b101st .content-in{max-width:900px;margin:0 auto;}
+
+/* ABSTRACT */
+#b101st .abstract{background:#f0fdfc;border:1px solid #b2e8e4;border-radius:12px;padding:28px 32px;margin-bottom:48px;}
+#b101st .abstract-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#1ab2a7;margin-bottom:10px;}
+#b101st .abstract p{font-size:0.88rem;line-height:1.85;color:#333;}
+
+/* SECTION */
+#b101st .sec{margin-bottom:52px;}
+#b101st .sec-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#1ab2a7;margin-bottom:8px;}
+#b101st .sec h2{font-size:1.1rem;font-weight:800;color:#111;margin-bottom:16px;}
+#b101st .sec h3{font-size:0.9rem;font-weight:700;color:#1ab2a7;margin:20px 0 8px;}
+#b101st .sec p{font-size:0.88rem;line-height:1.85;color:#444;margin-bottom:10px;}
+
+/* VEHICLES */
+#b101st .vehicles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0;}
+#b101st .vehicle{background:#f6f6f6;border-radius:10px;padding:18px 20px;text-align:center;}
+#b101st .vehicle .icon{font-size:1.8rem;margin-bottom:8px;}
+#b101st .vehicle h4{font-size:0.85rem;font-weight:700;color:#111;margin-bottom:4px;}
+#b101st .vehicle p{font-size:0.78rem;color:#888;margin:0;}
+
+/* PARAMS */
+#b101st .params{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0;}
+#b101st .param{background:#f6f6f6;border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:10px;}
+#b101st .param-dot{width:8px;height:8px;background:#1ab2a7;border-radius:50%;flex-shrink:0;}
+#b101st .param span{font-size:0.85rem;font-weight:600;color:#333;}
+
+/* PROCESS */
+#b101st .phases{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0;}
+#b101st .phase{border-radius:10px;padding:22px;}
+#b101st .phase-1{background:#f0fdfc;border:1px solid #b2e8e4;}
+#b101st .phase-2{background:#111;border:1px solid #333;}
+#b101st .phase h4{font-size:0.85rem;font-weight:800;text-transform:uppercase;margin-bottom:12px;}
+#b101st .phase-1 h4{color:#1ab2a7;}
+#b101st .phase-2 h4{color:#1ab2a7;}
+#b101st .phase ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+#b101st .phase ul li{font-size:0.82rem;display:flex;align-items:flex-start;gap:8px;line-height:1.6;}
+#b101st .phase-1 ul li{color:#333;}
+#b101st .phase-2 ul li{color:rgba(255,255,255,0.65);}
+#b101st .phase ul li::before{content:'→';color:#1ab2a7;font-weight:700;flex-shrink:0;}
+
+/* BIG STAT */
+#b101st .big-stat{background:#111;border-radius:14px;padding:32px;text-align:center;margin:20px 0;}
+#b101st .big-stat .big-num{font-size:4rem;font-weight:800;color:#1ab2a7;line-height:1;}
+#b101st .big-stat .big-sub{font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:8px;}
+#b101st .big-stat .big-desc{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:4px;}
+
+/* RESULTS */
+#b101st .results{display:flex;flex-direction:column;gap:24px;margin:16px 0;}
+#b101st .result-card{border-radius:12px;overflow:hidden;}
+#b101st .result-header{background:#1ab2a7;padding:16px 22px;display:flex;align-items:center;gap:12px;}
+#b101st .result-header h3{font-size:0.9rem;font-weight:800;color:#fff;margin:0;}
+#b101st .result-body{background:#f6f6f6;padding:20px 22px;}
+#b101st .result-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+#b101st .rstat{background:#fff;border-radius:8px;padding:12px 14px;}
+#b101st .rstat .rnum{font-size:1.4rem;font-weight:800;color:#1ab2a7;line-height:1;}
+#b101st .rstat .rlabel{font-size:0.75rem;color:#888;margin-top:3px;}
+#b101st .result-note{font-size:0.85rem;color:#444;line-height:1.7;margin-top:12px;font-style:italic;}
+
+/* DIVIDER */
+#b101st .divider{border:none;border-top:1px solid #eee;margin:40px 0;}
+
+/* SIGNATURE */
+#b101st .signature{background:#f6f6f6;border-radius:12px;padding:24px 28px;display:flex;align-items:center;gap:20px;margin-top:40px;}
+#b101st .sig-avatar{width:56px;height:56px;background:#1ab2a7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:#fff;flex-shrink:0;}
+#b101st .sig-text h4{font-size:0.9rem;font-weight:800;color:#111;}
+#b101st .sig-text p{font-size:0.8rem;color:#888;margin-top:2px;}
+
+/* CTA */
+#b101st .cta-strip{background:#1ab2a7;border-radius:12px;padding:36px;text-align:center;margin-top:48px;}
+#b101st .cta-strip p{font-size:1rem;font-weight:700;color:#fff;margin-bottom:18px;}
+#b101st .cta-strip a{display:inline-block;background:#fff;color:#1ab2a7;font-size:0.9rem;font-weight:700;padding:13px 32px;border-radius:8px;font-family:'Montserrat',sans-serif;}
+
+/* FOOTER */
+#b101st .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101st .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101st .ft-brand img{height:32px;margin-bottom:14px;}
+#b101st .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101st .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101st .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101st .ft-col a:hover{color:#fff;}
+#b101st .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101st .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101st .ft-contact a:hover{color:#fff;}
+#b101st .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101st .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);}
+#b101st .ft-soc a img{width:15px;height:15px;}
+#b101st .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101st .ft-bot p,#b101st .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101st .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101st .ft-blinks{display:flex;gap:18px;}
+
+/* FLOAT */
+
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101st .n{padding:0 18px;}
+  #b101st .n-links{display:none;}
+  #b101st .hero{padding:56px 24px;}
+  #b101st .hero-stats{gap:28px;}
+  #b101st .content{padding:48px 24px;}
+  #b101st .vehicles{grid-template-columns:1fr;}
+  #b101st .params{grid-template-columns:1fr;}
+  #b101st .phases{grid-template-columns:1fr;}
+  #b101st .result-stats{grid-template-columns:1fr 1fr;}
+  #b101st .ft{padding:40px 24px 24px;}
+  #b101st .ft-top{grid-template-columns:1fr;}
+  #b101st .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101st">
+
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd">
+      <span>BAC101 ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/kako-radi">Kako radi</a>
+        <a href="https://bac101.rs/istorija">Istorija</a>
+        <a href="https://bac101.rs/videi">Video datoteke</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd">
+      <span>Testiranja ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a>
+        <a href="https://bac101.rs/studija">Studija slučaja BAC101</a>
+        <a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Studija slučaja BAC101</div>
+  <h1>Efikasnost BAC101 u čišćenju DPF filtera</h1>
+  <p>Dvogodišnja studija sprovedena na 136 vozila u tri zemlje, uz specijalizovana emisiona merenja na Millbrook Proving Ground-u.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">136</div><div class="label">Testiranih vozila</div></div>
+    <div class="hero-stat"><div class="num">3</div><div class="label">Zemlje testiranja</div></div>
+    <div class="hero-stat"><div class="num">95%</div><div class="label">Stopa uspeha</div></div>
+    <div class="hero-stat"><div class="num">37/41</div><div class="label">Nepopravljivih DPF-ova vraćeno u funkciju</div></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+  <div class="content-in">
+
+    <!-- ABSTRACT -->
+    <div class="abstract">
+      <div class="abstract-label">Apstrakt</div>
+      <p>Studija se fokusirala na 2021 Ford Ranger, 2018 Scania R450 i 2019 Renault Traffic, otkrivajući značajna poboljšanja u smanjenju zapušenosti DPF-a i poboljšanju performansi vozila. Od 41 potpuno zapušenog DPF filtera proglašenih nepopravljivim, 37 je uspešno očišćeno i vraćeno u radno stanje — što pokazuje stopu uspeha od <strong>95%</strong>.</p>
+    </div>
+
+    <!-- UVOD -->
+    <div class="sec">
+      <div class="sec-label">Uvod</div>
+      <h2>Pozadina studije</h2>
+      <p>Sa sve većim naglaskom na smanjenje emisija i ekološku odgovornost, filteri čestica dizela (DPF) igraju ključnu ulogu u smanjenju štetnih emisija. Međutim, vremenom se DPF filteri zapuše, što dovodi do smanjene efikasnosti motora, povećane potrošnje goriva i emisija koje premašuju regulatorne granice.</p>
+      <p>Ono što izdvaja BAC101 od uobičajenih metoda čišćenja jeste njegov <strong>dvodelni sistem</strong>, koji temeljno uklanja čađ, pepeo, ugljenik i ulje iz celog DPF-a.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- METODOLOGIJA -->
+    <div class="sec">
+      <div class="sec-label">Metodologija — 2.1</div>
+      <h2>Testirana vozila</h2>
+      <div class="vehicles">
+        <div class="vehicle"><div class="icon">🚙</div><h4>Ford Ranger 2021</h4><p>Putnički SUV</p></div>
+        <div class="vehicle"><div class="icon">🚛</div><h4>Scania R450 2018</h4><p>Teretni kamion</p></div>
+        <div class="vehicle"><div class="icon">🚐</div><h4>Renault Traffic 2019</h4><p>Kombi vozilo</p></div>
+      </div>
+
+      <h3>Mereni parametri emisija</h3>
+      <div class="params">
+        <div class="param"><div class="param-dot"></div><span>Emisije čestica (PM)</span></div>
+        <div class="param"><div class="param-dot"></div><span>Emisije azotnih oksida (NOx)</span></div>
+        <div class="param"><div class="param-dot"></div><span>Emisije ugljen-monoksida (CO)</span></div>
+        <div class="param"><div class="param-dot"></div><span>Emisije ugljovodonika (HC)</span></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PROCES -->
+    <div class="sec">
+      <div class="sec-label">Metodologija — 2.3</div>
+      <h2>Proces čišćenja DPF-a</h2>
+      <div class="phases">
+        <div class="phase phase-1">
+          <h4>Faza 1 — Početno čišćenje</h4>
+          <ul>
+            <li>Nanošenje BAC101 rastvora na DPF</li>
+            <li>Reakcija rastvora sa nakupljenim naslagama</li>
+            <li>Ispiranje radi uklanjanja omekšanih nečistoća</li>
+          </ul>
+        </div>
+        <div class="phase phase-2">
+          <h4>Faza 2 — Dubinsko čišćenje</h4>
+          <ul>
+            <li>Ponovna primena BAC101 za temeljno čišćenje</li>
+            <li>Ispiranje pod visokim pritiskom</li>
+            <li>Ponovna ugradnja DPF filtera u vozilo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- BLOCKED DPF -->
+    <div class="sec">
+      <div class="sec-label">Metodologija — 2.4</div>
+      <h2>Testiranje blokiranih DPF filtera</h2>
+      <p>Istraživanje je uključilo testiranje <strong>41 potpuno zapušenog DPF-a</strong> koje su servisi i prodavci označili kao nepopravljive. Ovi filteri su potopljeni u BAC101 rastvor na dva sata.</p>
+      <div class="big-stat">
+        <div class="big-num">37/41</div>
+        <div class="big-sub">filtera uspešno vraćeno u radno stanje</div>
+        <div class="big-desc">3 filtera očišćena ali sa oštećenim zidovima · 1 filter bio nepopravljiv</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- REZULTATI -->
+    <div class="sec">
+      <div class="sec-label">Rezultati</div>
+      <h2>Rezultati po vozilima</h2>
+      <div class="results">
+
+        <div class="result-card">
+          <div class="result-header">
+            <span style="font-size:1.4rem;">🚙</span>
+            <h3>Ford Ranger 2021 — Rezultati</h3>
+          </div>
+          <div class="result-body">
+            <div class="result-stats">
+              <div class="rstat"><div class="rnum">76%</div><div class="rlabel">Smanjenje zapušenosti DPF-a</div></div>
+              <div class="rstat"><div class="rnum">78%</div><div class="rlabel">Smanjenje PM emisija</div></div>
+              <div class="rstat"><div class="rnum">61%</div><div class="rlabel">Smanjenje NOx emisija</div></div>
+              <div class="rstat"><div class="rnum">67%</div><div class="rlabel">Smanjenje CO emisija</div></div>
+              <div class="rstat"><div class="rnum">72%</div><div class="rlabel">Smanjenje HC emisija</div></div>
+            </div>
+            <p class="result-note">Poboljšana isporuka snage i ekonomičnost goriva zabeležene nakon tretmana.</p>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-header">
+            <span style="font-size:1.4rem;">🚛</span>
+            <h3>Scania R450 2018 — Rezultati</h3>
+          </div>
+          <div class="result-body">
+            <p class="result-note">Potpuno vraćena snaga motora nakon čišćenja. Nema značajnih emisijskih problema nakon tretmana.</p>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-header">
+            <span style="font-size:1.4rem;">🚐</span>
+            <h3>Renault Traffic 2019 — Rezultati</h3>
+          </div>
+          <div class="result-body">
+            <div class="result-stats">
+              <div class="rstat"><div class="rnum">84%</div><div class="rlabel">Smanjenje PM emisija</div></div>
+              <div class="rstat"><div class="rnum">71%</div><div class="rlabel">Smanjenje NOx emisija</div></div>
+              <div class="rstat"><div class="rnum">76%</div><div class="rlabel">Smanjenje CO emisija</div></div>
+              <div class="rstat"><div class="rnum">79%</div><div class="rlabel">Smanjenje HC emisija</div></div>
+            </div>
+            <p class="result-note">Vozilo izašlo iz "limp mode" režima nakon prvog tretmana.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ZAKLJUČAK -->
+    <div class="sec">
+      <div class="sec-label">Zaključak</div>
+      <h2>Potvrđena efikasnost BAC101</h2>
+      <p>Ova studija potvrđuje izvanrednu efikasnost BAC101 rešenja za čišćenje DPF filtera. Testiranja sprovedena u Velikoj Britaniji, Nemačkoj i Australiji, uz specijalizovana emisiona merenja, pokazala su da BAC101 nudi <strong>95% uspešnosti</strong> u uklanjanju blokada.</p>
+      <p>Pored značajnog smanjenja emisija, BAC101 je uspešno restaurirao filtere koje su servisi smatrali nepopravljivim, što može značajno smanjiti troškove održavanja u automobilskoj industriji.</p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+      <div class="sig-avatar">HM</div>
+      <div class="sig-text">
+        <h4>Hans Muller</h4>
+        <p>Autor studije · Millbrook Proving Ground</p>
+      </div>
+    </div>
+
+    <div class="cta-strip">
+      <p>Uveren/a? Isprobajte BAC101 na vašem vozilu ili servisnoj radionici.</p>
+      <a href="https://bac101.rs/katalog">Pogledaj katalog</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101">
+      <p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Stranice</h4>
+      <a href="https://bac101.rs/katalog">Katalog</a>
+      <a href="https://bac101.rs/kako-radi">Kako radi</a>
+      <a href="https://bac101.rs/istorija">Istorija</a>
+      <a href="https://bac101.rs/videi">Videi</a>
+      <a href="https://bac101.rs/partneri">Partneri</a>
+      <a href="https://bac101.rs/pepeo">Pepeo</a>
+      <a href="https://bac101.rs/studija">Studija slučaja</a>
+      <a href="https://bac101.rs/testiranje">Testiranje</a>
+      <a href="https://bac101.rs/kontakt">Kontakt</a>
+    </div>
+    <div class="ft-contact">
+      <p>Kontakt</p>
+      <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>
+      <a href="tel:+381621978511">+381 621978511</a>
+      <a href="tel:+38163268391">+381 63268391</a>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a>
+        <a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a>
+        <a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 BAC101 - Sva prava zadržana</p>
+    <div class="ft-blinks">
+      <a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a>
+      <a href="https://rivalidigital.com">Site by Rivali Digital</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

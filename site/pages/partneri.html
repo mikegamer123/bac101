@@ -1,0 +1,585 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+.dist-socials{flex-wrap:wrap;}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101nav{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;}
+#b101nav *,#b101nav *::before,#b101nav *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101nav a{text-decoration:none;color:inherit;}
+#b101nav .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101nav .n-logo img{height:36px;}
+#b101nav .n-links{display:flex;align-items:center;gap:2px;}
+#b101nav .n-links a,#b101nav .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101nav .n-links a:hover,#b101nav .n-dd>span:hover{color:#1ab2a7;}
+#b101nav .n-dd{position:relative;}
+#b101nav .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101nav .n-dd:hover .n-dd-menu{display:block;}
+#b101nav .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101nav .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101nav .n-icons{display:flex;align-items:center;gap:8px;}
+#b101nav .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101nav .n-icons a img{width:26px;height:26px;object-fit:contain;}
+#b101nav .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101nav .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101nav .ft-brand img{height:32px;margin-bottom:14px;}
+#b101nav .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101nav .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101nav .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101nav .ft-col a:hover{color:#fff;}
+#b101nav .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101nav .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101nav .ft-contact a:hover{color:#fff;}
+#b101nav .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101nav .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);}
+#b101nav .ft-soc a img{width:15px;height:15px;}
+#b101nav .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101nav .ft-bot p,#b101nav .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101nav .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101nav .ft-blinks{display:flex;gap:18px;}
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101nav .n{padding:0 18px;}
+  #b101nav .n-links{display:none;}
+  #b101nav .ft{padding:40px 24px 24px;}
+  #b101nav .ft-top{grid-template-columns:1fr;}
+  #b101nav .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101nav">
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd"><span>BAC101 ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/kako-radi">Kako radi</a><a href="https://bac101.rs/istorija">Istorija</a><a href="https://bac101.rs/videi">Video datoteke</a></div></div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd"><span>Testiranja ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a><a href="https://bac101.rs/studija">Studija slučaja BAC101</a><a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a></div></div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+<!-- BAC101 PARTNERS PAGE — paste into GHL Custom Code element -->
+<div id="bac101">
+<style>
+#bac101 {font-family:'Barlow',sans-serif;background:#f8f9fa;color:#212529;width:100%;box-sizing:border-box;}
+#bac101 *,#bac101 *::before,#bac101 *::after{box-sizing:border-box;margin:0;padding:0;}
+#bac101 a{text-decoration:none;}
+
+/* ── DISTRIBUTOR HERO ── */
+#bac101 .dist-section{background:linear-gradient(135deg,#0f2027,#1a3a4a,#0d3349);padding:48px 20px;}
+#bac101 .dist-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;align-items:center;}
+#bac101 .dist-badge{background:#ff8c42;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:14px;}
+#bac101 .dist-info{flex:1 1 320px;}
+#bac101 .dist-info h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;line-height:1.1;}
+#bac101 .dist-info .dist-sub{color:#1ab2a7;font-size:0.95rem;font-weight:600;margin-bottom:20px;letter-spacing:0.04em;}
+#bac101 .dist-details{display:flex;flex-direction:column;gap:8px;}
+#bac101 .dist-details li{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:rgba(255,255,255,0.85);list-style:none;}
+#bac101 .dist-details li a{color:#1ab2a7;font-weight:500;transition:color 0.15s;}
+#bac101 .dist-details li a:hover{color:#ff8c42;}
+#bac101 .dist-actions{flex:0 0 auto;display:flex;flex-direction:column;gap:12px;}
+#bac101 .dist-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;min-width:200px;}
+#bac101 .dist-btn.primary{background:#1ab2a7;color:#fff;}
+#bac101 .dist-btn.primary:hover{background:#13968c;transform:translateY(-2px);}
+#bac101 .dist-btn.secondary{background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.25);}
+#bac101 .dist-btn.secondary:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
+#bac101 .dist-btn.whatsapp{background:#25d366;color:#fff;}
+#bac101 .dist-btn.viber{background:#7360f2;color:#fff;}
+#bac101 .dist-btn.whatsapp:hover{background:#1da851;transform:translateY(-2px);}
+#bac101 .dist-socials{display:flex;gap:10px;margin-top:4px;}
+#bac101 .dist-social-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;transition:opacity 0.15s;}
+#bac101 .dist-social-btn:hover{opacity:0.85;}
+#bac101 .dist-social-btn.fb{background:#1877f2;color:#fff;}
+#bac101 .dist-social-btn.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
+#bac101 .dist-social-btn.tt{background:#000;color:#fff;}
+#bac101 .dist-social-btn.yt{background:#ff0000;color:#fff;}
+
+/* ── HEADER ── */
+#bac101 .bac-header{background:linear-gradient(135deg,#1ab2a7 0%,#1a7fb2 100%);padding:48px 24px 40px;text-align:center;position:relative;overflow:hidden;}
+#bac101 .bac-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0px,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 28px);pointer-events:none;}
+#bac101 .bac-header h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;letter-spacing:0.04em;text-transform:uppercase;position:relative;}
+#bac101 .bac-header p{margin-top:8px;color:rgba(255,255,255,0.82);font-size:1rem;position:relative;}
+#bac101 .accent-bar{width:60px;height:4px;background:#ff8c42;border-radius:2px;margin:14px auto 0;position:relative;}
+
+#bac101 .stats-bar{background:#fff;border-bottom:1.5px solid #e0e6ea;padding:16px 20px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;}
+#bac101 .stat{text-align:center;}
+#bac101 .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:#1ab2a7;line-height:1;}
+#bac101 .stat-label{font-size:0.78rem;color:#888;text-transform:uppercase;letter-spacing:0.06em;font-weight:600;margin-top:2px;}
+
+#bac101 .bac-inner{max-width:1100px;margin:0 auto;padding:0 20px;}
+#bac101 .map-section{padding:48px 20px 0;}
+#bac101 .section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#1a7fb2;margin-bottom:16px;}
+#bac101 #bac-map{width:100%;height:500px;border-radius:16px;border:2px solid #e0e6ea;box-shadow:0 4px 24px rgba(26,178,167,0.10);}
+#bac101 .map-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;}
+#bac101 .legend-item{display:flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#555;}
+#bac101 .legend-dot{width:12px;height:12px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.2);flex-shrink:0;}
+
+#bac101 .directory{padding:48px 0 64px;}
+#bac101 .country-block{margin-bottom:44px;}
+#bac101 .country-label{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+#bac101 .country-label h3{font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:#212529;}
+#bac101 .partner-count{background:#1ab2a7;color:#fff;font-size:0.78rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;text-transform:uppercase;}
+#bac101 .city-accordion{border:1.5px solid #e0e6ea;border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+#bac101 .city-header{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:#fff;cursor:pointer;user-select:none;transition:background 0.18s;}
+#bac101 .city-header:hover{background:#f0fffe;}
+#bac101 .city-header.open{background:linear-gradient(90deg,#f0fffe 0%,#e8f6ff 100%);}
+#bac101 .city-name{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#1ab2a7;}
+#bac101 .city-meta{display:flex;align-items:center;gap:12px;}
+#bac101 .city-count{font-size:0.8rem;color:#888;font-weight:500;}
+#bac101 .chevron{width:22px;height:22px;border-radius:50%;background:#1ab2a7;display:flex;align-items:center;justify-content:center;transition:transform 0.25s;flex-shrink:0;}
+#bac101 .chevron svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+#bac101 .city-header.open .chevron{transform:rotate(180deg);background:#ff8c42;}
+#bac101 .city-body{display:none;padding:20px 22px;background:#fafcfc;border-top:1.5px solid #e0e6ea;gap:16px;flex-wrap:wrap;}
+#bac101 .city-body.open{display:flex;}
+#bac101 .partner-card{background:#fff;border:1.5px solid #e0e6ea;border-radius:10px;padding:18px 20px;flex:1 1 280px;min-width:260px;max-width:360px;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:box-shadow 0.2s,transform 0.2s;}
+#bac101 .partner-card:hover{box-shadow:0 6px 24px rgba(26,178,167,0.15);transform:translateY(-2px);}
+#bac101 .partner-name{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:#212529;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:12px;border-left:3px solid #ff8c42;padding-left:10px;}
+#bac101 .partner-info{list-style:none;display:flex;flex-direction:column;gap:7px;}
+#bac101 .partner-info li{display:flex;align-items:center;gap:9px;font-size:0.88rem;color:#444;}
+#bac101 .ico-svg{display:inline-block;width:16px;height:16px;flex-shrink:0;}
+#bac101 .partner-info li a{color:#1a7fb2;font-weight:500;transition:color 0.15s;word-break:break-all;}
+#bac101 .partner-info li a:hover{color:#ff8c42;}
+#bac101 .social-links{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap;max-width:100%;overflow:hidden;}
+#bac101 .social-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:20px;font-size:0.75rem;font-weight:600;transition:opacity 0.15s,transform 0.15s;letter-spacing:0.03em;white-space:nowrap;}
+#bac101 .social-btn:hover{opacity:0.82;transform:scale(1.04);}
+#bac101 .social-btn.fb{background:#1877f2;color:#fff;}
+#bac101 .social-btn.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;}
+#bac101 .social-btn.tt{background:#000;color:#fff;}
+#bac101 .social-btn.yt{background:#ff0000;color:#fff;}
+#bac101 .social-btn.web{background:#1ab2a7;color:#fff;}
+#bac101 .divider{height:2px;background:linear-gradient(90deg,#1ab2a7,#1a7fb2,transparent);border-radius:2px;margin:8px 0 28px;opacity:0.25;}
+#bac101 .country-divider{height:1px;background:#e0e6ea;margin:0 0 44px;}
+
+@media (max-width:768px) {
+  #bac101 .dist-actions{ width:100%; }
+  #bac101 .dist-btn{ min-width:unset; width:100%; }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<!-- ── DISTRIBUTOR HERO ── -->
+<div class="dist-section">
+  <div class="dist-inner">
+    <div class="dist-info">
+      <span class="dist-badge">&#11088; Glavni Distributer za DACH Region</span>
+      <h2>Jovanovic Motors</h2>
+      <div class="dist-sub">
+        <img src="https://flagcdn.com/24x18/de.png" width="20" height="15" alt="DE" style="border-radius:2px;vertical-align:middle;margin-right:6px;">
+        Frankfurt am Main, Nemačka
+      </div>
+      <ul class="dist-details">
+        <li>
+          <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Eichenstraße 45-47, 65933 Frankfurt am Main
+        </li>
+        <li>
+          <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+496983835060">+49 (0) 69 83 83 50 60</a>
+        </li>
+        <li>
+          <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          WhatsApp: <a href="https://wa.me/4915774480412">+49 157 744 80412</a>
+        </li>
+        <li>
+          <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://jovanovic-motors.de" target="_blank">jovanovic-motors.de</a>
+        </li>
+        <li>
+          <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Pon–Pet: 09:00–17:00 &nbsp;|&nbsp; Sub: 10:00–15:00
+        </li>
+      </ul>
+      <div class="dist-socials" style="margin-top:16px;">
+        <a class="dist-social-btn fb" href="https://www.facebook.com/jovanovic.motors/" target="_blank">Facebook</a>
+        <a class="dist-social-btn ig" href="https://www.instagram.com/jovanovic_motors_ffm/" target="_blank">Instagram</a>
+        <a class="dist-social-btn tt" href="https://www.tiktok.com/@jovanovic.motors" target="_blank">TikTok</a>
+        <a class="dist-social-btn yt" href="https://youtube.com/@jovanovicmotors1420" target="_blank">YouTube</a>
+      </div>
+    </div>
+    <div class="dist-actions">
+      <a class="dist-btn primary" href="tel:+496983835060">&#128222; Pozovi</a>
+      <a class="dist-btn whatsapp" href="https://wa.me/4915774480412" target="_blank">&#128172; WhatsApp</a>
+      <a class="dist-btn viber" href="viber://chat?number=%2B4915774480412" target="_blank">&#128222; Viber</a>
+      <a class="dist-btn secondary" href="https://jovanovic-motors.de" target="_blank">&#127758; Web sajt</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── PARTNERS HEADER ── -->
+<div class="bac-header">
+  <h1>Naši Partneri</h1>
+  <p>Ovlašćeni BAC101 auto servisi širom Evrope</p>
+  <div class="accent-bar"></div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num" id="bac-stat-countries">–</div><div class="stat-label">Država</div></div>
+  <div class="stat"><div class="stat-num" id="bac-stat-cities">–</div><div class="stat-label">Gradova</div></div>
+  <div class="stat"><div class="stat-num" id="bac-stat-partners">–</div><div class="stat-label">Partnera</div></div>
+</div>
+
+<div class="map-section">
+  <div class="bac-inner">
+    <h2 class="section-title">Mapa Partnera</h2>
+    <div id="bac-map"></div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#1ab2a7;"></div>Srbija</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1a7fb2;"></div>Crna Gora</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6d28d9;"></div>Kosovo i Metohija</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff8c42;"></div>Bosna i Hercegovina</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e63946;"></div>Hrvatska</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#16a34a;"></div>Italija</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#b45309;"></div>Nemačka</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316;"></div>Holandija</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0ea5e9;"></div>Slovenija</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9d4edd;"></div>Severna Makedonija</div>
+    </div>
+  </div>
+</div>
+
+<div class="directory">
+  <div class="bac-inner">
+    <h2 class="section-title" style="margin-top:48px;">Spisak Partnera</h2>
+    <div id="bac-directory"><p style="color:#888;padding:20px;">Učitavanje...</p></div>
+  </div>
+</div>
+
+</div><!-- end #bac101 -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function() {
+  var PARTNERS = [
+{name:"Šlep služba i servis Šarčević",city:"Badovinci",country:"Srbija",phone:"063 466 979",mapsUrl:"https://maps.app.goo.gl/NvcwSQLmNKr97JAy9",address:"9 Jugovića 32, 15358 Badovinci",website:"https://slepsluzbasarcevic.rs",facebook:"",instagram:"https://www.instagram.com/sarcevic2015/",tiktok:"https://www.tiktok.com/@paja.sarcevic",youtube:"",lat:44.7963539,lng:19.373317},
+{name:"Auto servis Bonbon",city:"Batajnica",country:"Srbija",phone:"+381 61 268 7174",mapsUrl:"https://maps.app.goo.gl/c2SnJN7ZTE5VSmvg8",address:"Jovana Brankovića 2. deo 31, Batajnica",website:"",facebook:"",instagram:"https://www.instagram.com/servis_bonbon",tiktok:"",youtube:"",lat:44.9003,lng:20.2856},
+{name:"Auto Centar Global - Bosch Car Service",city:"Beograd",country:"Srbija",phone:"+381 63 223 166",mapsUrl:"",address:"Beograd, Srbija",website:"",facebook:"",instagram:"https://www.instagram.com/autocentar_global",tiktok:"",youtube:"",lat:44.8176,lng:20.4633},
+{name:"Auto servis Burago",city:"Beograd",country:"Srbija",phone:"+381 60 5751 111",mapsUrl:"https://www.google.com/maps/search/?api=1&query=44.72203063964844,20.42163848876953",address:"Beograd",website:"",facebook:"",instagram:"https://www.instagram.com/autoservisburago",tiktok:"",youtube:"",lat:44.7220306,lng:20.4216385},
+{name:"Auto servis Vlajko",city:"Beograd",country:"Srbija",phone:"062 417 906",mapsUrl:"https://maps.app.goo.gl/nfZWL3EF8GNZLvp77",address:"Dr. Dragise Misovića 16a, Kotež",website:"https://aguarservis.rs",facebook:"",instagram:"https://www.instagram.com/jaguarservis_srbija",tiktok:"",youtube:"",lat:44.850049,lng:20.4726086},
+{name:"Bane Automehanika",city:"Beograd",country:"Srbija",phone:"061 286 3926",mapsUrl:"https://maps.app.goo.gl/C8Lrh6LRAnwqQWCg7",address:"Isidora Stojanovića 110, Zemun",website:"",facebook:"",instagram:"https://www.instagram.com/bane_automehanika",tiktok:"",youtube:"",lat:44.845,lng:20.38},
+{name:"Beo Car",city:"Beograd",country:"Srbija",phone:"011 6963200",mapsUrl:"https://maps.app.goo.gl/hHCMa7GHgUhvJVLdA",address:"Zemunska 10, Zemun",website:"https://beo-car.rs",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.8113584,lng:20.3859807},
+{name:"Beoprom Logistic",city:"Beograd",country:"Srbija",phone:"063 123 7000",mapsUrl:"https://maps.app.goo.gl/bLo7dkPGoJnA6X7e7",address:"Sestara Janković 14b, Beograd",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.8176,lng:20.4633},
+{name:"D2 Auto Servis",city:"Beograd",country:"Srbija",phone:"064 093 7379",mapsUrl:"https://maps.app.goo.gl/eB6czp5BL7qgHXcb6",address:"Smederevski put 106, Boleč",website:"",facebook:"",instagram:"https://www.instagram.com/autoservisd2",tiktok:"",youtube:"",lat:44.7301665,lng:20.6187143},
+{name:"DSG Performance",city:"Beograd",country:"Srbija",phone:"060 634 0808",mapsUrl:"https://maps.app.goo.gl/nsWTX2RR7ohwLs7h9",address:"Svetog Nikole 46g, Zemun",website:"",facebook:"",instagram:"https://www.instagram.com/dsg_performance",tiktok:"",youtube:"",lat:44.865,lng:20.405},
+{name:"GT Motors",city:"Beograd",country:"Srbija",phone:"+381 63 254 975",mapsUrl:"https://maps.app.goo.gl/sJBgDaKRDzom1ZCk7",address:"Surčinski put 9n",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.8,lng:20.32},
+{name:"M-Clean",city:"Beograd",country:"Srbija",phone:"+381 69 110 2987",mapsUrl:"https://maps.app.goo.gl/5uYKsaLi9z5Wbc7x6",address:"Stevana Sinđelića 81, 11130 Kaluđerica, Beograd",website:"",facebook:"",instagram:"https://www.instagram.com/dekarbonizacija_i_dijagnostika/",tiktok:"",youtube:"",lat:44.75,lng:20.55},
+{name:"SG-Auto",city:"Beograd",country:"Srbija",phone:"065 27 07 896",mapsUrl:"https://maps.app.goo.gl/",address:"Radoja Dakića 2, Zemun",website:"https://sgauto.rs",facebook:"",instagram:"https://www.instagram.com/svilarteamzemun",tiktok:"",youtube:"",lat:44.8391306,lng:20.4081923},
+{name:"Turbo Line Božić",city:"Beograd",country:"Srbija",phone:"+381 60 500 5727",mapsUrl:"https://maps.app.goo.gl/EeVToH6JSoFsce897",address:"Dobanovački put 3deo, 11080 Zemun - Altina",website:"",facebook:"",instagram:"https://www.instagram.com/turbo_servis_bozic",tiktok:"",youtube:"",lat:44.82,lng:20.35},
+{name:"Škoda Ćirinac",city:"Beograd",country:"Srbija",phone:"062 229 329",mapsUrl:"https://maps.app.goo.gl/Rc69VPZ6CENadxXV7",address:"Višnjička 61V, 11060 Beograd",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.805,lng:20.51},
+{name:"Auto Servis Trtić",city:"Bezdan",country:"Srbija",phone:"+381 67 712 0215",mapsUrl:"https://maps.app.goo.gl/Y8uGGTt695dyZ4Ts8",address:"Žrtava Fašizma 30, Bezdan",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:45.8481,lng:18.9017},
+{name:"Auto servis Kosanović",city:"Bečej",country:"Srbija",phone:"063 630 234",mapsUrl:"https://maps.app.goo.gl/zbunP3j4DRLy6Mkq9",address:"Vuka Karadžića 28, 21226 Bačko Petrovo Selo",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:45.7,lng:20.0833},
+{name:"Auto-Hospital",city:"Bogatić",country:"Srbija",phone:"015 778 6698",mapsUrl:"https://maps.app.goo.gl/18JJHhbPxwzKSPs87",address:"Mike Vitomirovića 77, Bogatić",website:"",facebook:"https://www.facebook.com/share/18XUoAvwea/",instagram:"https://www.instagram.com/autohospitalservice",tiktok:"",youtube:"",lat:44.8333,lng:19.4833},
+{name:"AS Vule VW",city:"Bor",country:"Srbija",phone:"063 123 3424",mapsUrl:"https://maps.app.goo.gl/HUCX3du7w7mzNofG6",address:"Zeleni Bulevar 23, Bor",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.0736,lng:22.0992},
+{name:"MMcarbon-cleaning",city:"Bor",country:"Srbija",phone:"069 424 5511",mapsUrl:"https://maps.app.goo.gl/fin11norz5bepxoS8",address:"Vojislava Ilića 2, Bor",website:"",facebook:"https://www.facebook.com/share/18hP9xee64/",instagram:"https://www.instagram.com/dekarbonizacija_motora_bor",tiktok:"https://www.tiktok.com/@mm_carboncleaning",youtube:"",lat:44.0532273,lng:22.0879391},
+{name:"Crna Trava DPF",city:"Crna Trava",country:"Srbija",phone:"",mapsUrl:"",address:"Crna Trava, Srbija",website:"",facebook:"",instagram:"https://www.instagram.com/stamenkovic_aleksandar_seki",tiktok:"",youtube:"",lat:42.8086,lng:22.3114},
+{name:"Auto servis Božo",city:"Gornji Milanovac",country:"Srbija",phone:"062 105 8540",mapsUrl:"https://maps.app.goo.gl/87Uj6kptAP3tKkSN8",address:"Kneza Aleksandra 198, Gornji Milanovac",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.0167,lng:20.45},
+{name:"Auto servis Raćo",city:"Gornji Milanovac",country:"Srbija",phone:"+381 69 173 6214",mapsUrl:"https://maps.app.goo.gl/wk8MFX4G2CRaVUCV8",address:"Savinačka 33, Takovo, Gornji Milanovac",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.0167,lng:20.45},
+{name:"Dekarbonizacija DJURA",city:"Grocka",country:"Srbija",phone:"065 997 8275",mapsUrl:"https://maps.app.goo.gl/tPDSRa24TKACcsNK8",address:"Živana Jovanovića 4, Begaljica, Grocka",website:"",facebook:"https://www.facebook.com/share/1E9gVGcE94/",instagram:"https://www.instagram.com/dekarbonizacija_djura",tiktok:"",youtube:"",lat:44.65,lng:20.75},
+{name:"Dekarbonizacija motora Pudarci",city:"Grocka",country:"Srbija",phone:"+381 65 371 7117",mapsUrl:"https://maps.app.goo.gl/sygD1XbzQyDr2S76A",address:"Narodnih Heroja 96",website:"",facebook:"",instagram:"https://www.instagram.com/dekarbonizacija_pudarci",tiktok:"",youtube:"",lat:44.6017807,lng:20.7257399},
+{name:"Boss Auto",city:"Inđija",country:"Srbija",phone:"065 807 8078",mapsUrl:"https://maps.app.goo.gl/Bb1NM1LJojdHeJnC7",address:"Kralja Petra 43a, Inđija",website:"",facebook:"",instagram:"https://www.instagram.com/dare.boss",tiktok:"",youtube:"",lat:45.05,lng:20.0833},
+{name:"Dekarbonizacija motora Inđija",city:"Inđija",country:"Srbija",phone:"+381 64 325 3646",mapsUrl:"https://maps.app.goo.gl/or7F46kibcoxbHXU6",address:"Alekse Šantića 36, 22320 Inđija",website:"",facebook:"https://www.facebook.com/share/1An5sPocCY/",instagram:"https://www.instagram.com/mladenovic5345",tiktok:"",youtube:"",lat:45.0433,lng:20.0814},
+{name:"Auto servis Deki Plus",city:"Jagodina",country:"Srbija",phone:"060 027 2403",mapsUrl:"https://www.google.com/maps/search/?api=1&query=Kralja+Aleksandra+193+Dragocvet+Serbia",address:"Kralja Aleksandra 193a, Dragocvet, Jagodina",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.9833,lng:21.2167},
+{name:"AUTOSERVIS VAG",city:"Kosjerić",country:"Srbija",phone:"+381 65 284 1340",mapsUrl:"https://maps.app.goo.gl/FhKBcSTX2oiAoaJ99",address:"Put Kralja Petra Prvog 83, Kosjerić 31260",website:"",facebook:"",instagram:"https://www.instagram.com/vag_auto_kosjeric",tiktok:"",youtube:"",lat:44.0213055,lng:19.9166586},
+{name:"Dekarbonizacija DJURA - Kragujevac",city:"Kragujevac",country:"Srbija",phone:"065 997 8275",mapsUrl:"https://maps.app.goo.gl/tPDSRa24TKACcsNK8",address:"Laze Lazarevića 23, Kragujevac 34000",website:"",facebook:"https://www.facebook.com/share/1E9gVGcE94/",instagram:"https://www.instagram.com/dekarbonizacija_djura",tiktok:"",youtube:"",lat:44.0128,lng:20.9114},
+{name:"Autoservis Slavković",city:"Kraljevo",country:"Srbija",phone:"063 711 0702",mapsUrl:"https://maps.app.goo.gl/hCBNTqsWPrxq38ow6",address:"Stevana Burmazovića 115, Sirča",website:"",facebook:"",instagram:"https://www.instagram.com/autoservisslavkovic2010",tiktok:"",youtube:"",lat:43.7320625,lng:20.7444375},
+{name:"Auto servis Hans037",city:"Kruševac",country:"Srbija",phone:"+381 66 666 6065",mapsUrl:"https://maps.app.goo.gl/BkLKAA391cvgZ28o6",address:"",website:"",facebook:"",instagram:"https://www.instagram.com/autoservishans037",tiktok:"",youtube:"",lat:43.585,lng:21.33},
+{name:"Čile vulkanizer",city:"Kruševac",country:"Srbija",phone:"069 553 9395",mapsUrl:"https://maps.app.goo.gl/pCoR97uSVbyoULjG6",address:"Bosanska 17",website:"",facebook:"",instagram:"https://www.instagram.com/_autoguma_",tiktok:"https://www.tiktok.com/@autogumacile",youtube:"",lat:43.5827173,lng:21.3337626},
+{name:"ZTR Top-Auto",city:"Leskovac",country:"Srbija",phone:"065 254 5300",mapsUrl:"https://maps.app.goo.gl/XYdh4MuAp4YKNYXk7",address:"Božidara Veličkovića 1, 16000 Leskovac",website:"https://www.topauto.rs",facebook:"",instagram:"https://www.instagram.com/topauto_leskovac",tiktok:"",youtube:"",lat:42.995,lng:21.9632},
+{name:"Auto Servis VW-TAS Lovren",city:"Mali Zvornik",country:"Srbija",phone:"+381 64 040 1040",mapsUrl:"",address:"Mali Zvornik, Srbija",website:"",facebook:"",instagram:"https://www.instagram.com/autoservis_lovren",tiktok:"",youtube:"",lat:44.3833,lng:19.1},
+{name:"Auto Centar Aleksić",city:"Niš",country:"Srbija",phone:"066 128 011",mapsUrl:"https://maps.app.goo.gl/gStVnvzFB8KTP5eq5",address:"Đure Jakšića 8, 18000 Niš",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.3179,lng:21.8954},
+{name:"Auto servis Corado",city:"Niš",country:"Srbija",phone:"+381 61 277 9593",mapsUrl:"https://maps.app.goo.gl/pAz4RwaW8bii93vz5",address:"Bulevar svetog cara Konstantina 67G",website:"https://www.corado-servis.com",facebook:"",instagram:"https://www.instagram.com/servis_corado",tiktok:"",youtube:"",lat:43.3209,lng:21.8958},
+{name:"Nišauto Torino",city:"Niš",country:"Srbija",phone:"064 862 1407",mapsUrl:"https://maps.app.goo.gl/8YfbqHdN3QC66z727",address:"Bulevar Nikole Tesle bb, 18000 Niš",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.325,lng:21.905},
+{name:"Servis Optimus",city:"Niš",country:"Srbija",phone:"064 148 7241",mapsUrl:"https://maps.app.goo.gl/N4TwfNtgTm2irSTy8",address:"Čamurlijski put bb, Niš 18000",website:"https://www.autoservisisrbija.rs/nis/auto-servis/auto-servis-optimus/e467a965",facebook:"https://www.facebook.com/p/Auto-Servis-OPTIMUS-100063654474864/",instagram:"https://www.instagram.com/servis_optimus",tiktok:"",youtube:"",lat:43.3209,lng:21.8958},
+{name:"Auto Centar Musić",city:"Nova Varoš",country:"Srbija",phone:"+381 64 214 4426",mapsUrl:"https://maps.app.goo.gl/SkJx3mbteh4Bg6zF9",address:"Magistralni put 70, Nova Varoš 31320",website:"",facebook:"https://www.facebook.com/people/Auto-Centar-Music/100063367172100/",instagram:"https://www.instagram.com/auto_centar_music/",tiktok:"",youtube:"",lat:43.4647,lng:19.8128},
+{name:"Auto servis Ljube auto",city:"Novi Pazar",country:"Srbija",phone:"066 655 5445",mapsUrl:"https://maps.app.goo.gl/8M21bQK4zi1NmoGWA",address:"Meše Selimovića 158a, Novi Pazar",website:"",facebook:"https://www.facebook.com/share/1DzVy4tv5j/",instagram:"",tiktok:"",youtube:"",lat:43.1394,lng:20.5125},
+{name:"3m Auto Servis",city:"Novi Sad",country:"Srbija",phone:"064 478 6014",mapsUrl:"https://maps.app.goo.gl/MBJyMopiJVHayBme7",address:"Fruškogorski put 103, Sremska Kamenica",website:"",facebook:"",instagram:"https://www.instagram.com/3m_auto_servis",tiktok:"",youtube:"",lat:45.22,lng:19.85},
+{name:"Jovanović auto",city:"Novi Sad",country:"Srbija",phone:"021/6433-748",mapsUrl:"https://maps.app.goo.gl/jnyLwYfsUwJPpJ3JA",address:"Reljkovićeva 57, Petrovaradin",website:"https://jovanovicauto.com",facebook:"",instagram:"",tiktok:"",youtube:"",lat:45.2513972,lng:19.8771513},
+{name:"Servis M Radulović",city:"Odžaci",country:"Srbija",phone:"+381 60 3000 300",mapsUrl:"https://maps.app.goo.gl/dopxL6MGW9ouUSCR9",address:"Odžaci",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:45.5097,lng:19.2630},
+{name:"Jabučki put 125",city:"Pančevo",country:"Srbija",phone:"060 011 3338",mapsUrl:"https://maps.app.goo.gl/j6s856tVDb9HBikq9",address:"Jabučki put 125",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.8954268,lng:20.6309516},
+{name:"Pan Auto Concept",city:"Pančevo",country:"Srbija",phone:"064 404 6454",mapsUrl:"https://maps.app.goo.gl/oXx1ofPMsVnKN4oC9",address:"Bavaništanski put 93a",website:"https://www.dpfconcept.rs",facebook:"https://www.facebook.com/profile.php?id=100083454461761",instagram:"https://www.instagram.com/pan_auto_concept",tiktok:"",youtube:"",lat:44.8715663,lng:20.6748537},
+{name:"Neša Auto Paraćin Bristol Group",city:"Paraćin",country:"Srbija",phone:"+381 69 565 0990",mapsUrl:"https://maps.app.goo.gl/gHxPG9vMPnAgBB4A6",address:"Carice Milice bb",website:"https://nesaauto.rs",facebook:"https://www.facebook.com/share/1CEsqkkhnN/",instagram:"https://www.instagram.com/nesaautoo",tiktok:"https://www.tiktok.com/@nesaauto",youtube:"",lat:43.8552252,lng:21.4378134},
+{name:"Poljoauto",city:"Pirot",country:"Srbija",phone:"064 616 7888",mapsUrl:"https://maps.app.goo.gl/uGVpaiZQ7CaRHTnL6",address:"Vojvode Momčila bb, 18300 Pirot",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.1536,lng:22.5864},
+{name:"Tehnički Pregled Autocentar Milanović",city:"Plandište",country:"Srbija",phone:"013/210-49-25",mapsUrl:"https://maps.app.goo.gl/mfLYZMFPL6cQwXnWA",address:"Vojvodjanska 9",website:"",facebook:"https://www.facebook.com/agencija.milanovic/",instagram:"https://www.instagram.com/autocentar_milanovic_plandiste",tiktok:"",youtube:"",lat:45.2315105,lng:21.1178753},
+{name:"NIKOLIĆ DPF&MOTOR CLEAN",city:"Požarevac",country:"Srbija",phone:"066 656 5277",mapsUrl:"https://maps.app.goo.gl/P2kTZvB47RLkXGJw5",address:"Baje Sekulića 27",website:"",facebook:"https://www.facebook.com/share/1DfeywiQre/",instagram:"https://www.instagram.com/dpf_motor_clean",tiktok:"",youtube:"",lat:44.6030712,lng:21.1712368},
+{name:"CarbonTech Prijepolje",city:"Prijepolje",country:"Srbija",phone:"+382 68 699 229",mapsUrl:"https://maps.app.goo.gl/6CZSQJHxarML2Sgv9",address:"Bjelopoljska bb",website:"",facebook:"https://www.facebook.com/sandzakbridge",instagram:"https://www.instagram.com/dekarbonizacijaprijepolje/",tiktok:"",youtube:"",lat:43.3917,lng:19.6436},
+{name:"Auto servis Bošnjaković",city:"Sajlovo",country:"Srbija",phone:"062 400 601",mapsUrl:"https://maps.app.goo.gl/ZMMPvfTi5c1zvDYK9",address:"7 Sajlovo XXXVI",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.6833,lng:20.5167},
+{name:"Auto Mechanic Darko",city:"Smederevo",country:"Srbija",phone:"060 540 5004",mapsUrl:"https://maps.app.goo.gl/KRrPJXmnhi4pzoh18",address:"Crvene Armije 111",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.6411775,lng:20.95535},
+{name:"Auto Servis AUTO MEDIC",city:"Smederevo",country:"Srbija",phone:"065 660 0969",mapsUrl:"https://www.google.com/maps/place/Tim+Servis/@44.613283,20.9013097,17z",address:"Kolarski put 284g",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.613283,lng:20.9013097},
+{name:"Auto servis Pufka",city:"Sremska Mitrovica",country:"Srbija",phone:"064 987 1898",mapsUrl:"",address:"Sremska Mitrovica, Srbija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.9719,lng:19.6114},
+{name:"Impercars",city:"Sremska Mitrovica",country:"Srbija",phone:"+381 69 671 512",mapsUrl:"https://maps.app.goo.gl/aGemUy2SagcS8QJE6",address:"Trive Vitasovića 47, Sremska Mitrovica",website:"",facebook:"",instagram:"https://www.instagram.com/impercarsalincic",tiktok:"",youtube:"",lat:44.985,lng:19.5871},
+{name:"Auto Kuća Annus",city:"Subotica",country:"Srbija",phone:"064 247 0915",mapsUrl:"https://maps.app.goo.gl/e59gZRSpCKELocDA9",address:"Vareška 18, 24000 Subotica",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:46.105,lng:19.67},
+{name:"Auto car Vidaković",city:"Subotica",country:"Srbija",phone:"060 555 7497",mapsUrl:"https://maps.app.goo.gl/DZihp25QwcM2CBjS7",address:"Starine Novaka 53, 24000 Subotica",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:46.1,lng:19.6667},
+{name:"Dekarbonizacija",city:"Subotica",country:"Srbija",phone:"064 112 5025",mapsUrl:"https://maps.app.goo.gl/3JBZtB1yAvE4U9dx7",address:"Ivangradska 26",website:"",facebook:"",instagram:"https://www.instagram.com/dekarbonizacija_h2e_su",tiktok:"",youtube:"",lat:46.0886163,lng:19.6628219},
+{name:"Tonković",city:"Subotica",country:"Srbija",phone:"+381 24 576 633",mapsUrl:"https://maps.app.goo.gl/5XT1JbU4PaKhQmyn6",address:"Gospicka 6",website:"",facebook:"https://www.facebook.com/AutoservisTonkovic/",instagram:"https://www.instagram.com/as_tonkovic",tiktok:"",youtube:"",lat:46.1211673,lng:19.6696461},
+{name:"Auto servis OMEGA Trstenik",city:"Trstenik",country:"Srbija",phone:"064 33 22 992",mapsUrl:"https://maps.app.goo.gl/pwioQapuHYHiTM7DA",address:"Cara Dušana 105",website:"",facebook:"",instagram:"https://www.instagram.com/servis_omega/",tiktok:"",youtube:"",lat:43.6139132,lng:20.9891319},
+{name:"Autoservis KRDIJA",city:"Ugrinovci",country:"Srbija",phone:"064 31 27 277",mapsUrl:"https://maps.app.goo.gl/qFhbZktjpp1dKHQr8",address:"Beogradska 142, 11277 Ugrinovci",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.88,lng:20.19},
+{name:"Auto servis Terazije",city:"Užice",country:"Srbija",phone:"065 555 1552",mapsUrl:"https://maps.app.goo.gl/okyFLDLRNLvEAzSw9",address:"Terazije 131, Užice",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.8553,lng:19.8425},
+{name:"Autoservis Jevtić",city:"Užice",country:"Srbija",phone:"065 288 2717",mapsUrl:"https://maps.app.goo.gl/f66FtPur7ztxvmiZ8",address:"Zlakusa bb, 31000 Užice",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.8553,lng:19.8425},
+{name:"Dekarbonizacija motora Užice",city:"Užice",country:"Srbija",phone:"063 105 8440",mapsUrl:"https://maps.app.goo.gl/srMVUAQoSpGrNsoi9",address:"Buar 108",website:"",facebook:"https://www.facebook.com/Hidrogeniumrsd/",instagram:"https://www.instagram.com/dekarbonizacija_ue",tiktok:"https://www.tiktok.com/@dekarbonizacijaue",youtube:"",lat:43.8826423,lng:19.8109405},
+{name:"Miloš Elektro 031",city:"Užice",country:"Srbija",phone:"060 488 6038",mapsUrl:"https://maps.app.goo.gl/KMzpHKoYuQKL69Ec6",address:"Jovana Cvijića 7, 31000 Užice",website:"",facebook:"",instagram:"https://www.instagram.com/milos_elektro031",tiktok:"",youtube:"",lat:43.8553,lng:19.8425},
+{name:"Ауто сервис Ламза про",city:"Užice",country:"Srbija",phone:"064 278 8821",mapsUrl:"https://maps.app.goo.gl/e6c5hTKv8FWGnypz8",address:"Ada bb, Užice 31000",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.846903,lng:19.8572074},
+{name:"MDS Shop",city:"Veliki Crljeni",country:"Srbija",phone:"065 827 2801",mapsUrl:"https://maps.app.goo.gl/NBcc7EHwdxY8PPk3A",address:"3. oktobar 82",website:"https://mdssop.rs",facebook:"",instagram:"https://www.instagram.com/mdssop",tiktok:"",youtube:"",lat:44.4690152,lng:20.2879531},
+{name:"TinAuto Centar",city:"Vlasotince",country:"Srbija",phone:"062 846 6666",mapsUrl:"",address:"Vlasotince, Srbija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.9611,lng:22.1283},
+{name:"VRChip-Tuning",city:"Vranje",country:"Srbija",phone:"063 831 2056",mapsUrl:"",address:"Meše Selimovića 2, 17501 Vranje",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.5497,lng:21.9},
+{name:"Auto servis miki",city:"Zaječar",country:"Srbija",phone:"063 486 399",mapsUrl:"https://maps.app.goo.gl/xwn59Rt3BRWwqr7H9",address:"Milosa Obilica 2",website:"",facebook:"https://www.facebook.com/share/1EUt1zAB87/",instagram:"https://www.instagram.com/dekarbonizacija.zajecar",tiktok:"",youtube:"",lat:43.9006344,lng:22.2927267},
+{name:"MAGNUM DPF / Katalizator / Auspuh Servis",city:"Zrenjanin",country:"Srbija",phone:"069 500 6006",mapsUrl:"https://maps.app.goo.gl/mzumV4nay8Cjbuir9",address:"Đure Jakšića 14",website:"https://magnumauspuh.rs",facebook:"",instagram:"https://www.instagram.com/magnum_dpf_servis",tiktok:"https://www.tiktok.com/@dpf.servis.magnum",youtube:"",lat:45.3739356,lng:20.394804},
+{name:"Ivanović servis",city:"Ćelije",country:"Srbija",phone:"062 337 217",mapsUrl:"https://www.google.com/maps/search/?api=1&query=%C4%86elije+42",address:"Ćelije 42",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.7167,lng:20.9833},
+{name:"As Stefan 032",city:"Čačak",country:"Srbija",phone:"063 624 799",mapsUrl:"https://maps.app.goo.gl/qGXa2QQpTzNmeFBT8",address:"Put za Milićevce 21, Čačak-Vranici",website:"",facebook:"",instagram:"https://www.instagram.com/dpf_servis_cacak",tiktok:"",youtube:"",lat:43.9354097,lng:20.3324013},
+{name:"Auto Servis Lučo",city:"Čačak",country:"Srbija",phone:"062 386 286",mapsUrl:"https://maps.app.goo.gl/UxsXJk3Hsof72ZL5A",address:"Trnava bb",website:"https://autoluco.com",facebook:"",instagram:"https://www.instagram.com/auto_luco",tiktok:"",youtube:"",lat:43.8563294,lng:20.3844016},
+{name:"Autocentar Jekić",city:"Čačak",country:"Srbija",phone:"064 614 9262",mapsUrl:"https://maps.app.goo.gl/JSiST545DguPrhTf9",address:"Kosmajska 13, Atenica",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.8666312,lng:20.3850121},
+{name:"Auto Servis Trkulja",city:"Šabac",country:"Srbija",phone:"015 353 048",mapsUrl:"https://maps.app.goo.gl/AYc9PxnvrtJfp5pz5",address:"Nikole Čolovića 1",website:"https://www.remontturbine.rs",facebook:"https://www.facebook.com/RemontTurbineSabac",instagram:"https://www.instagram.com/remont_turbina_trkulja",tiktok:"",youtube:"",lat:44.753,lng:19.6944},
+{name:"Bosch Dizel Servis Burin",city:"Šabac",country:"Srbija",phone:"064 873 8759",mapsUrl:"",address:"Pocerska 42, 15000 Šabac",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.7464,lng:19.6908},
+{name:"Mercedes Servis AutoEling",city:"Šabac",country:"Srbija",phone:"063 318 712",mapsUrl:"https://maps.app.goo.gl/zjyRLLH8ux2pXKwk8",address:"Borivoja Jevtića 1A, Šabac",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.7464,lng:19.6908},
+{name:"Servis Vinčići",city:"Šabac",country:"Srbija",phone:"060 531 1333",mapsUrl:"https://maps.app.goo.gl/zToANZmhndVTXtZD6",address:"Stevana Dečanskog 17",website:"https://vincici.co.rs",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.7464039,lng:19.6850972},
+{name:"Bosch Car Service - Auto-Beli",city:"Šid",country:"Srbija",phone:"+381 69 799 147",mapsUrl:"https://maps.app.goo.gl/ho5Wftdp6mNRfKGp9",address:"Nikole Tesle 6",website:"https://www.autobeli.rs",facebook:"https://www.facebook.com/share/1AXrNDhCqm/",instagram:"https://www.instagram.com/autobelisid",tiktok:"https://vt.tiktok.com/ZSmxNm6mC/",youtube:"",lat:45.1282045,lng:19.2242963},
+{name:"ASDEJAN1",city:"Šimanovci",country:"Srbija",phone:"063 317 417",mapsUrl:"https://maps.app.goo.gl/9XDUoUgFjsqVaUQm9",address:"Mihaljevačka 52, Šimanovci",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.7667,lng:20.2833},
+{name:"Auto Centar Anđić",city:"Berane",country:"Crna Gora",phone:"+382 68 120 717",mapsUrl:"https://maps.app.goo.gl/Wg6tD2w2JqfaShAL9",address:"Berane, Crna Gora",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.8408,lng:19.8733},
+{name:"Auto Centar Stojanović",city:"Berane",country:"Crna Gora",phone:"063 355 447",mapsUrl:"https://maps.app.goo.gl/QcxDiJW8a8qFTvKJ6",address:"Gradištanski put 81a, Berane",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.8408,lng:19.8733},
+{name:"DM Cars",city:"Bijelo Polje",country:"Crna Gora",phone:"",mapsUrl:"https://maps.app.goo.gl/cZRL2d3dSJYS1T297",address:"Hajduka Gorana Bulatovića, Bijelo Polje",website:"",facebook:"https://www.facebook.com/share/18oV7BRcEY/",instagram:"https://www.instagram.com/ciscenje_dpf_cg_dm_cars",tiktok:"",youtube:"",lat:43.0347,lng:19.747},
+{name:"Milan Obradović",city:"Bijelo Polje",country:"Crna Gora",phone:"+382 67 564 039",mapsUrl:"https://maps.app.goo.gl/8DhDyhMwQ5qe52aJ6",address:"Pripičići 10, Bijelo Polje",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.0353,lng:19.7397},
+{name:"Auto Servis Continental Čiptuning",city:"Herceg Novi",country:"Crna Gora",phone:"+382 68 570 555",mapsUrl:"https://maps.app.goo.gl/tf5LdR9pSk6Hg1FQ6",address:"E65, Meljine, Crna Gora",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.4557513,lng:18.5645209},
+{name:"Auto servis Herceg Novi Mima",city:"Herceg Novi",country:"Crna Gora",phone:"+382 67 314 692",mapsUrl:"https://maps.app.goo.gl/gxxk6xjkaqX1zFvNA",address:"Podi bb, 85340, Herceg Novi",website:"https://h2e.rs/mima",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.4637252,lng:18.5439982},
+{name:"MiMa.Co",city:"Herceg Novi",country:"Crna Gora",phone:"+38267528334",mapsUrl:"https://maps.app.goo.gl/r4C6XKb6v2NoZpqk8",address:"Izvorska 5, Podi, Herceg Novi",website:"",facebook:"",instagram:"https://www.instagram.com/dpf.mimaco.hn",tiktok:"",youtube:"",lat:42.4637252,lng:18.5439982},
+{name:"Auto Servis Zmajevic",city:"Nikšić",country:"Crna Gora",phone:"+382 69 677 577",mapsUrl:"https://maps.app.goo.gl/sGzpTqnvAmHWWnxBA",address:"QXGV+858, Nikšić",website:"",facebook:"",instagram:"https://www.instagram.com/auto_servis_zmajevic",tiktok:"",youtube:"",lat:42.7757914,lng:18.9929389},
+{name:"Auto Centar Popovic",city:"Podgorica",country:"Crna Gora",phone:"+382 67 309 755",mapsUrl:"https://maps.app.goo.gl/KvyyGejJ11fDUV4x6",address:"Pljevaljska 16",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.4626564,lng:19.2948739},
+{name:"Auto Servis Mirso",city:"Ulcinj",country:"Crna Gora",phone:"+382 69 830 371",mapsUrl:"https://maps.app.goo.gl/UB5owSgGFESB2r916",address:"144 Vida Matanovića, Ulcinj 85360",website:"",facebook:"",instagram:"https://www.instagram.com/auto_service_mirso",tiktok:"",youtube:"",lat:41.9253,lng:19.2178},
+{name:"Chip Tuning Čole",city:"Leposavić",country:"Kosovo i Metohija",phone:"065 300 9813",mapsUrl:"https://maps.app.goo.gl/gUh2iDzkP5T7MGpx9",address:"Dostoje Obradovića, Leposavić 38218",website:"",facebook:"",instagram:"https://www.instagram.com/chiptuningcole",tiktok:"",youtube:"",lat:43.1006,lng:20.8025},
+{name:"Auto servis Žuti",city:"Banja Luka",country:"Bosna i Hercegovina",phone:"+387 65 309 522",mapsUrl:"https://maps.app.goo.gl/TndhQT82E9xMr7347",address:"Put srpskih branilaca 196",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.8286942,lng:17.2189444},
+{name:"TEHNOS TB",city:"Bijeljina",country:"Bosna i Hercegovina",phone:"+387 65 980 940",mapsUrl:"https://maps.app.goo.gl/6MBLZmoZD8M6HyrZA",address:"Raje Banjičića 87, 76300 Bijeljina",website:"",facebook:"",instagram:"https://www.instagram.com/tehnos.tb.servis.automobila",tiktok:"",youtube:"",lat:44.7567,lng:19.215},
+{name:"Auto Servis Čavić",city:"Bosna i Hercegovina",country:"Bosna i Hercegovina",phone:"+387 65 340 560",mapsUrl:"https://goo.gl/maps/H6qr89aH5TDaPSTo8",address:"Bosna i Hercegovina",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:44.1,lng:17.5},
+{name:"Autoservis Goražde",city:"Goražde",country:"Bosna i Hercegovina",phone:"",mapsUrl:"https://maps.app.goo.gl/yQPNB5Y57o4EjeeNA",address:"31. drinske brigade 290a",website:"",facebook:"",instagram:"https://www.instagram.com/autoservis_gorazde_",tiktok:"",youtube:"",lat:43.6669,lng:18.9756},
+{name:"DPF servis Zrnić",city:"Gradiška",country:"Bosna i Hercegovina",phone:"+387 65 143 769",mapsUrl:"https://maps.app.goo.gl/fg8XWSp6LSTLTtun9",address:"Krajišnik 171, Gradiška, BiH",website:"https://h2e.rs/zrnic",facebook:"https://www.facebook.com/share/1Cddrnb4eG/",instagram:"https://www.instagram.com/dpf_servis_zrnic",tiktok:"https://www.tiktok.com/@dpf_zrnic",youtube:"",lat:45.1444,lng:17.2572},
+{name:"Autoservis Perić",city:"Skelani",country:"Bosna i Hercegovina",phone:"064 034 4253",mapsUrl:"https://maps.app.goo.gl/5bkuTtAhX7MjBtff7",address:"Glavna bb, Skelani",website:"",facebook:"https://www.facebook.com/peric_garage",instagram:"https://www.instagram.com/peric_garage",tiktok:"",youtube:"",lat:44.0986,lng:19.2644},
+{name:"Auto servis DEJO",city:"Trebinje",country:"Bosna i Hercegovina",phone:"+387 65 691 492",mapsUrl:"https://maps.app.goo.gl/mYZpvRGfHkv4YHVd9",address:"Melentija Perovića 63z",website:"",facebook:"",instagram:"https://www.instagram.com/dekarbonizacija_ciscenjedpf_tb",tiktok:"",youtube:"",lat:42.7151909,lng:18.3728166},
+{name:"Expert DPF Servis",city:"Osijek",country:"Hrvatska",phone:"+385 91 620 1400",mapsUrl:"",address:"Vijenac lipa 60, Osijek",website:"https://expert-osijek.hr",facebook:"",instagram:"",tiktok:"",youtube:"",lat:45.5511,lng:18.6939},
+{name:"Marin Šušnjara",city:"Sinj",country:"Hrvatska",phone:"+385 98 940 4162",mapsUrl:"https://maps.app.goo.gl/s1nSJCYdYS9E6k5Q7",address:"Karakašica 64C, 21230 Sinj",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:43.7014,lng:16.638},
+{name:"MM Performance",city:"Vinkovci",country:"Hrvatska",phone:"+385 98 195 9528",mapsUrl:"https://maps.app.goo.gl/56MWexopEbdzvb1DA",address:"Josipa Kozarca 153, 32100 Vinkovci",website:"",facebook:"https://www.facebook.com/share/1HxgWatrKb/",instagram:"https://www.instagram.com/mm_performance_vinkovci",tiktok:"https://www.tiktok.com/@mm_performance_vk",youtube:"",lat:45.2881,lng:18.8044},
+{name:"Bagarić Performance",city:"Vrgorac",country:"Hrvatska",phone:"+385 99 755 2249",mapsUrl:"https://maps.app.goo.gl/wgsmHHaHtQaBNy1m9",address:"Šetalište Mate Raosa 6, Vrgorac",website:"https://bagaric-performance.com",facebook:"",instagram:"https://www.instagram.com/bagaric_performance",tiktok:"https://www.tiktok.com/@bagaric23",youtube:"",lat:43.1986,lng:17.3728},
+{name:"Jakimotorsport",city:"Zagreb",country:"Hrvatska",phone:"+385 95 820 7160",mapsUrl:"https://maps.app.goo.gl/yhL4AbbG9PtYuZ4y5",address:"Augusta Cilića 7",website:"https://www.jakimotorsport.hr",facebook:"https://www.facebook.com/profile.php?id=61564993168354",instagram:"https://www.instagram.com/atm_jakimotorsport",tiktok:"",youtube:"",lat:45.7928322,lng:16.0087283},
+{name:"DS Auto di Trkulja Dusko",city:"Tricesimo",country:"Italija",phone:"",mapsUrl:"https://maps.app.goo.gl/3NDmtVu7mhRVwEaY6",address:"Via Roma 188, Tricesimo",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:46.2992,lng:13.2006},
+{name:"NP Performance GbR",city:"Erkheim",country:"Nemačka",phone:"+49 176 229 89970",mapsUrl:"https://maps.app.goo.gl/6DteU97AwxRE2yD56",address:"Eidlerholzstraße 19, 87746 Erkheim",website:"https://www.npperformance.de",facebook:"",instagram:"https://www.instagram.com/np_performance_/",tiktok:"",youtube:"",lat:47.9983,lng:10.2219},
+{name:"Auto Molnar GmbH",city:"Fellbach",country:"Nemačka",phone:"+49 711 588686",mapsUrl:"https://maps.app.goo.gl/965vdyAquMzdCtNK7",address:"Ringstraße 83/2, 70736 Fellbach",website:"https://www.auto-molnar.de",facebook:"",instagram:"",tiktok:"",youtube:"",lat:48.8089,lng:9.2756},
+{name:"BZ Car Service",city:"Monheim",country:"Nemačka",phone:"+49 2173 54211",mapsUrl:"https://maps.app.goo.gl/h2cAR4ccvoni3gLaA",address:"Sandstraße 85, 40789 Monheim, Nemačka",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:51.0983,lng:6.8947},
+{name:"Vanessa Transport",city:"Schweinfurt",country:"Nemačka",phone:"+49 155 114 13882",mapsUrl:"https://maps.app.goo.gl/JwAiLFqwdcEaq7hy8",address:"Niederwarrner Str 24, 97421 Schweinfurt",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:50.0534,lng:10.2233},
+{name:"HHO Carbon Cleaner",city:"Holandija",country:"Holandija",phone:"+382 69 038 969",mapsUrl:"",address:"",website:"https://www.hhocarboncleaner.nl",facebook:"https://www.facebook.com/share/1HhjbEPahN/",instagram:"https://www.instagram.com/markomarkovic038",tiktok:"https://www.tiktok.com/@user35343549610341",youtube:"",lat:52.1326,lng:5.2913},
+{name:"ER Storitve",city:"Dobrna",country:"Slovenija",phone:"+386 41 365 909",mapsUrl:"https://maps.app.goo.gl/PyLZwFcfRQiyMbEJ8",address:"Strmec nad Dobrno 4, 3204 Dobrna",website:"",facebook:"",instagram:"https://www.instagram.com/er_storitve",tiktok:"",youtube:"",lat:46.2291,lng:15.2256},
+{name:"PH Tuning Garage",city:"Ljubljana",country:"Slovenija",phone:"040 825 445",mapsUrl:"https://maps.app.goo.gl/gjAXqoDhyyntLw1HA",address:"Dimičeva ulica 16, 1000 Ljubljana",website:"",facebook:"https://www.facebook.com/share/1JBWJSs5Aa/",instagram:"https://www.instagram.com/ph_tuning_garage",tiktok:"https://www.tiktok.com/@ph.tuning.garage",youtube:"",lat:46.0569,lng:14.5058},
+{name:"Nenad Petrović s.p.",city:"Maribor",country:"Slovenija",phone:"+386 51 844 805",mapsUrl:"https://maps.app.goo.gl/dRkDc8EVGYszFLxK8",address:"Nad reko 25, 2000 Maribor, Slovenija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:46.5547,lng:15.6459},
+{name:"Servis Sandi",city:"Maribor",country:"Slovenija",phone:"+386 70 273 982",mapsUrl:"https://maps.app.goo.gl/5J36TTvGnP1zqCGK9",address:"Meljska 33, Maribor, Slovenija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:46.5547,lng:15.6459},
+{name:"Avtoservis Bojan 2019",city:"Ohrid",country:"Severna Makedonija",phone:"+389 78 299 679",mapsUrl:"https://maps.app.goo.gl/pKHMtUUAp3qhw6sL7",address:"Ul. Železnička bb, Ohrid, Makedonija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:41.1231,lng:20.8016},
+{name:"Mane Performance - ATM Chiptuning",city:"Severna Makedonija",country:"Severna Makedonija",phone:"+389 71 307 336",mapsUrl:"",address:"Severna Makedonija",website:"",facebook:"",instagram:"https://www.instagram.com/mane.performance",tiktok:"",youtube:"",lat:41.6,lng:21.7},
+{name:"Diagnostic Car Service VAJ Vančo",city:"Skopje",country:"Severna Makedonija",phone:"+389 23 222 425",mapsUrl:"https://maps.app.goo.gl/JrdfEyKBfvGu8PUh7",address:"2C3J+W6C, 1000 Shkupi, Severna Makedonija",website:"",facebook:"",instagram:"",tiktok:"",youtube:"",lat:42.0048223,lng:21.4305047}
+];
+  var FLAGS = {"Srbija": "<img src=\"https://flagcdn.com/24x18/rs.png\" width=\"24\" height=\"18\" alt=\"RS\" style=\"border-radius:2px;vertical-align:middle;\">", "Crna Gora": "<img src=\"https://flagcdn.com/24x18/me.png\" width=\"24\" height=\"18\" alt=\"ME\" style=\"border-radius:2px;vertical-align:middle;\">", "Kosovo i Metohija": "<img src=\"https://flagcdn.com/24x18/rs.png\" width=\"24\" height=\"18\" alt=\"RS\" style=\"border-radius:2px;vertical-align:middle;\">", "Bosna i Hercegovina": "<img src=\"https://flagcdn.com/24x18/ba.png\" width=\"24\" height=\"18\" alt=\"BA\" style=\"border-radius:2px;vertical-align:middle;\">", "Hrvatska": "<img src=\"https://flagcdn.com/24x18/hr.png\" width=\"24\" height=\"18\" alt=\"HR\" style=\"border-radius:2px;vertical-align:middle;\">", "Italija": "<img src=\"https://flagcdn.com/24x18/it.png\" width=\"24\" height=\"18\" alt=\"IT\" style=\"border-radius:2px;vertical-align:middle;\">", "Nemačka": "<img src=\"https://flagcdn.com/24x18/de.png\" width=\"24\" height=\"18\" alt=\"DE\" style=\"border-radius:2px;vertical-align:middle;\">", "Holandija": "<img src=\"https://flagcdn.com/24x18/nl.png\" width=\"24\" height=\"18\" alt=\"NL\" style=\"border-radius:2px;vertical-align:middle;\">", "Slovenija": "<img src=\"https://flagcdn.com/24x18/si.png\" width=\"24\" height=\"18\" alt=\"SI\" style=\"border-radius:2px;vertical-align:middle;\">", "Severna Makedonija": "<img src=\"https://flagcdn.com/24x18/mk.png\" width=\"24\" height=\"18\" alt=\"MK\" style=\"border-radius:2px;vertical-align:middle;\">"};
+  var COUNTRY_ORDER = ['Srbija','Crna Gora','Kosovo i Metohija','Bosna i Hercegovina','Hrvatska','Italija','Nemačka','Holandija','Slovenija','Severna Makedonija'];
+  var COUNTRY_COLORS = {
+    'Srbija':'#1ab2a7','Crna Gora':'#1a7fb2','Kosovo i Metohija':'#6d28d9',
+    'Bosna i Hercegovina':'#ff8c42','Hrvatska':'#e63946',
+    'Italia':'#16a34a','Nemačka':'#b45309','Nizozemska':'#f97316','Severna Makedonija':'#9d4edd'
+  };
+  var ICONS = {
+    phone:'<svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+    pin:'<svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    web:'<svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="#1ab2a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+  };
+
+  function buildPage(partners) {
+    var grouped = {};
+    var citySet = {};
+    for (var i = 0; i < partners.length; i++) {
+      var p = partners[i];
+      if (!grouped[p.country]) grouped[p.country] = {};
+      if (!grouped[p.country][p.city]) grouped[p.country][p.city] = [];
+      grouped[p.country][p.city].push(p);
+      citySet[p.country+'|'+p.city] = true;
+    }
+    document.getElementById('bac-stat-countries').innerHTML = Object.keys(grouped).length;
+    document.getElementById('bac-stat-cities').innerHTML = Object.keys(citySet).length;
+    document.getElementById('bac-stat-partners').innerHTML = partners.length;
+
+    var html = '';
+    for (var ci = 0; ci < COUNTRY_ORDER.length; ci++) {
+      var country = COUNTRY_ORDER[ci];
+      if (!grouped[country]) continue;
+      var cities = grouped[country];
+      var cityNames = Object.keys(cities).sort();
+      var total = 0;
+      for (var cx = 0; cx < cityNames.length; cx++) total += cities[cityNames[cx]].length;
+      if (ci > 0) html += '<div class="country-divider"></div>';
+      html += '<div class="country-block">';
+      html += '<div class="country-label"><span style="line-height:1;">'+(FLAGS[country]||'')+'</span><h3>'+country+'</h3><span class="partner-count">'+total+(total % 10 === 1 && total % 100 !== 11 ? ' partner' : ' partnera')+'</span></div>';
+      html += '<div class="divider"></div>';
+      for (var ci2 = 0; ci2 < cityNames.length; ci2++) {
+        var city = cityNames[ci2];
+        var list = cities[city];
+        html += '<div class="city-accordion"><div class="city-header">';
+        html += '<span class="city-name">'+city+'</span>';
+        html += '<div class="city-meta"><span class="city-count">'+list.length+(list.length % 10 === 1 && list.length % 100 !== 11 ? ' partner' : ' partnera')+'</span>';
+        html += '<div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div></div>';
+        html += '<div class="city-body">';
+        for (var k = 0; k < list.length; k++) {
+          var p = list[k];
+          html += '<div class="partner-card"><div class="partner-name">'+p.name+'</div>';
+          html += '<ul class="partner-info">';
+          var locLabel = p.address ? p.address : p.city+', '+p.country;
+          if (p.mapsUrl) html += '<li>'+ICONS.pin+'<a href="'+p.mapsUrl+'" target="_blank">'+locLabel+'</a></li>';
+          else html += '<li>'+ICONS.pin+locLabel+'</li>';
+          if (p.phone) html += '<li>'+ICONS.phone+'<a href="tel:'+p.phone.replace(/\s/g,'')+'">'+p.phone+'</a></li>';
+          if (p.website) html += '<li>'+ICONS.web+'<a href="'+p.website+'" target="_blank">'+p.website.replace(/^https?:\/\//,'')+'</a></li>';
+          html += '</ul>';
+          var soc='';
+          if (p.facebook)  soc+='<a class="social-btn fb" href="'+p.facebook+'" target="_blank">Facebook</a>';
+          if (p.instagram) soc+='<a class="social-btn ig" href="'+p.instagram+'" target="_blank">Instagram</a>';
+          if (p.tiktok)    soc+='<a class="social-btn tt" href="'+p.tiktok+'" target="_blank">TikTok</a>';
+          if (p.youtube)   soc+='<a class="social-btn yt" href="'+p.youtube+'" target="_blank">YouTube</a>';
+          if (soc) html+='<div class="social-links">'+soc+'</div>';
+          html+='</div>';
+        }
+        html+='</div></div>';
+      }
+      html+='</div>';
+    }
+    document.getElementById('bac-directory').innerHTML = html;
+    initAccordion();
+  }
+
+  function initAccordion() {
+    var headers = document.querySelectorAll('#bac101 .city-header');
+    for (var i = 0; i < headers.length; i++) {
+      (function(header) {
+        header.addEventListener('click', function() {
+          var isOpen = header.classList.contains('open');
+          var block = header.closest('.country-block');
+          var all = block.querySelectorAll('.city-header');
+          for (var j = 0; j < all.length; j++) {
+            all[j].classList.remove('open');
+            all[j].nextElementSibling.classList.remove('open');
+          }
+          if (!isOpen) { header.classList.add('open'); header.nextElementSibling.classList.add('open'); }
+        });
+      })(headers[i]);
+    }
+  }
+
+  function initMap(partners) {
+    if (typeof L === 'undefined') { setTimeout(function(){ initMap(partners); }, 200); return; }
+    var map = L.map('bac-map').setView([46.5,13.0],5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom:19
+    }).addTo(map);
+
+    // Add Jovanovic Motors as special star marker
+    var distIcon = L.divIcon({
+      className:'',
+      html:'<div style="width:20px;height:20px;background:#ff8c42;border:3px solid white;border-radius:50%;box-shadow:0 2px 12px rgba(255,140,66,0.6);display:flex;align-items:center;justify-content:center;font-size:10px;">&#11088;</div>',
+      iconSize:[20,20],iconAnchor:[10,10],popupAnchor:[0,-12]
+    });
+    L.marker([50.0942,8.5677],{icon:distIcon}).addTo(map).bindPopup(
+      '<div style="font-family:sans-serif;min-width:200px;">'
+      +'<div style="background:#ff8c42;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px;letter-spacing:0.1em;">GLAVNI DISTRIBUTER</div>'
+      +'<div style="font-weight:700;font-size:14px;margin-bottom:6px;border-left:3px solid #ff8c42;padding-left:8px;">Jovanovic Motors</div>'
+      +'<div style="font-size:12px;color:#777;margin-bottom:4px;">Frankfurt am Main, Nemačka</div>'
+      +'<div style="font-size:12px;margin-bottom:3px;">&#128222; <a href="tel:+496983835060" style="color:#1a7fb2;">+49 69 83 83 50 60</a></div>'
+      +'<div style="font-size:12px;"><a href="https://jovanovic-motors.de" target="_blank" style="color:#1ab2a7;font-weight:600;">jovanovic-motors.de</a></div>'
+      +'</div>'
+    );
+
+    for (var i = 0; i < partners.length; i++) {
+      var p = partners[i];
+      if (!p.lat || !p.lng) continue;
+      var color = COUNTRY_COLORS[p.country]||'#1ab2a7';
+      var icon = L.divIcon({
+        className:'',
+        html:'<div style="width:14px;height:14px;background:'+color+';border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+        iconSize:[14,14],iconAnchor:[7,7],popupAnchor:[0,-10]
+      });
+      var mapsLink = p.mapsUrl?'<br><a href="'+p.mapsUrl+'" target="_blank" style="color:#1ab2a7;font-weight:600;font-size:12px;">Open in Google Maps</a>':'';
+      var popup='<div style="font-family:sans-serif;min-width:180px;">'
+        +'<div style="font-weight:700;font-size:13px;margin-bottom:6px;border-left:3px solid #ff8c42;padding-left:8px;">'+p.name+'</div>'
+        +'<div style="font-size:12px;color:#777;margin-bottom:4px;">'+p.city+', '+p.country+'</div>'
+        +(p.phone?'<div style="font-size:12px;margin-bottom:3px;">&#128222; <a href="tel:'+p.phone.replace(/\s/g,'')+'" style="color:#1a7fb2;">'+p.phone+'</a></div>':'')
+        +(p.website?'<div style="font-size:12px;margin-bottom:3px;"><a href="'+p.website+'" target="_blank" style="color:#1a7fb2;">'+p.website.replace(/^https?:\/\//,'')+'</a></div>':'')
+        +mapsLink+'</div>';
+      L.marker([p.lat,p.lng],{icon:icon}).addTo(map).bindPopup(popup);
+    }
+  }
+
+  function init() {
+    buildPage(PARTNERS);
+    initMap(PARTNERS);
+  }
+
+  if (document.readyState==='loading') { document.addEventListener('DOMContentLoaded',init); } else { init(); }
+})();
+</script>
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101">
+      <p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Stranice</h4>
+      <a href="https://bac101.rs/katalog">Katalog</a>
+      <a href="https://bac101.rs/kako-radi">Kako radi</a>
+      <a href="https://bac101.rs/istorija">Istorija</a>
+      <a href="https://bac101.rs/videi">Videi</a>
+      <a href="https://bac101.rs/partneri">Partneri</a>
+      <a href="https://bac101.rs/pepeo">Pepeo</a>
+      <a href="https://bac101.rs/studija">Studija slučaja</a>
+      <a href="https://bac101.rs/testiranje">Testiranje</a>
+      <a href="https://bac101.rs/kontakt">Kontakt</a>
+    </div>
+    <div class="ft-contact">
+      <p>Kontakt</p>
+      <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>
+      <a href="tel:+381621978511">+381 621978511</a>
+      <a href="tel:+38163268391">+381 63268391</a>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a>
+        <a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a>
+        <a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 BAC101 - Sva prava zadržana</p>
+    <div class="ft-blinks">
+      <a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a>
+      <a href="https://rivalidigital.com">Site by Rivali Digital</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

@@ -70,7 +70,7 @@
     'item(s) added': 'proizvod(a) dodato', 'out of stock': 'Nema na stanju', 'checkout': 'Nastavi na plaćanje',
     'my cart': 'Moja korpa', 'contact': 'Kontakt', 'email address': 'Email adresa', 'shipping details': 'Podaci za dostavu',
     'full name': 'Ime i prezime', 'phone number': 'Telefon', 'full address': 'Adresa', 'country': 'Država',
-    'city name': 'Grad', 'zip code': 'Poštanski broj', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
+    'city name': 'Grad', 'zip code': 'Poštanski broj', 'state / province': 'Opština', 'billing address same as shipping address': 'Adresa za račun je ista kao adresa dostave',
     'add notes to your order': 'Dodajte napomenu uz porudžbinu', 'cart summary': 'Pregled korpe', 'edit cart': 'Izmeni korpu',
     'apply': 'Primeni', 'continue': 'Nastavi', 'enter coupon code': 'Unesite kod kupona', 'log in to use your saved addresses': 'Prijavite se za sačuvane adrese',
     'payment': 'Plaćanje', 'coupon': 'Kupon', 'show more': 'Prikaži još', 'show less': 'Prikaži manje',

@@ -1,0 +1,164 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101tc{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;color:#111;}
+#b101tc *,#b101tc *::before,#b101tc *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101tc a{text-decoration:none;color:#1ab2a7;}
+#b101tc img{max-width:100%;display:block;}
+#b101tc .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101tc .n-logo img{height:36px;}
+#b101tc .n-links{display:flex;align-items:center;gap:2px;}
+#b101tc .n-links a,#b101tc .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101tc .n-links a:hover,#b101tc .n-dd>span:hover{color:#1ab2a7;}
+#b101tc .n-dd{position:relative;}
+#b101tc .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101tc .n-dd:hover .n-dd-menu{display:block;}
+#b101tc .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101tc .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101tc .n-icons{display:flex;align-items:center;gap:8px;}
+#b101tc .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101tc .n-icons a img{width:26px;height:26px;object-fit:contain;}
+#b101tc .hero{background:#1ab2a7;padding:64px 80px 56px;width:100%;}
+#b101tc .hero h1{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;margin-bottom:8px;}
+#b101tc .hero p{font-size:0.85rem;color:rgba(255,255,255,0.75);}
+#b101tc .doc{padding:64px 80px;width:100%;}
+#b101tc .doc-in{max-width:800px;margin:0 auto;}
+#b101tc .doc-in h2{font-size:1rem;font-weight:800;color:#111;margin:36px 0 10px;padding-top:8px;border-top:1px solid #eee;}
+#b101tc .doc-in h2:first-child{border-top:none;margin-top:0;}
+#b101tc .doc-in p{font-size:0.88rem;line-height:1.85;color:#444;margin-bottom:10px;}
+#b101tc .doc-in ul{list-style:none;margin:8px 0 12px;display:flex;flex-direction:column;gap:6px;}
+#b101tc .doc-in ul li{font-size:0.88rem;color:#444;display:flex;align-items:flex-start;gap:8px;line-height:1.7;}
+#b101tc .doc-in ul li::before{content:'•';color:#1ab2a7;font-weight:700;flex-shrink:0;}
+#b101tc .updated{font-size:0.78rem;color:#aaa;margin-bottom:32px;}
+#b101tc .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101tc .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101tc .ft-brand img{height:32px;margin-bottom:14px;}
+#b101tc .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101tc .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101tc .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101tc .ft-col a:hover{color:#fff;}
+#b101tc .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101tc .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101tc .ft-contact a:hover{color:#fff;}
+#b101tc .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101tc .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);}
+#b101tc .ft-soc a img{width:15px;height:15px;}
+#b101tc .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101tc .ft-bot p,#b101tc .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101tc .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101tc .ft-blinks{display:flex;gap:18px;}
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101tc .n{padding:0 18px;}
+  #b101tc .n-links{display:none;}
+  #b101tc .hero{padding:56px 24px 48px;}
+  #b101tc .doc{padding:48px 24px;}
+  #b101tc .ft{padding:40px 24px 24px;}
+  #b101tc .ft-top{grid-template-columns:1fr;}
+  #b101tc .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101tc">
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd"><span>BAC101 ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/kako-radi">Kako radi</a><a href="https://bac101.rs/istorija">Istorija</a><a href="https://bac101.rs/videi">Video datoteke</a></div></div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd"><span>Testiranja ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a><a href="https://bac101.rs/studija">Studija slučaja BAC101</a><a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a></div></div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Uslovi korišćenja</h1>
+  <p>Poslednje ažuriranje: oktobar 2026.</p>
+</div>
+
+<div class="doc">
+  <div class="doc-in">
+    <p class="updated">Ovi uslovi korišćenja regulišu upotrebu veb sajta bac101.rs i kupovinu proizvoda kompanije BAC101. Korišćenjem sajta ili naručivanjem proizvoda, prihvatate ove uslove u celosti.</p>
+
+    <h2>1. O kompaniji</h2>
+    <p>BAC101 je brend koji se bavi proizvodnjom i distribucijom sredstava za čišćenje DPF filtera i katalizatora. Kontakt: <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a> | +381 621978511 | +381 63268391.</p>
+
+    <h2>2. Upotreba sajta</h2>
+    <p>Saglasni ste da ćete koristiti sajt isključivo u zakonite svrhe. Zabranjeno je:</p>
+    <ul>
+      <li>Kopiranje, distribucija ili prerada sadržaja bez pisane dozvole</li>
+      <li>Pokušaj neovlašćenog pristupa sistemima sajta</li>
+      <li>Objavljivanje lažnih ili obmanjujućih informacija</li>
+      <li>Korišćenje automatizovanih alata za preuzimanje podataka (scraping)</li>
+    </ul>
+
+    <h2>3. Proizvodi i narudžbine</h2>
+    <p>Svi proizvodi su namenjeni profesionalnoj upotrebi u servisima i od strane obučenih lica. Narudžbine se obrađuju nakon potvrde dostupnosti i plaćanja. BAC101 zadržava pravo da odbije ili otkaže narudžbinu bez navođenja razloga.</p>
+
+    <h2>4. Cene i plaćanje</h2>
+    <p>Sve cene su prikazane u evrima (€) i uključuju PDV gde je primenljivo. BAC101 zadržava pravo izmene cena bez prethodne najave. Plaćanje se vrši pre isporuke, putem dogovorenih metoda plaćanja.</p>
+
+    <h2>5. Isporuka</h2>
+    <p>Isporuka se vrši na teritoriji Srbije i odabranih zemalja. Rokovi isporuke su okvirni i mogu varirati. BAC101 ne snosi odgovornost za kašnjenja uzrokovana trećim stranama (kurirske službe, carina).</p>
+
+    <h2>6. Reklamacije i povraćaj</h2>
+    <p>Reklamacije se podnose u roku od 8 dana od prijema pošiljke, pisanim putem na adresu bac.101dpfcleaner@gmail.com. Povraćaj robe moguć je isključivo uz prethodni dogovor i u originalnom, neotvorenom pakovanju.</p>
+
+    <h2>7. Ograničenje odgovornosti</h2>
+    <p>BAC101 ne snosi odgovornost za štetu nastalu nepravilnom upotrebom proizvoda, upotrebom suprotnom uputstvima ili upotrebom od strane neobučenih lica. Korisnik je odgovoran za poštovanje svih relevantnih propisa i bezbednosnih smernica pri upotrebi proizvoda.</p>
+
+    <h2>8. Intelektualna svojina</h2>
+    <p>Svi sadržaji na sajtu (tekstovi, slike, logotipi, grafike) su vlasništvo BAC101 i zaštićeni su autorskim pravom. Neovlašćeno kopiranje ili upotreba nije dozvoljena.</p>
+
+    <h2>9. Izmene uslova</h2>
+    <p>BAC101 zadržava pravo izmene ovih uslova u bilo kom trenutku. Izmenjeni uslovi stupaju na snagu objavom na sajtu. Preporučujemo redovno proveravanje ove stranice.</p>
+
+    <h2>10. Merodavno pravo</h2>
+    <p>Na ove uslove primenjuje se pravo Republike Srbije. Sve sporove rešava nadležni sud u Republici Srbiji.</p>
+
+    <h2>Kontakt</h2>
+    <p>Za sva pitanja u vezi sa uslovima korišćenja, kontaktirajte nas na: <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a></p>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"><p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p></div>
+    <div class="ft-col"><h4>Stranice</h4><a href="https://bac101.rs/katalog">Katalog</a><a href="https://bac101.rs/kako-radi">Kako radi</a><a href="https://bac101.rs/istorija">Istorija</a><a href="https://bac101.rs/videi">Videi</a><a href="https://bac101.rs/partneri">Partneri</a><a href="https://bac101.rs/pepeo">Pepeo</a><a href="https://bac101.rs/studija">Studija slučaja</a><a href="https://bac101.rs/testiranje">Testiranje</a><a href="https://bac101.rs/kontakt">Kontakt</a></div>
+    <div class="ft-contact"><p>Kontakt</p><a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a><a href="tel:+381621978511">+381 621978511</a><a href="tel:+38163268391">+381 63268391</a><div class="ft-soc"><a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a><a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a><a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a></div></div>
+  </div>
+  <div class="ft-bot"><p>© 2026 BAC101 - Sva prava zadržana</p><div class="ft-blinks"><a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a><a href="https://rivalidigital.com">Site by Rivali Digital</a></div></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

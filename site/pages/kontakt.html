@@ -1,0 +1,229 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101k{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;color:#111;}
+#b101k *,#b101k *::before,#b101k *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101k a{text-decoration:none;color:inherit;}
+#b101k img{max-width:100%;display:block;}
+
+/* NAV */
+#b101k .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101k .n-logo img{height:36px;}
+#b101k .n-links{display:flex;align-items:center;gap:2px;}
+#b101k .n-links a,#b101k .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101k .n-links a:hover,#b101k .n-dd>span:hover{color:#1ab2a7;}
+#b101k .n-dd{position:relative;}
+#b101k .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101k .n-dd:hover .n-dd-menu{display:block;}
+#b101k .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101k .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101k .n-icons{display:flex;align-items:center;gap:8px;}
+#b101k .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101k .n-icons a img{width:26px;height:26px;object-fit:contain;}
+
+/* HERO + FORM */
+#b101k .hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;width:100%;}
+#b101k .hero-left{background:#1ab2a7;display:flex;flex-direction:column;justify-content:center;padding:80px 64px;}
+#b101k .hero-left h1{font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px;}
+#b101k .hero-left p{font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.75;margin-bottom:32px;}
+#b101k .hero-contacts{display:flex;flex-direction:column;gap:16px;margin-bottom:36px;}
+#b101k .hero-contact-item{display:flex;align-items:center;gap:12px;color:#fff;font-size:0.9rem;font-weight:500;}
+#b101k .hero-contact-item svg{width:20px;height:20px;flex-shrink:0;opacity:0.8;}
+#b101k .hero-contact-item a{color:#fff;}
+#b101k .hero-soc{display:flex;gap:10px;}
+#b101k .hero-soc a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.15);transition:background 0.15s;}
+#b101k .hero-soc a:hover{background:rgba(255,255,255,0.25);}
+#b101k .hero-soc a img{width:18px;height:18px;}
+
+#b101k .hero-right{background:#f6f6f6;display:flex;align-items:center;justify-content:center;padding:64px 56px;}
+#b101k .ct-card{background:#fff;border-radius:16px;padding:40px;width:100%;max-width:480px;box-shadow:0 8px 40px rgba(0,0,0,0.08);}
+#b101k .ct-logo{height:36px;margin:0 auto 28px;}
+#b101k .ct-title{font-size:1.1rem;font-weight:800;color:#111;margin-bottom:6px;text-align:center;}
+#b101k .ct-sub{font-size:0.82rem;color:#888;text-align:center;margin-bottom:24px;}
+#b101k .ct-fields{display:flex;flex-direction:column;gap:10px;}
+#b101k .ct-field{display:flex;align-items:center;gap:10px;background:#f4f5f7;border-radius:8px;padding:12px 14px;}
+#b101k .ct-field svg{width:17px;height:17px;flex-shrink:0;color:#aaa;}
+#b101k .ct-field input,#b101k .ct-field textarea{border:none;background:transparent;font-size:0.88rem;font-family:'Montserrat',sans-serif;outline:none;width:100%;color:#111;}
+#b101k .ct-field textarea{resize:vertical;min-height:90px;}
+#b101k .ct-send{background:#1ab2a7;color:#fff;border:none;width:100%;padding:14px;border-radius:8px;font-size:0.9rem;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;margin-top:4px;transition:background 0.2s;}
+#b101k .ct-send:hover{background:#13928a;}
+#b101k .ct-legal{font-size:0.7rem;color:#aaa;margin-top:14px;line-height:1.6;text-align:center;}
+#b101k .ct-legal a{color:#888;}
+
+/* FOOTER */
+#b101k .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101k .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101k .ft-brand img{height:32px;margin-bottom:14px;}
+#b101k .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101k .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101k .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101k .ft-col a:hover{color:#fff;}
+#b101k .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101k .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101k .ft-contact a:hover{color:#fff;}
+#b101k .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101k .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);transition:background 0.15s;}
+#b101k .ft-soc a:hover{background:rgba(255,255,255,0.14);}
+#b101k .ft-soc a img{width:15px;height:15px;}
+#b101k .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101k .ft-bot p,#b101k .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101k .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101k .ft-blinks{display:flex;gap:18px;}
+
+/* FLOAT */
+
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101k .n{padding:0 18px;}
+  #b101k .n-links{display:none;}
+  #b101k .hero{grid-template-columns:1fr;}
+  #b101k .hero-left{padding:56px 24px;}
+  #b101k .hero-right{padding:40px 20px;}
+  #b101k .ft{padding:40px 24px 24px;}
+  #b101k .ft-top{grid-template-columns:1fr;}
+  #b101k .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101k">
+
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd">
+      <span>BAC101 ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/kako-radi">Kako radi</a>
+        <a href="https://bac101.rs/istorija">Istorija</a>
+        <a href="https://bac101.rs/videi">Video datoteke</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd">
+      <span>Testiranja ▾</span>
+      <div class="n-dd-menu">
+        <a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a>
+        <a href="https://bac101.rs/studija">Studija slučaja BAC101</a>
+        <a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a>
+      </div>
+    </div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+
+<!-- HERO + FORM -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>Kontaktirajte nas</h1>
+    <p>Imate pitanje? Pišite nam ili pozovite — dostupni smo svaki dan.</p>
+    <div class="hero-contacts">
+      <div class="hero-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+381621978511">+381 621978511</a>
+      </div>
+      <div class="hero-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+38163268391">+381 63268391</a>
+      </div>
+      <div class="hero-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-soc">
+      <a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/dark/facebook-dark.svg" alt="Facebook"></a>
+      <a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/dark/instagram-dark.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/dark/tiktok-dark.svg" alt="TikTok"></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="ct-card">
+      <img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101" class="ct-logo">
+      <p class="ct-title">Pošaljite poruku</p>
+      <p class="ct-sub">Odgovorićemo u što kraćem roku.</p>
+      <div class="ct-fields">
+        <div class="ct-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input type="text" placeholder="Ime i prezime"></div>
+        <div class="ct-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" placeholder="Email*"></div>
+        <div class="ct-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><input type="tel" placeholder="Telefon*"></div>
+        <div class="ct-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="align-self:flex-start;margin-top:2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><textarea placeholder="Poruka"></textarea></div>
+        <button class="ct-send">Pošalji</button>
+      </div>
+      <p class="ct-legal"><a href="https://bac101.rs/privacy-policy">Politika privatnosti</a> | <a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a><br>Označavanjem ovog polja dajem saglasnost da primam SMS poruke od BAC101.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101">
+      <p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Stranice</h4>
+      <a href="https://bac101.rs/katalog">Katalog</a>
+      <a href="https://bac101.rs/kako-radi">Kako radi</a>
+      <a href="https://bac101.rs/istorija">Istorija</a>
+      <a href="https://bac101.rs/videi">Videi</a>
+      <a href="https://bac101.rs/partneri">Partneri</a>
+      <a href="https://bac101.rs/pepeo">Pepeo</a>
+      <a href="https://bac101.rs/studija">Studija slučaja</a>
+      <a href="https://bac101.rs/testiranje">Testiranje</a>
+      <a href="https://bac101.rs/kontakt">Kontakt</a>
+    </div>
+    <div class="ft-contact">
+      <p>Kontakt</p>
+      <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>
+      <a href="tel:+381621978511">+381 621978511</a>
+      <a href="tel:+38163268391">+381 63268391</a>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a>
+        <a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a>
+        <a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 BAC101 - Sva prava zadržana</p>
+    <div class="ft-blinks">
+      <a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a>
+      <a href="https://rivalidigital.com">Site by Rivali Digital</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

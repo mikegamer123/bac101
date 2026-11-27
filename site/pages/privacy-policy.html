@@ -1,0 +1,186 @@
+<style>
+/* bac101 builder copy of site/custom.css BAC-17/18/19/28 (safe to keep alongside custom.css) */
+html, body { overflow-x: clip; }
+iframe[src*="youtube.com"], iframe[src*="youtu.be"], iframe[src*="vimeo.com"] { max-width: 100%; }
+@media (max-width: 860px) {
+  nav.n { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; }
+  nav.n .n-links { display: flex !important; order: 3; width: 100%; gap: 18px; padding: 8px 0; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  nav.n .n-links::-webkit-scrollbar { display: none; }
+  nav.n .n-dd { display: contents; }
+  nav.n .n-dd > span { display: none; }
+  nav.n .n-dd-menu { display: contents !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+#b101pp{font-family:'Montserrat',sans-serif;width:100vw;position:relative;left:50%;transform:translateX(-50%);overflow-x:clip;background:#fff;color:#111;}
+#b101pp *,#b101pp *::before,#b101pp *::after{box-sizing:border-box;margin:0;padding:0;}
+#b101pp a{text-decoration:none;color:#1ab2a7;}
+#b101pp img{max-width:100%;display:block;}
+#b101pp .n{background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+#b101pp .n-logo img{height:36px;}
+#b101pp .n-links{display:flex;align-items:center;gap:2px;}
+#b101pp .n-links a,#b101pp .n-dd>span{font-size:0.85rem;font-weight:600;color:#222;padding:8px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+#b101pp .n-links a:hover,#b101pp .n-dd>span:hover{color:#1ab2a7;}
+#b101pp .n-dd{position:relative;}
+#b101pp .n-dd-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;min-width:190px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:1000;overflow:hidden;}
+#b101pp .n-dd:hover .n-dd-menu{display:block;}
+#b101pp .n-dd-menu a{display:block;padding:10px 16px;font-size:0.83rem;font-weight:500;color:#333;transition:background 0.12s;}
+#b101pp .n-dd-menu a:hover{background:#f5f5f5;color:#1ab2a7;}
+#b101pp .n-icons{display:flex;align-items:center;gap:8px;}
+#b101pp .n-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;}
+#b101pp .n-icons a img{width:26px;height:26px;object-fit:contain;}
+#b101pp .hero{background:#111;padding:64px 80px 56px;width:100%;}
+#b101pp .hero h1{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;margin-bottom:8px;}
+#b101pp .hero p{font-size:0.85rem;color:rgba(255,255,255,0.5);}
+#b101pp .doc{padding:64px 80px;width:100%;}
+#b101pp .doc-in{max-width:800px;margin:0 auto;}
+#b101pp .doc-in h2{font-size:1rem;font-weight:800;color:#111;margin:36px 0 10px;padding-top:8px;border-top:1px solid #eee;}
+#b101pp .doc-in h2:first-child{border-top:none;margin-top:0;}
+#b101pp .doc-in p{font-size:0.88rem;line-height:1.85;color:#444;margin-bottom:10px;}
+#b101pp .doc-in ul{list-style:none;margin:8px 0 12px;display:flex;flex-direction:column;gap:6px;}
+#b101pp .doc-in ul li{font-size:0.88rem;color:#444;display:flex;align-items:flex-start;gap:8px;line-height:1.7;}
+#b101pp .doc-in ul li::before{content:'•';color:#1ab2a7;font-weight:700;flex-shrink:0;}
+#b101pp .updated{font-size:0.78rem;color:#aaa;margin-bottom:32px;}
+#b101pp .ft{background:#111;padding:56px 80px 32px;width:100%;}
+#b101pp .ft-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+#b101pp .ft-brand img{height:32px;margin-bottom:14px;}
+#b101pp .ft-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;}
+#b101pp .ft-col h4{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101pp .ft-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101pp .ft-col a:hover{color:#fff;}
+#b101pp .ft-contact p{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+#b101pp .ft-contact a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:8px;transition:color 0.15s;}
+#b101pp .ft-contact a:hover{color:#fff;}
+#b101pp .ft-soc{display:flex;gap:8px;margin-top:16px;}
+#b101pp .ft-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,0.07);}
+#b101pp .ft-soc a img{width:15px;height:15px;}
+#b101pp .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+#b101pp .ft-bot p,#b101pp .ft-bot a{font-size:0.75rem;color:rgba(255,255,255,0.22);}
+#b101pp .ft-bot a:hover{color:rgba(255,255,255,0.5);}
+#b101pp .ft-blinks{display:flex;gap:18px;}
+
+
+
+
+
+
+@media(max-width:860px){
+  #b101pp .n{padding:0 18px;}
+  #b101pp .n-links{display:none;}
+  #b101pp .hero{padding:56px 24px 48px;}
+  #b101pp .doc{padding:48px 24px;}
+  #b101pp .ft{padding:40px 24px 24px;}
+  #b101pp .ft-top{grid-template-columns:1fr;}
+  #b101pp .ft-bot{flex-direction:column;}
+}
+</style>
+
+<div id="b101pp">
+<nav class="n">
+  <a href="https://bac101.rs/" class="n-logo"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"></a>
+  <div class="n-links">
+    <a href="https://bac101.rs/">Glavna</a>
+    <a href="https://bac101.rs/katalog">Katalog</a>
+    <div class="n-dd"><span>BAC101 ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/kako-radi">Kako radi</a><a href="https://bac101.rs/istorija">Istorija</a><a href="https://bac101.rs/videi">Video datoteke</a></div></div>
+    <a href="https://bac101.rs/partneri">Partneri</a>
+    <div class="n-dd"><span>Testiranja ▾</span><div class="n-dd-menu"><a href="https://bac101.rs/pepeo">Pepeo, teški ubica</a><a href="https://bac101.rs/studija">Studija slučaja BAC101</a><a href="https://bac101.rs/testiranje">Testiranje proizvoda uživo</a></div></div>
+    <a href="https://bac101.rs/kontakt">Kontakt</a>
+    <a href="https://bac101.rs/cart" data-bac-cart="1">Korpa</a>
+  </div>
+  <div class="n-icons">
+    <a href="https://wa.me/381621978511"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+    <a href="viber://chat?number=%2B381621978511"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" alt="Viber"></a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Politika privatnosti</h1>
+  <p>Poslednje ažuriranje: oktobar 2026.</p>
+</div>
+
+<div class="doc">
+  <div class="doc-in">
+    <p class="updated">Ova politika privatnosti objašnjava kako BAC101 prikuplja, koristi i štiti vaše lične podatke u skladu sa Zakonom o zaštiti podataka o ličnosti (ZZPL) Republike Srbije i GDPR uredbom EU.</p>
+
+    <h2>1. Rukovalac podataka</h2>
+    <p>Rukovalac ličnih podataka je BAC101. Kontakt: <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a> | +381 621978511.</p>
+
+    <h2>2. Koji podaci se prikupljaju</h2>
+    <p>Prikupljamo sledeće kategorije podataka:</p>
+    <ul>
+      <li><strong>Kontakt podaci</strong> — ime i prezime, email adresa, broj telefona</li>
+      <li><strong>Podaci o narudžbini</strong> — adresa za dostavu, detalji narudžbine</li>
+      <li><strong>Podaci o komunikaciji</strong> — poruke poslate putem kontakt forme ili emaila</li>
+      <li><strong>Tehnički podaci</strong> — IP adresa, tip pregledača, stranice koje ste posetili (putem kolačića)</li>
+    </ul>
+
+    <h2>3. Svrha i osnov obrade</h2>
+    <p>Vaše podatke obrađujemo za sledeće svrhe:</p>
+    <ul>
+      <li>Obrada narudžbina i organizacija dostave (izvršenje ugovora)</li>
+      <li>Odgovaranje na vaše upite i pružanje korisničke podrške</li>
+      <li>Slanje SMS/email obaveštenja u vezi sa vašom narudžbinom (uz vašu saglasnost)</li>
+      <li>Slanje promotivnih poruka (isključivo uz vašu izričitu saglasnost)</li>
+      <li>Poboljšanje funkcionalnosti sajta (legitimni interes)</li>
+    </ul>
+
+    <h2>4. SMS komunikacija</h2>
+    <p>Ako ste dali saglasnost za primanje SMS poruka, koristimo vaš broj telefona isključivo za slanje informacija u vezi sa vašim upitima, porudžbinama ili važnim obaveštenjima. Učestalost poruka može varirati. Troškovi poruka i prenosa podataka mogu se primenjivati u zavisnosti od vašeg mobilnog operatera.</p>
+    <p>Saglasnost možete opozvati u bilo kom trenutku slanjem poruke STOP na broj sa kojeg ste primili SMS, ili pisanim putem na bac.101dpfcleaner@gmail.com.</p>
+
+    <h2>5. Deljenje podataka</h2>
+    <p>Vaše podatke ne prodajemo trećim stranama. Možemo ih deliti sa:</p>
+    <ul>
+      <li>Kurirskim i logističkim kompanijama radi organizacije dostave</li>
+      <li>Pružaocima IT usluga koji obrađuju podatke u naše ime (npr. hosting, email servisi)</li>
+      <li>Državnim organima, isključivo na osnovu zakonske obaveze</li>
+    </ul>
+
+    <h2>6. Kolačići (Cookies)</h2>
+    <p>Naš sajt koristi kolačiće radi poboljšanja korisničkog iskustva i analize poseta. Možete kontrolisati kolačiće u podešavanjima vašeg pregledača. Onemogućavanje kolačića može uticati na funkcionalnost sajta.</p>
+
+    <h2>7. Čuvanje podataka</h2>
+    <p>Podatke čuvamo onoliko dugo koliko je neophodno za ispunjenje svrhe u koju su prikupljeni, ili duže ako to zahteva zakon. Podatke o narudžbinama čuvamo 5 godina u skladu sa računovodstvenim propisima.</p>
+
+    <h2>8. Vaša prava</h2>
+    <p>U skladu sa važećim propisima, imate pravo da:</p>
+    <ul>
+      <li>Zatražite pristup vašim ličnim podacima</li>
+      <li>Zatražite ispravku netačnih podataka</li>
+      <li>Zatražite brisanje podataka ("pravo na zaborav")</li>
+      <li>Prigovorite obradi ili zatražite ograničenje obrade</li>
+      <li>Opozovete saglasnost u bilo kom trenutku, bez uticaja na zakonitost prethodne obrade</li>
+      <li>Podnesete pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti</li>
+    </ul>
+    <p>Zahteve možete uputiti na: <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a>. Odgovorićemo u roku od 30 dana.</p>
+
+    <h2>9. Bezbednost podataka</h2>
+    <p>Primenjujemo odgovarajuće tehničke i organizacione mere zaštite kako bismo osigurali vaše podatke od neovlašćenog pristupa, gubitka ili zloupotrebe. Sajt koristi HTTPS enkripciju za prenos podataka.</p>
+
+    <h2>10. Izmene politike</h2>
+    <p>Ovu politiku privatnosti možemo periodično ažurirati. Izmene stupaju na snagu objavom na sajtu. Preporučujemo redovno proveravanje ove stranice.</p>
+
+    <h2>Kontakt</h2>
+    <p>Za sva pitanja u vezi sa zaštitom podataka: <a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a></p>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-top">
+    <div class="ft-brand"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/6991c74e24813c6e1ab3d616.webp" alt="BAC101"><p>Sredstvo za čišćenje DPF filtera i katalizatora. Bez demontaže, za 30 minuta.</p></div>
+    <div class="ft-col"><h4>Stranice</h4><a href="https://bac101.rs/katalog">Katalog</a><a href="https://bac101.rs/kako-radi">Kako radi</a><a href="https://bac101.rs/istorija">Istorija</a><a href="https://bac101.rs/videi">Videi</a><a href="https://bac101.rs/partneri">Partneri</a><a href="https://bac101.rs/pepeo">Pepeo</a><a href="https://bac101.rs/studija">Studija slučaja</a><a href="https://bac101.rs/testiranje">Testiranje</a><a href="https://bac101.rs/kontakt">Kontakt</a></div>
+    <div class="ft-contact"><p>Kontakt</p><a href="mailto:bac.101dpfcleaner@gmail.com">bac.101dpfcleaner@gmail.com</a><a href="tel:+381621978511">+381 621978511</a><a href="tel:+38163268391">+381 63268391</a><div class="ft-soc"><a href="https://www.instagram.com/bac_101_serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/instagram-light-gray.svg" alt="IG"></a><a href="https://www.tiktok.com/@bac101serbia"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/tiktok-light-gray.svg" alt="TT"></a><a href="https://www.facebook.com/people/Bac101/61579609872468/"><img src="https://stcdn.leadconnectorhq.com/funnel/icons/light-gray/facebook-light-gray.svg" alt="FB"></a></div></div>
+  </div>
+  <div class="ft-bot"><p>© 2026 BAC101 - Sva prava zadržana</p><div class="ft-blinks"><a href="https://bac101.rs/terms-conditions">Uslovi korišćenja</a> | <a href="https://bac101.rs/privacy-policy">Politika privatnosti</a><a href="https://rivalidigital.com">Site by Rivali Digital</a></div></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var fl = document.createElement('div');
+  fl.style.cssText = 'position:fixed;bottom:26px;right:26px;z-index:2147483647;display:flex;flex-direction:column;gap:10px;';
+  fl.innerHTML = '<a href="viber://chat?number=%2B381621978511" style="width:50px;height:50px;border-radius:50%;background:#7360f2;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://assets.cdn.filesafe.space/Jns38Sxc2dLAdqiwTeCO/media/69de54ddacf21ea88ad2accb.png" style="width:28px;height:28px;object-fit:contain;" alt="Viber"></a><a href="https://wa.me/381621978511" style="width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:transform 0.18s;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:28px;height:28px;object-fit:contain;" alt="WhatsApp"></a>';
+  document.body.appendChild(fl);
+})();
+</script>

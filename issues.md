@@ -352,3 +352,9 @@ Verify with `python -I scripts/audit.py` (writes `audit-report.json`).
 - **Channel**: JS
 - **Status**: patch ready
 - **Notes**: Contact, Lead (once per load), AddToCart, ViewContent, InitiateCheckout via `window.fbq`; consent is enforced by fbq. `parseRsd` converts "20.825 din" / "din.20825.00" / "1.250,50 din". Verify in Meta Events Manager (test events).
+
+### BAC-42 - Builder copies of the patches
+- **Priority**: Medium
+- **Channel**: Builder (paste site/pages/*.html)
+- **Status**: patch ready
+- **Notes**: The 13 files in `site/pages/` now contain the runtime fixes of `custom.js`/`custom.css` as page source: nav "Korpa" link (`data-bac-cart`), Serbian footer and contact-form legal links, BAC-17/18/19/28 CSS (+ BAC-16 hero on home, BAC-22 buttons on katalog), home order line (BAC-35), katalog cards (out-of-stock cards removed, AdBlue/FC101 copy, product buttons), partneri Serbian plurals, pepeo warning heading colour. `custom.js` stays compatible (checks for existing markup). Needs pasting into each page in the builder and Publish; see `site/pages/README.md`.
