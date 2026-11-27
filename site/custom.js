@@ -548,19 +548,23 @@
       if (card.getAttribute('data-bac-form')) continue;
       card.setAttribute('data-bac-form', '1');
       card.style.cssText = 'padding:0;background:transparent;box-shadow:none;overflow:hidden;border-radius:14px;max-width:520px;width:100%;';
-      card.innerHTML = '<iframe src="https://api.leadconnectorhq.com/widget/form/' + FORM_ID + '" id="inline-' + FORM_ID +
-        '" data-layout="{\'id\':\'INLINE\'}" data-trigger-type="alwaysShow" data-activation-type="alwaysActivated" data-deactivation-type="neverDeactivate"' +
-        ' data-form-name="Kontakt Bac101" data-height="990" data-layout-iframe-id="inline-' + FORM_ID + '" data-form-id="' + FORM_ID +
-        '" title="Kontakt Bac101" style="width:100%;height:990px;border:none;display:block;"></iframe>';
+      /* No form_embed.js: it hides the frame until the form reports its height, and that message can arrive
+         before the script listens, leaving the form invisible. Size the frame from its width instead. */
+      card.innerHTML = '<iframe class="bac-ghl-form" src="https://api.leadconnectorhq.com/widget/form/' + FORM_ID +
+        '" title="Kontakt Bac101" style="width:100%;height:1010px;border:none;display:block;"></iframe>';
       var legal = card.parentNode && card.parentNode.querySelector(':scope > .ct-legal');
       if (legal) legal.style.display = 'none'; /* the form carries its own consent text and policy links */
     }
-    if (!document.querySelector('script[src*="form_embed.js"]')) {
-      var s = document.createElement('script');
-      s.src = 'https://link.msgsndr.com/js/form_embed.js';
-      document.body.appendChild(s);
+    sizeContactForms();
+  }
+  function sizeContactForms() {
+    var frames = document.querySelectorAll('iframe.bac-ghl-form');
+    for (var i = 0; i < frames.length; i++) {
+      var w = frames[i].offsetWidth;
+      frames[i].style.height = (w >= 480 ? 1040 : w >= 400 ? 1100 : w >= 330 ? 1170 : 1300) + 'px';
     }
   }
+  window.addEventListener('resize', sizeContactForms);
 
   function run() {
     var fixes = [fixContactForm,fixCanonical, fixPhones, fixPrices, fixLabels, fixCountry, fixPagination, fixVariants, fixEmptyCart, fixPartners, blockCheckout, fixHeadings, fixTitles, fixNav, fixNavCart, fixLegalLinks, fixConsentLink, fixCatalogCopy, fixCatalog, fixOrderLine, fixNav, fixConsentBanner, fixPixelEvents];
